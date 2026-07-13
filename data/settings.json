@@ -1,59 +1,111 @@
 {
-  "site": {
-    "name": "BH RIT Product Presentation",
-    "shortName": "BH RIT",
-    "description": "Advanced Robotics, Inspection & Technology Solutions by Beyond Horizon Technologies Sdn Bhd.",
-    "url": "https://www.beyondhorizon.com.my",
-    "language": "en",
-    "theme": {
-      "default": "light",
-      "allowThemeSwitch": true
+    "site": {
+        "name": "Beyond Horizon Technologies",
+        "short_name": "BH Technologies",
+
+        "title": "Intelligent Asset Management Solutions",
+
+        "description": "Beyond Horizon Technologies delivers intelligent asset management solutions through UAV, robotics, LiDAR, 3D mapping and advanced inspection technologies.",
+
+        "keywords": [
+            "asset intelligence",
+            "asset management",
+            "remote inspection",
+            "UAV inspection",
+            "drone inspection",
+            "LiDAR",
+            "3D mapping",
+            "robotics",
+            "digital transformation"
+        ],
+
+
+        "language": "en",
+
+        "theme_color": "#0b132b",
+
+        "author": "Beyond Horizon Technologies Sdn. Bhd."
+    },
+
+
+    "branding": {
+        "logo": "assets/images/company/logo.webp",
+        "logo_white": "assets/images/company/logo-white.webp",
+
+        "favicon": "favicon.ico",
+
+        "primary_color": "#0b132b",
+        "secondary_color": "#00a8e8",
+        "accent_color": "#00d4ff"
+    },
+
+
+    "paths": {
+        "images": "assets/images/",
+        "icons": "assets/icons/",
+        "videos": "assets/videos/",
+        "pdf": "assets/pdf/",
+        "downloads": "assets/downloads/",
+        "data": "data/"
+    },
+
+
+    "features": {
+        "dark_mode": true,
+
+        "search": true,
+
+        "product_filter": true,
+
+        "gallery": true,
+
+        "animations": true,
+
+        "lazy_loading": true
+    },
+
+
+    "navigation": {
+        "sticky_header": true,
+
+        "mobile_menu": true,
+
+        "sidebar": true
+    },
+
+
+    "products": {
+        "enable_video": true,
+
+        "enable_downloads": true,
+
+        "enable_gallery": true,
+
+        "show_categories": true
+    },
+
+
+    "contact": {
+        "form_enabled": true,
+
+        "email_submission": false,
+
+        "success_message": "Thank you for contacting Beyond Horizon Technologies. Our team will get back to you shortly."
+    },
+
+
+    "seo": {
+        "robots": true,
+
+        "sitemap": true,
+
+        "open_graph": true,
+
+        "twitter_card": true
+    },
+
+
+    "copyright": {
+        "text": "© 2026 Beyond Horizon Technologies Sdn. Bhd. All Rights Reserved."
     }
-  },
-  "company": {
-    "name": "Beyond Horizon Technologies Sdn Bhd",
-    "email": "info@beyondhorizon.com.my",
-    "phone": "+60 3 XXXX XXXX",
-    "address": "Malaysia",
-    "website": "https://www.beyondhorizon.com.my"
-  },
-  "seo": {
-    "title": "BH RIT Product Presentation",
-    "description": "Explore advanced robotics, UAV, inspection, and industrial technology solutions from Beyond Horizon Technologies.",
-    "keywords": [
-      "robotics",
-      "industrial inspection",
-      "UAV",
-      "drone inspection",
-      "LiDAR",
-      "3D mapping",
-      "remote inspection",
-      "automation"
-    ]
-  },
-  "navigation": {
-    "defaultPage": "pages/home.html",
-    "enableSearch": true,
-    "enableBreadcrumb": true,
-    "stickyHeader": true
-  },
-  "features": {
-    "enableAnimations": true,
-    "enableGallery": true,
-    "enableVideos": true,
-    "enableDownloads": true,
-    "enableSearch": true,
-    "enableDarkMode": true
-  },
-  "contact": {
-    "email": "info@beyondhorizon.com.my",
-    "phone": "+60 3 XXXX XXXX",
-    "website": "https://www.beyondhorizon.com.my",
-    "linkedin": "",
-    "facebook": "",
-    "instagram": ""
-  },
-  "footer": {
-    "copyright": "© 2026 Beyond Horizon Technologies Sdn Bhd. All rights reserved."
-  }
 }
