@@ -1,56 +1,101 @@
-document.addEventListener("DOMContentLoaded", () => {
+/*
+=========================================
+Loading Screen Controller
+Beyond Horizon Technologies
+=========================================
+*/
 
-    initializeLoader();
 
-});
+document.addEventListener(
+    "DOMContentLoaded",
+    () => {
+
+        initializeLoader();
+
+    }
+);
+
+
+
+/*
+=========================================
+Initialize Loader
+=========================================
+*/
 
 
 function initializeLoader() {
 
+
     const loader =
         document.querySelector(
-            ".loading"
+            "[data-component='loading']"
         );
 
 
-    if (!loader) return;
+
+    if (!loader) {
+
+        return;
+
+    }
+
 
 
     window.addEventListener(
         "load",
         () => {
 
-            hideLoader();
+
+            hideLoader(
+                loader
+            );
+
 
         }
     );
 
 
-    setTimeout(() => {
 
-        hideLoader();
+    // Safety fallback
+    setTimeout(
+        () => {
 
-    }, 3000);
+            hideLoader(
+                loader
+            );
+
+        },
+        5000
+    );
+
 
 }
 
 
 
 /*
-====================================
+=========================================
 Hide Loader
-====================================
+=========================================
 */
 
-function hideLoader() {
 
-    const loader =
-        document.querySelector(
-            ".loading"
-        );
+function hideLoader(
+    loader
+) {
 
 
-    if (!loader) return;
+    if (
+        loader.classList.contains(
+            "loaded"
+        )
+    ) {
+
+        return;
+
+    }
+
 
 
     loader.classList.add(
@@ -58,36 +103,77 @@ function hideLoader() {
     );
 
 
-    document.body.classList.add(
-        "loaded"
+
+    document.body.classList.remove(
+        "loading"
     );
 
 
-    setTimeout(() => {
 
-        loader.remove();
+    setTimeout(
+        () => {
 
-    }, 500);
+
+            loader.remove();
+
+
+        },
+        600
+    );
+
 
 }
 
 
 
 /*
-====================================
+=========================================
 Show Loader
-====================================
+=========================================
 */
+
 
 function showLoader() {
 
-    const loader =
+
+    let loader =
         document.querySelector(
             ".loading"
         );
 
 
-    if (!loader) return;
+
+    if (!loader) {
+
+
+        loader =
+            document.createElement(
+                "div"
+            );
+
+
+        loader.className =
+            "loading";
+
+
+
+        loader.innerHTML = `
+
+            <div class="loading__spinner">
+
+            </div>
+
+        `;
+
+
+
+        document.body.appendChild(
+            loader
+        );
+
+
+    }
+
 
 
     loader.classList.remove(
@@ -95,59 +181,87 @@ function showLoader() {
     );
 
 
-    document.body.classList.remove(
-        "loaded"
+
+    document.body.classList.add(
+        "loading"
     );
+
 
 }
 
 
 
 /*
-====================================
-Page Navigation Loader
-====================================
+=========================================
+Page Transition Loader
+=========================================
 */
 
-function enablePageLoader() {
 
-    const links =
-        document.querySelectorAll(
-            "a[href]"
-        );
+function navigateWithLoader(
+    url
+) {
 
 
-    links.forEach((link) => {
-
-        const url =
-            link.getAttribute(
-                "href"
-            );
+    showLoader();
 
 
-        if (
-            !url ||
-            url.startsWith("#") ||
-            url.startsWith("http")
-        ) return;
+
+    setTimeout(
+        () => {
 
 
-        link.addEventListener(
-            "click",
-            () => {
+            window.location.href =
+                url;
 
-                showLoader();
 
-            }
-        );
 
-    });
+        },
+        300
+    );
+
 
 }
 
 
 
-document.addEventListener(
-    "DOMContentLoaded",
-    enablePageLoader
-);
+/*
+=========================================
+Export
+=========================================
+*/
+
+
+window.Loader = {
+
+
+    show:
+        showLoader,
+
+
+    hide:
+        () => {
+
+
+            const loader =
+                document.querySelector(
+                    ".loading"
+                );
+
+
+            if (loader) {
+
+                hideLoader(
+                    loader
+                );
+
+            }
+
+
+        },
+
+
+    navigate:
+        navigateWithLoader
+
+};
