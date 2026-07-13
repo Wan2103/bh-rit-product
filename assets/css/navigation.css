@@ -1,0 +1,422 @@
+.navbar {
+
+    position: sticky;
+
+    top: 0;
+
+    left: 0;
+
+    width: 100%;
+
+    z-index: var(--z-navbar);
+
+    background: var(--color-white);
+
+    box-shadow: var(--shadow-sm);
+
+}
+
+
+.navbar__container {
+
+    width: var(--container-width);
+
+    max-width: 100%;
+
+    margin: 0 auto;
+
+    padding: 1rem 1.5rem;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+}
+
+
+.navbar__logo img {
+
+    height: 50px;
+
+    width: auto;
+
+}
+
+
+/* Navigation Menu */
+
+.navbar__menu {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 2rem;
+
+}
+
+
+.navbar__list {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 1.5rem;
+
+    list-style: none;
+
+    margin: 0;
+
+    padding: 0;
+
+}
+
+
+.navbar__item {
+
+    position: relative;
+
+}
+
+
+.navbar__link {
+
+    color: var(--color-text);
+
+    text-decoration: none;
+
+    font-weight: 500;
+
+    transition: color 0.3s ease;
+
+}
+
+
+.navbar__link:hover,
+
+.navbar__link.active {
+
+    color: var(--color-primary);
+
+}
+
+
+/* Dropdown */
+
+.navbar__dropdown {
+
+    position: absolute;
+
+    top: calc(100% + 0.75rem);
+
+    left: 0;
+
+    min-width: 220px;
+
+    background: var(--color-white);
+
+    border-radius: var(--radius-md);
+
+    box-shadow: var(--shadow-lg);
+
+    list-style: none;
+
+    padding: 0.75rem 0;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transform: translateY(10px);
+
+    transition: all 0.3s ease;
+
+}
+
+
+.navbar__item--dropdown:hover .navbar__dropdown {
+
+    opacity: 1;
+
+    visibility: visible;
+
+    transform: translateY(0);
+
+}
+
+
+.navbar__dropdown li a {
+
+    display: block;
+
+    padding: 0.75rem 1.25rem;
+
+    color: var(--color-text);
+
+    text-decoration: none;
+
+    transition: background 0.3s ease, color 0.3s ease;
+
+}
+
+
+.navbar__dropdown li a:hover {
+
+    background: var(--color-gray-light);
+
+    color: var(--color-primary);
+
+}
+
+
+/* Mobile Toggle */
+
+.navbar__toggle {
+
+    display: none;
+
+    flex-direction: column;
+
+    justify-content: space-between;
+
+    width: 28px;
+
+    height: 20px;
+
+    padding: 0;
+
+    background: none;
+
+    border: none;
+
+    cursor: pointer;
+
+}
+
+
+.navbar__toggle span {
+
+    display: block;
+
+    width: 100%;
+
+    height: 3px;
+
+    background: var(--color-text);
+
+    border-radius: 2px;
+
+}
+
+
+/* Sidebar */
+
+.sidebar {
+
+    padding: 2rem;
+
+    background: var(--color-white);
+
+    border-right: 1px solid var(--color-border);
+
+}
+
+
+.sidebar__menu {
+
+    list-style: none;
+
+    margin: 0;
+
+    padding: 0;
+
+}
+
+
+.sidebar__item {
+
+    margin-bottom: 0.5rem;
+
+}
+
+
+.sidebar__link,
+
+.sidebar__toggle {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    width: 100%;
+
+    padding: 0.8rem 1rem;
+
+    border: none;
+
+    background: transparent;
+
+    color: var(--color-text);
+
+    text-decoration: none;
+
+    cursor: pointer;
+
+    border-radius: var(--radius-md);
+
+    transition: background 0.3s ease;
+
+}
+
+
+.sidebar__link:hover,
+
+.sidebar__toggle:hover {
+
+    background: var(--color-gray-light);
+
+    color: var(--color-primary);
+
+}
+
+
+.sidebar__submenu {
+
+    list-style: none;
+
+    margin: 0.5rem 0 0 1rem;
+
+    padding: 0;
+
+}
+
+
+.sidebar__submenu li a {
+
+    display: block;
+
+    padding: 0.6rem 1rem;
+
+    color: var(--color-text-light);
+
+    text-decoration: none;
+
+}
+
+
+/* Responsive */
+
+@media (max-width: 992px) {
+
+    .navbar__toggle {
+
+        display: flex;
+
+    }
+
+
+    .navbar__menu {
+
+        position: absolute;
+
+        top: 100%;
+
+        left: 0;
+
+        width: 100%;
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 0;
+
+        background: var(--color-white);
+
+        box-shadow: var(--shadow-md);
+
+        padding: 1.5rem;
+
+        display: none;
+
+    }
+
+
+    .navbar__menu.active {
+
+        display: flex;
+
+    }
+
+
+    .navbar__list {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        width: 100%;
+
+        gap: 0;
+
+    }
+
+
+    .navbar__item {
+
+        width: 100%;
+
+    }
+
+
+    .navbar__link {
+
+        display: block;
+
+        width: 100%;
+
+        padding: 0.85rem 0;
+
+    }
+
+
+    .navbar__dropdown {
+
+        position: static;
+
+        opacity: 1;
+
+        visibility: visible;
+
+        transform: none;
+
+        display: none;
+
+        box-shadow: none;
+
+        padding: 0 0 0 1rem;
+
+        background: transparent;
+
+    }
+
+
+    .navbar__item--dropdown:hover .navbar__dropdown {
+
+        display: block;
+
+    }
+
+
+    .sidebar {
+
+        display: none;
+
+    }
+
+}

@@ -1,0 +1,291 @@
+@import url("reset.css");
+@import url("variables.css");
+@import url("typography.css");
+@import url("layout.css");
+@import url("navigation.css");
+@import url("buttons.css");
+@import url("cards.css");
+@import url("hero.css");
+@import url("products.css");
+@import url("gallery.css");
+@import url("slides.css");
+@import url("modal.css");
+@import url("timeline.css");
+@import url("responsive.css");
+@import url("animations.css");
+
+
+/*
+==================================================
+Global Styles
+==================================================
+*/
+
+
+body {
+
+    overflow-x: hidden;
+
+}
+
+
+main {
+
+    width: 100%;
+
+}
+
+
+section {
+
+    position: relative;
+
+}
+
+
+/*
+==================================================
+Background Utilities
+==================================================
+*/
+
+
+.bg-primary {
+
+    background: var(--color-primary);
+
+}
+
+
+.bg-dark {
+
+    background: var(--color-dark);
+
+}
+
+
+.bg-light {
+
+    background: var(--color-gray-light);
+
+}
+
+
+/*
+==================================================
+Text Utilities
+==================================================
+*/
+
+
+.text-center {
+
+    text-align: center;
+
+}
+
+
+.text-primary {
+
+    color: var(--color-primary);
+
+}
+
+
+.text-white {
+
+    color: var(--color-white);
+
+}
+
+
+/*
+==================================================
+Display Utilities
+==================================================
+*/
+
+
+.d-none {
+
+    display: none;
+
+}
+
+
+.d-flex {
+
+    display: flex;
+
+}
+
+
+.align-center {
+
+    align-items: center;
+
+}
+
+
+.justify-center {
+
+    justify-content: center;
+
+}
+
+
+/*
+==================================================
+Image Utilities
+==================================================
+*/
+
+
+.img-cover {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+}
+
+
+.img-contain {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: contain;
+
+}
+
+
+/*
+==================================================
+Loading State
+==================================================
+*/
+
+
+body.loading {
+
+    overflow: hidden;
+
+}
+
+
+body.loaded .loading {
+
+    opacity: 0;
+
+    visibility: hidden;
+
+}
+
+
+/*
+==================================================
+Page Transition
+==================================================
+*/
+
+
+.page-transition {
+
+    animation: fadeIn 0.5s ease;
+
+}
+
+
+/*
+==================================================
+Hover Effects
+==================================================
+*/
+
+
+.hover-shadow {
+
+    transition: box-shadow 0.3s ease;
+
+}
+
+
+.hover-shadow:hover {
+
+    box-shadow: var(--shadow-lg);
+
+}
+
+
+/*
+==================================================
+Common Components
+==================================================
+*/
+
+
+.divider {
+
+    width: 60px;
+
+    height: 3px;
+
+    margin: 1rem 0;
+
+    background: var(--color-primary);
+
+}
+
+
+.badge {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    padding: 0.4rem 1rem;
+
+    border-radius: var(--radius-full);
+
+    background: var(--color-primary);
+
+    color: var(--color-white);
+
+    font-size: var(--font-size-sm);
+
+}
+
+
+/*
+==================================================
+Print
+==================================================
+*/
+
+
+@media print {
+
+    .navbar,
+
+    .footer,
+
+    .btn {
+
+        display: none;
+
+    }
+
+
+    body {
+
+        background: white;
+
+        color: black;
+
+    }
+
+}

@@ -1,0 +1,358 @@
+.card {
+    background: var(--color-white);
+
+    border-radius: var(--radius-lg);
+
+    overflow: hidden;
+
+    box-shadow: var(--shadow-sm);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+.card:hover {
+
+    transform: translateY(-8px);
+
+    box-shadow: var(--shadow-lg);
+
+}
+
+
+/* Feature Card */
+
+.feature-card {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    text-align: center;
+
+    padding: 2rem;
+
+    background: var(--color-white);
+
+    border-radius: var(--radius-lg);
+
+    box-shadow: var(--shadow-sm);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+
+}
+
+
+.feature-card:hover {
+
+    transform: translateY(-8px);
+
+    box-shadow: var(--shadow-md);
+
+}
+
+
+.feature-card__icon {
+
+    width: 70px;
+
+    height: 70px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    margin-bottom: 1.5rem;
+
+}
+
+
+.feature-card__icon img {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: contain;
+
+}
+
+
+.feature-card__title {
+
+    margin-bottom: 1rem;
+
+    font-size: var(--font-size-lg);
+
+    color: var(--color-heading);
+
+}
+
+
+.feature-card__description {
+
+    color: var(--color-text-light);
+
+    line-height: 1.7;
+
+}
+
+
+/* Product Card */
+
+.product-card {
+
+    background: var(--color-white);
+
+    border-radius: var(--radius-lg);
+
+    overflow: hidden;
+
+    box-shadow: var(--shadow-sm);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+
+}
+
+
+.product-card:hover {
+
+    transform: translateY(-10px);
+
+    box-shadow: var(--shadow-lg);
+
+}
+
+
+.product-card__image {
+
+    width: 100%;
+
+    height: 250px;
+
+    overflow: hidden;
+
+    background: var(--color-gray-light);
+
+}
+
+
+.product-card__image img {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    transition: transform 0.5s ease;
+
+}
+
+
+.product-card:hover .product-card__image img {
+
+    transform: scale(1.08);
+
+}
+
+
+.product-card__content {
+
+    padding: 1.8rem;
+
+}
+
+
+.product-card__category {
+
+    display: inline-block;
+
+    margin-bottom: 0.75rem;
+
+    font-size: var(--font-size-sm);
+
+    color: var(--color-primary);
+
+    font-weight: 600;
+
+}
+
+
+.product-card__title {
+
+    margin-bottom: 1rem;
+
+    color: var(--color-heading);
+
+    font-size: var(--font-size-xl);
+
+}
+
+
+.product-card__description {
+
+    margin-bottom: 1.2rem;
+
+    color: var(--color-text-light);
+
+    line-height: 1.6;
+
+}
+
+
+.product-card__features ul {
+
+    padding-left: 1.2rem;
+
+    margin-bottom: 1rem;
+
+}
+
+
+.product-card__features li {
+
+    margin-bottom: 0.5rem;
+
+    color: var(--color-text);
+
+}
+
+
+/* Service Card */
+
+.service-card {
+
+    padding: 2rem;
+
+    background: var(--color-white);
+
+    border-radius: var(--radius-lg);
+
+    box-shadow: var(--shadow-sm);
+
+}
+
+
+.service-card__icon {
+
+    width: 60px;
+
+    height: 60px;
+
+    margin-bottom: 1rem;
+
+}
+
+
+.service-card__title {
+
+    margin-bottom: 1rem;
+
+    color: var(--color-heading);
+
+}
+
+
+.service-card__description {
+
+    color: var(--color-text-light);
+
+    line-height: 1.7;
+
+}
+
+
+/* Testimonial Card */
+
+.testimonial-card {
+
+    padding: 2rem;
+
+    background: var(--color-white);
+
+    border-radius: var(--radius-lg);
+
+    box-shadow: var(--shadow-sm);
+
+}
+
+
+.testimonial-card__profile {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 1rem;
+
+    margin-bottom: 1.5rem;
+
+}
+
+
+.testimonial-card__image {
+
+    width: 60px;
+
+    height: 60px;
+
+    border-radius: 50%;
+
+    object-fit: cover;
+
+}
+
+
+.testimonial-card__name {
+
+    font-weight: 600;
+
+    color: var(--color-heading);
+
+}
+
+
+.testimonial-card__company {
+
+    font-size: var(--font-size-sm);
+
+    color: var(--color-text-light);
+
+}
+
+
+.testimonial-card__message {
+
+    line-height: 1.8;
+
+    color: var(--color-text);
+
+    font-style: italic;
+
+}
+
+
+/* Glass Card */
+
+.glass-card {
+
+    background: rgba(255, 255, 255, 0.1);
+
+    backdrop-filter: blur(10px);
+
+    border-radius: var(--radius-lg);
+
+    border: 1px solid rgba(255,255,255,0.2);
+
+}

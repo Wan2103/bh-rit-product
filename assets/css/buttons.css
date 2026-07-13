@@ -1,0 +1,198 @@
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+
+    padding: 0.85rem 1.8rem;
+
+    border-radius: var(--radius-md);
+
+    font-family: var(--font-primary);
+    font-size: var(--font-size-base);
+    font-weight: 600;
+
+    text-decoration: none;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease,
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+
+    border: none;
+}
+
+
+/* Primary Button */
+
+.btn--primary {
+    background: var(--color-primary);
+    color: var(--color-white);
+}
+
+
+.btn--primary:hover {
+    background: var(--color-primary-dark);
+
+    transform: translateY(-3px);
+
+    box-shadow: var(--shadow-md);
+}
+
+
+/* Secondary Button */
+
+.btn--secondary {
+    background: transparent;
+
+    color: var(--color-primary);
+
+    border: 2px solid var(--color-primary);
+}
+
+
+.btn--secondary:hover {
+    background: var(--color-primary);
+
+    color: var(--color-white);
+
+    transform: translateY(-3px);
+}
+
+
+/* Outline Button */
+
+.btn--outline {
+    background: transparent;
+
+    color: var(--color-text);
+
+    border: 1px solid var(--color-border);
+}
+
+
+.btn--outline:hover {
+    border-color: var(--color-primary);
+
+    color: var(--color-primary);
+}
+
+
+/* Dark Button */
+
+.btn--dark {
+    background: var(--color-dark);
+
+    color: var(--color-white);
+}
+
+
+.btn--dark:hover {
+    background: var(--color-dark-light);
+
+    transform: translateY(-3px);
+}
+
+
+/* Light Button */
+
+.btn--light {
+    background: var(--color-white);
+
+    color: var(--color-dark);
+}
+
+
+.btn--light:hover {
+    background: var(--color-gray-light);
+}
+
+
+/* Button Sizes */
+
+.btn--small {
+    padding: 0.5rem 1rem;
+
+    font-size: 0.875rem;
+}
+
+
+.btn--large {
+    padding: 1rem 2.5rem;
+
+    font-size: 1.125rem;
+}
+
+
+/* Icon Button */
+
+.btn--icon {
+    width: 45px;
+
+    height: 45px;
+
+    padding: 0;
+
+    border-radius: 50%;
+}
+
+
+/* Full Width Button */
+
+.btn--full {
+    width: 100%;
+}
+
+
+/* Disabled Button */
+
+.btn:disabled,
+.btn.disabled {
+
+    opacity: 0.6;
+
+    cursor: not-allowed;
+
+    transform: none;
+}
+
+
+/* Button With Arrow */
+
+.btn--arrow::after {
+
+    content: "→";
+
+    transition: transform 0.3s ease;
+
+}
+
+
+.btn--arrow:hover::after {
+
+    transform: translateX(5px);
+
+}
+
+
+/* Product CTA Button */
+
+.product-card__button {
+
+    margin-top: 1.5rem;
+
+    width: fit-content;
+
+}
+
+
+/* Navbar Button */
+
+.navbar__button {
+
+    white-space: nowrap;
+
+}

@@ -1,0 +1,281 @@
+.modal {
+
+    position: fixed;
+
+    inset: 0;
+
+    display: none;
+
+    align-items: center;
+
+    justify-content: center;
+
+    z-index: var(--z-modal);
+
+}
+
+
+.modal.active {
+
+    display: flex;
+
+}
+
+
+/* Modal Overlay */
+
+.modal__overlay {
+
+    position: absolute;
+
+    inset: 0;
+
+    background: rgba(0,0,0,0.7);
+
+    backdrop-filter: blur(5px);
+
+}
+
+
+/* Modal Container */
+
+.modal__container {
+
+    position: relative;
+
+    width: 90%;
+
+    max-width: 600px;
+
+    max-height: 90vh;
+
+    overflow-y: auto;
+
+    background: var(--color-white);
+
+    border-radius: var(--radius-lg);
+
+    box-shadow: var(--shadow-xl);
+
+    animation: scaleIn 0.3s ease;
+
+}
+
+
+/* Modal Content */
+
+.modal__content {
+
+    padding: 2.5rem;
+
+}
+
+
+.modal__title {
+
+    margin-bottom: 1.5rem;
+
+    color: var(--color-heading);
+
+    font-size: var(--font-size-2xl);
+
+}
+
+
+.modal__body {
+
+    color: var(--color-text);
+
+    line-height: 1.8;
+
+}
+
+
+/* Close Button */
+
+.modal__close {
+
+    position: absolute;
+
+    top: 1rem;
+
+    right: 1rem;
+
+    width: 40px;
+
+    height: 40px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: var(--color-gray-light);
+
+    color: var(--color-text);
+
+    font-size: 1.5rem;
+
+    cursor: pointer;
+
+    transition: all 0.3s ease;
+
+    z-index: 2;
+
+}
+
+
+.modal__close:hover {
+
+    background: var(--color-primary);
+
+    color: var(--color-white);
+
+}
+
+
+/* Modal Actions */
+
+.modal__actions {
+
+    margin-top: 2rem;
+
+    display: flex;
+
+    justify-content: flex-end;
+
+    gap: 1rem;
+
+}
+
+
+/* Product Modal */
+
+.product-modal__image {
+
+    width: 100%;
+
+    height: 300px;
+
+    overflow: hidden;
+
+    border-radius: var(--radius-md);
+
+    margin-bottom: 1.5rem;
+
+}
+
+
+.product-modal__image img {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+}
+
+
+.product-modal__features {
+
+    margin-top: 1.5rem;
+
+}
+
+
+.product-modal__features li {
+
+    margin-bottom: 0.75rem;
+
+    color: var(--color-text);
+
+}
+
+
+/* Video Modal */
+
+.video-modal {
+
+    max-width: 900px;
+
+}
+
+
+.video-modal video {
+
+    width: 100%;
+
+    border-radius: var(--radius-md);
+
+}
+
+
+/* Image Modal */
+
+.image-modal {
+
+    max-width: 90vw;
+
+    background: transparent;
+
+    box-shadow: none;
+
+}
+
+
+.image-modal img {
+
+    width: 100%;
+
+    max-height: 90vh;
+
+    object-fit: contain;
+
+}
+
+
+/* Responsive */
+
+@media (max-width: 768px) {
+
+    .modal__container {
+
+        width: 95%;
+
+    }
+
+
+    .modal__content {
+
+        padding: 1.5rem;
+
+    }
+
+
+    .modal__title {
+
+        font-size: 1.5rem;
+
+    }
+
+
+    .modal__actions {
+
+        flex-direction: column;
+
+    }
+
+
+    .modal__actions .btn {
+
+        width: 100%;
+
+    }
+
+}
