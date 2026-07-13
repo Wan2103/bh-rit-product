@@ -1,332 +1,604 @@
-:root {
+/*
+=========================================
+Typography System
+Beyond Horizon Technologies
+=========================================
+*/
 
-    --font-primary: "Inter", sans-serif;
 
-    --font-secondary: "Poppins", sans-serif;
+/*
+=========================================
+Global Typography
+=========================================
+*/
 
-    --font-display: "Orbitron", sans-serif;
+
+html {
+
+    font-size:
+
+        16px;
 
 }
 
 
-/* Base Typography */
 
 body {
 
-    font-family: var(--font-primary);
+    font-family:
 
-    font-size: 1rem;
+        var(--font-body);
 
-    line-height: 1.6;
+    font-size:
 
-    font-weight: 400;
+        1rem;
+
+    font-weight:
+
+        400;
+
+    line-height:
+
+        1.6;
+
+    color:
+
+        var(--color-text);
+
+    letter-spacing:
+
+        0.01em;
 
 }
 
 
-/* Headings */
+
+/*
+=========================================
+Headings
+=========================================
+*/
+
 
 h1,
-
 h2,
-
 h3,
-
 h4,
-
 h5,
-
 h6 {
 
-    font-family: var(--font-secondary);
+    margin:
 
-    color: var(--color-heading);
+        0;
 
-    font-weight: 700;
+    font-family:
+
+        var(--font-heading);
+
+    font-weight:
+
+        700;
+
+    line-height:
+
+        1.2;
+
+    color:
+
+        var(--color-heading);
 
 }
+
 
 
 h1 {
 
-    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    font-size:
 
-    line-height: 1.1;
+        clamp(2.5rem, 5vw, 4.5rem);
 
 }
+
 
 
 h2 {
 
-    font-size: clamp(2rem, 4vw, 3rem);
+    font-size:
 
-    line-height: 1.2;
+        clamp(2rem, 4vw, 3rem);
 
 }
+
 
 
 h3 {
 
-    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-size:
+
+        clamp(1.5rem, 3vw, 2rem);
 
 }
+
 
 
 h4 {
 
-    font-size: 1.25rem;
+    font-size:
+
+        1.35rem;
 
 }
+
 
 
 h5 {
 
-    font-size: 1.1rem;
+    font-size:
+
+        1.15rem;
 
 }
+
 
 
 h6 {
 
-    font-size: 1rem;
+    font-size:
+
+        1rem;
 
 }
 
 
-/* Paragraph */
+
+/*
+=========================================
+Paragraphs
+=========================================
+*/
+
 
 p {
 
-    color: var(--color-text);
+    margin:
 
-    margin-bottom: 1rem;
+        0;
 
-}
+    color:
 
-
-.text-small {
-
-    font-size: 0.875rem;
+        var(--color-text-muted);
 
 }
+
 
 
 .text-large {
 
-    font-size: 1.25rem;
+    font-size:
+
+        1.25rem;
+
+    line-height:
+
+        1.8;
 
 }
+
+
+
+.text-small {
+
+    font-size:
+
+        0.875rem;
+
+}
+
 
 
 .text-muted {
 
-    color: var(--color-text-light);
+    color:
+
+        var(--color-text-muted);
 
 }
 
 
-/* Display Text */
 
-.display {
-
-    font-family: var(--font-display);
-
-    font-weight: 700;
-
-    letter-spacing: 0.05em;
-
-}
+/*
+=========================================
+Links
+=========================================
+*/
 
 
-.display-xl {
+a {
 
-    font-size: clamp(3rem, 7vw, 6rem);
+    color:
 
-}
+        inherit;
 
+    text-decoration:
 
-.display-lg {
+        none;
 
-    font-size: clamp(2.5rem, 5vw, 4rem);
+    transition:
+
+        color 0.3s ease;
 
 }
 
 
-.display-md {
 
-    font-size: clamp(2rem, 4vw, 3rem);
+a:hover {
+
+    color:
+
+        var(--color-primary);
+
+}
+
+
+
+/*
+=========================================
+Hero Typography
+=========================================
+*/
+
+
+.hero__subtitle {
+
+    display:
+
+        inline-block;
+
+    margin-bottom:
+
+        15px;
+
+    font-size:
+
+        0.9rem;
+
+    font-weight:
+
+        600;
+
+    letter-spacing:
+
+        0.15em;
+
+    text-transform:
+
+        uppercase;
+
+    color:
+
+        var(--color-primary);
 
 }
 
 
-/* Text Alignment */
 
-.text-left {
+.hero__title {
 
-    text-align: left;
+    font-family:
+
+        var(--font-display);
+
+    font-weight:
+
+        700;
+
+    letter-spacing:
+
+        -0.03em;
 
 }
+
+
+
+.hero__description {
+
+    max-width:
+
+        650px;
+
+    margin-top:
+
+        20px;
+
+    font-size:
+
+        1.1rem;
+
+    line-height:
+
+        1.8;
+
+}
+
+
+
+/*
+=========================================
+Section Typography
+=========================================
+*/
+
+
+.section__title {
+
+    text-align:
+
+        center;
+
+    margin-bottom:
+
+        15px;
+
+}
+
+
+
+.section__description {
+
+    max-width:
+
+        700px;
+
+    margin:
+
+        0 auto;
+
+    text-align:
+
+        center;
+
+    font-size:
+
+        1.05rem;
+
+}
+
+
+
+/*
+=========================================
+Navigation Typography
+=========================================
+*/
+
+
+.nav__link {
+
+    font-size:
+
+        0.95rem;
+
+    font-weight:
+
+        500;
+
+}
+
+
+
+.nav__logo {
+
+    font-family:
+
+        var(--font-display);
+
+    font-weight:
+
+        700;
+
+    letter-spacing:
+
+        0.05em;
+
+}
+
+
+
+/*
+=========================================
+Product Typography
+=========================================
+*/
+
+
+.product-card__title {
+
+    font-size:
+
+        1.25rem;
+
+    font-weight:
+
+        600;
+
+}
+
+
+
+.product-card__description {
+
+    font-size:
+
+        0.95rem;
+
+    line-height:
+
+        1.7;
+
+}
+
+
+
+.product-card__category {
+
+    font-size:
+
+        0.8rem;
+
+    font-weight:
+
+        600;
+
+    letter-spacing:
+
+        0.1em;
+
+    text-transform:
+
+        uppercase;
+
+    color:
+
+        var(--color-primary);
+
+}
+
+
+
+/*
+=========================================
+Utility Typography
+=========================================
+*/
 
 
 .text-center {
 
-    text-align: center;
+    text-align:
+
+        center;
 
 }
+
+
+
+.text-left {
+
+    text-align:
+
+        left;
+
+}
+
 
 
 .text-right {
 
-    text-align: right;
+    text-align:
+
+        right;
 
 }
 
 
-/* Text Weight */
-
-.fw-light {
-
-    font-weight: 300;
-
-}
-
-
-.fw-normal {
-
-    font-weight: 400;
-
-}
-
-
-.fw-medium {
-
-    font-weight: 500;
-
-}
-
-
-.fw-semibold {
-
-    font-weight: 600;
-
-}
-
-
-.fw-bold {
-
-    font-weight: 700;
-
-}
-
-
-/* Text Transform */
 
 .uppercase {
 
-    text-transform: uppercase;
+    text-transform:
+
+        uppercase;
 
 }
+
 
 
 .capitalize {
 
-    text-transform: capitalize;
+    text-transform:
+
+        capitalize;
 
 }
 
 
-.lowercase {
 
-    text-transform: lowercase;
+.fw-light {
 
-}
+    font-weight:
 
-
-/* Letter Spacing */
-
-.tracking-wide {
-
-    letter-spacing: 0.08em;
+        300;
 
 }
 
 
-.tracking-normal {
 
-    letter-spacing: 0;
+.fw-medium {
 
-}
+    font-weight:
 
-
-/* Links */
-
-.link {
-
-    color: var(--color-primary);
-
-    transition: color 0.3s ease;
+        500;
 
 }
 
 
-.link:hover {
 
-    color: var(--color-primary-dark);
+.fw-semibold {
 
-}
+    font-weight:
 
-
-/* Gradient Text */
-
-.gradient-text {
-
-    background: linear-gradient(
-
-        90deg,
-
-        var(--color-primary),
-
-        var(--color-secondary)
-
-    );
-
-    -webkit-background-clip: text;
-
-    -webkit-text-fill-color: transparent;
+        600;
 
 }
 
 
-/* Responsive Typography */
 
-@media (max-width: 768px) {
+.fw-bold {
+
+    font-weight:
+
+        700;
+
+}
+
+
+
+/*
+=========================================
+Responsive Typography
+=========================================
+*/
+
+
+@media (max-width:768px) {
 
 
     body {
 
-        font-size: 0.95rem;
+        font-size:
+
+            15px;
 
     }
 
 
-    h1 {
 
-        font-size: 2.2rem;
+    .hero__description {
 
-    }
+        font-size:
 
-
-    h2 {
-
-        font-size: 1.8rem;
+            1rem;
 
     }
 
 
-    h3 {
 
-        font-size: 1.4rem;
+    .section__description {
+
+        font-size:
+
+            0.95rem;
 
     }
+
 
 }
