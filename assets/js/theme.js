@@ -1,226 +1,244 @@
-document.addEventListener("DOMContentLoaded", () => {
-
-    initializeTheme();
-
-});
-
-
-
-function initializeTheme() {
-
-    const savedTheme =
-        localStorage.getItem(
-            "theme"
-        );
+/**
+ * theme.js
+ *
+ * Handles website theme settings:
+ * - Dark/light mode
+ * - Theme persistence
+ * - Theme toggle button
+ */
 
 
-    if (savedTheme) {
+class ThemeManager {
 
-        applyTheme(
-            savedTheme
-        );
 
-    } else {
+    constructor() {
 
-        applyTheme(
-            "light"
-        );
+        this.storageKey = "bh-theme";
+
+        this.defaultTheme = "light";
+
+        this.currentTheme = this.getSavedTheme();
 
     }
 
 
-    initializeThemeToggle();
 
-}
+    /**
+     * Initialize theme
+     */
+    init() {
 
 
-
-/*
-====================================
-Theme Toggle
-====================================
-*/
-
-function initializeThemeToggle() {
-
-    const toggle =
-        document.querySelector(
-            ".theme-toggle"
+        this.applyTheme(
+            this.currentTheme
         );
 
 
-    if (!toggle) return;
+        this.attachToggle();
 
 
-    toggle.addEventListener(
-        "click",
-        () => {
-
-            const currentTheme =
-                document.documentElement.dataset.theme;
+    }
 
 
-            const newTheme =
-                currentTheme === "dark"
-                    ? "light"
-                    : "dark";
 
 
-            applyTheme(
-                newTheme
-            );
+    /**
+     * Get saved theme
+     */
+    getSavedTheme() {
+
+
+        const saved = localStorage.getItem(
+            this.storageKey
+        );
+
+
+        if (saved) {
+
+            return saved;
 
         }
-    );
-
-}
 
 
-
-/*
-====================================
-Apply Theme
-====================================
-*/
-
-function applyTheme(
-    theme
-) {
-
-    document.documentElement.dataset.theme =
-        theme;
+        return this.defaultTheme;
 
 
-    localStorage.setItem(
-        "theme",
-        theme
-    );
-
-
-    updateThemeIcon(
-        theme
-    );
-
-}
+    }
 
 
 
-/*
-====================================
-Update Icon
-====================================
-*/
 
-function updateThemeIcon(
-    theme
-) {
+    /**
+     * Apply theme
+     */
+    applyTheme(theme) {
 
-    const icon =
-        document.querySelector(
-            ".theme-toggle i"
+
+        document.documentElement.setAttribute(
+            "data-theme",
+            theme
         );
 
 
-    if (!icon) return;
+        this.currentTheme = theme;
 
 
-    if (
-        theme === "dark"
-    ) {
-
-        icon.className =
-            "icon-sun";
-
-    } else {
-
-        icon.className =
-            "icon-moon";
-
-    }
-
-}
+        localStorage.setItem(
+            this.storageKey,
+            theme
+        );
 
 
+        this.updateToggleIcon();
 
-/*
-====================================
-System Theme Detection
-====================================
-*/
-
-function detectSystemTheme() {
-
-    if (
-        window.matchMedia &&
-        window.matchMedia(
-            "(prefers-color-scheme: dark)"
-        ).matches
-    ) {
-
-        return "dark";
 
     }
 
 
-    return "light";
-
-}
 
 
-
-/*
-====================================
-Auto Theme
-====================================
-*/
-
-function enableAutoTheme() {
-
-    const systemTheme =
-        detectSystemTheme();
+    /**
+     * Toggle theme
+     */
+    toggle() {
 
 
-    applyTheme(
-        systemTheme
-    );
+        const newTheme = 
+            this.currentTheme === "dark"
+            ? "light"
+            : "dark";
 
 
-    window
-        .matchMedia(
-            "(prefers-color-scheme: dark)"
-        )
-        .addEventListener(
-            "change",
-            (event) => {
+        this.applyTheme(
+            newTheme
+        );
 
-                applyTheme(
-                    event.matches
-                        ? "dark"
-                        : "light"
+
+    }
+
+
+
+
+
+    /**
+     * Attach toggle button
+     */
+    attachToggle() {
+
+
+        const buttons = document.querySelectorAll(
+            "[data-theme-toggle]"
+        );
+
+
+        buttons.forEach(button => {
+
+
+            button.addEventListener(
+                "click",
+                () => this.toggle()
+            );
+
+
+        });
+
+
+    }
+
+
+
+
+    /**
+     * Update toggle icon
+     */
+    updateToggleIcon() {
+
+
+        const buttons = document.querySelectorAll(
+            "[data-theme-toggle]"
+        );
+
+
+        buttons.forEach(button => {
+
+
+            if (
+                this.currentTheme === "dark"
+            ) {
+
+                button.innerHTML = "☀️";
+
+                button.setAttribute(
+                    "aria-label",
+                    "Switch to light mode"
                 );
 
+
+            } else {
+
+
+                button.innerHTML = "🌙";
+
+
+                button.setAttribute(
+                    "aria-label",
+                    "Switch to dark mode"
+                );
+
+
             }
-        );
+
+
+        });
+
+
+    }
+
+
+
+
+    /**
+     * Detect system preference
+     */
+    detectSystemTheme() {
+
+
+        if (
+            window.matchMedia &&
+            window.matchMedia(
+                "(prefers-color-scheme: dark)"
+            ).matches
+        ) {
+
+            return "dark";
+
+        }
+
+
+        return "light";
+
+
+    }
+
+
 
 }
 
 
 
-/*
-====================================
-Reset Theme
-====================================
-*/
 
-function resetTheme() {
-
-    localStorage.removeItem(
-        "theme"
-    );
+/**
+ * Global theme instance
+ */
+window.themeManager = new ThemeManager();
 
 
-    applyTheme(
-        "light"
-    );
 
-}
+document.addEventListener(
+    "DOMContentLoaded",
+    () => {
+
+        window.themeManager.init();
+
+    }
+);
