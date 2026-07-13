@@ -1,407 +1,439 @@
-const Utils = {
+/**
+ * utils.js
+ *
+ * Global utility functions used throughout
+ * Beyond Horizon Technologies website.
+ */
 
 
-    /*
-    ====================================
-    DOM Helpers
-    ====================================
-    */
+/**
+ * Select single element
+ */
+function $(selector, parent = document) {
 
-    select(selector, parent = document) {
+    return parent.querySelector(selector);
 
-        return parent.querySelector(selector);
-
-    },
-
-
-    selectAll(selector, parent = document) {
-
-        return [
-            ...parent.querySelectorAll(selector)
-        ];
-
-    },
+}
 
 
 
-    /*
-    ====================================
-    Class Helpers
-    ====================================
-    */
+/**
+ * Select multiple elements
+ */
+function $$(selector, parent = document) {
 
-    addClass(element, className) {
+    return [
+        ...parent.querySelectorAll(selector)
+    ];
 
-        if (element) {
+}
 
-            element.classList.add(
-                className
+
+
+/**
+ * Load JSON file
+ */
+async function loadJSON(path) {
+
+
+    try {
+
+
+        const response = await fetch(path);
+
+
+        if (!response.ok) {
+
+            throw new Error(
+                `Failed to load ${path}`
             );
 
         }
 
-    },
+
+        return await response.json();
 
 
-    removeClass(element, className) {
 
-        if (element) {
-
-            element.classList.remove(
-                className
-            );
-
-        }
-
-    },
+    } catch(error) {
 
 
-    toggleClass(element, className) {
-
-        if (element) {
-
-            element.classList.toggle(
-                className
-            );
-
-        }
-
-    },
-
-
-    hasClass(element, className) {
-
-        return element?.classList.contains(
-            className
+        console.error(
+            "JSON Load Error:",
+            error
         );
 
-    },
 
+        return null;
 
-
-    /*
-    ====================================
-    Event Helpers
-    ====================================
-    */
-
-    on(element, event, callback) {
-
-        if (element) {
-
-            element.addEventListener(
-                event,
-                callback
-            );
-
-        }
-
-    },
-
-
-    off(element, event, callback) {
-
-        if (element) {
-
-            element.removeEventListener(
-                event,
-                callback
-            );
-
-        }
-
-    },
-
-
-
-    /*
-    ====================================
-    Fetch Helpers
-    ====================================
-    */
-
-    async fetchJSON(url) {
-
-        try {
-
-            const response =
-                await fetch(url);
-
-
-            if (!response.ok) {
-
-                throw new Error(
-                    `Failed loading ${url}`
-                );
-
-            }
-
-
-            return await response.json();
-
-
-        } catch (error) {
-
-            console.error(
-                error
-            );
-
-
-            return null;
-
-        }
-
-    },
-
-
-
-    /*
-    ====================================
-    Format Helpers
-    ====================================
-    */
-
-    capitalize(text) {
-
-        if (!text) return "";
-
-
-        return (
-            text.charAt(0).toUpperCase() +
-            text.slice(1)
-        );
-
-    },
-
-
-    truncate(text, length = 100) {
-
-        if (
-            text.length <= length
-        ) {
-
-            return text;
-
-        }
-
-
-        return (
-            text.substring(0, length) +
-            "..."
-        );
-
-    },
-
-
-
-    /*
-    ====================================
-    Number Helpers
-    ====================================
-    */
-
-    formatNumber(number) {
-
-        return new Intl.NumberFormat()
-            .format(number);
-
-    },
-
-
-    formatCurrency(
-        value,
-        currency = "MYR"
-    ) {
-
-        return new Intl.NumberFormat(
-            "en-MY",
-            {
-                style: "currency",
-                currency: currency
-            }
-        ).format(value);
-
-    },
-
-
-
-    /*
-    ====================================
-    URL Helpers
-    ====================================
-    */
-
-    getQueryParam(name) {
-
-        const params =
-            new URLSearchParams(
-                window.location.search
-            );
-
-
-        return params.get(name);
-
-    },
-
-
-    redirect(url) {
-
-        window.location.href =
-            url;
-
-    },
-
-
-
-    /*
-    ====================================
-    Storage Helpers
-    ====================================
-    */
-
-    saveStorage(
-        key,
-        value
-    ) {
-
-        localStorage.setItem(
-            key,
-            JSON.stringify(value)
-        );
-
-    },
-
-
-    getStorage(key) {
-
-        const data =
-            localStorage.getItem(
-                key
-            );
-
-
-        return data
-            ? JSON.parse(data)
-            : null;
-
-    },
-
-
-    removeStorage(key) {
-
-        localStorage.removeItem(
-            key
-        );
-
-    },
-
-
-
-    /*
-    ====================================
-    Debounce
-    ====================================
-    */
-
-    debounce(
-        func,
-        delay = 300
-    ) {
-
-        let timer;
-
-
-        return (...args) => {
-
-            clearTimeout(
-                timer
-            );
-
-
-            timer =
-                setTimeout(
-                    () => {
-
-                        func.apply(
-                            this,
-                            args
-                        );
-
-                    },
-                    delay
-                );
-
-        };
-
-    },
-
-
-
-    /*
-    ====================================
-    Device Helpers
-    ====================================
-    */
-
-    isMobile() {
-
-        return window.innerWidth <= 768;
-
-    },
-
-
-    isTablet() {
-
-        return (
-            window.innerWidth > 768 &&
-            window.innerWidth <= 992
-        );
-
-    },
-
-
-    isDesktop() {
-
-        return window.innerWidth > 992;
-
-    },
-
-
-    /*
-    ====================================
-    Scroll Helpers
-    ====================================
-    */
-
-    scrollTo(
-        target,
-        offset = 0
-    ) {
-
-        const element =
-            typeof target === "string"
-                ? document.querySelector(target)
-                : target;
-
-
-        if (!element) return;
-
-
-        window.scrollTo({
-
-            top:
-                element.offsetTop -
-                offset,
-
-            behavior:
-                "smooth"
-
-        });
 
     }
 
+
+}
+
+
+
+
+
+/**
+ * Create element helper
+ */
+function createElement(
+    tag,
+    className = "",
+    content = ""
+) {
+
+
+    const element = document.createElement(
+        tag
+    );
+
+
+    if (className) {
+
+        element.className = className;
+
+    }
+
+
+    if (content) {
+
+        element.innerHTML = content;
+
+    }
+
+
+    return element;
+
+
+}
+
+
+
+
+
+/**
+ * Debounce function
+ */
+function debounce(
+    callback,
+    delay = 300
+) {
+
+
+    let timer;
+
+
+    return function(...args) {
+
+
+        clearTimeout(timer);
+
+
+        timer = setTimeout(
+            () => {
+
+                callback.apply(
+                    this,
+                    args
+                );
+
+            },
+            delay
+        );
+
+
+    };
+
+
+}
+
+
+
+
+
+/**
+ * Throttle function
+ */
+function throttle(
+    callback,
+    limit = 300
+) {
+
+
+    let waiting = false;
+
+
+    return function(...args) {
+
+
+        if (!waiting) {
+
+
+            callback.apply(
+                this,
+                args
+            );
+
+
+            waiting = true;
+
+
+            setTimeout(
+                () => {
+
+                    waiting = false;
+
+                },
+                limit
+            );
+
+
+        }
+
+
+    };
+
+
+}
+
+
+
+
+
+/**
+ * Format text
+ */
+function capitalize(text) {
+
+
+    if (!text) {
+
+        return "";
+
+    }
+
+
+    return text.charAt(0).toUpperCase()
+        + text.slice(1);
+
+
+}
+
+
+
+
+
+/**
+ * Convert text to slug
+ */
+function slugify(text) {
+
+
+    return text
+        .toString()
+        .toLowerCase()
+        .trim()
+        .replace(
+            /\s+/g,
+            "-"
+        )
+        .replace(
+            /[^\w\-]+/g,
+            ""
+        )
+        .replace(
+            /\-\-+/g,
+            "-"
+        );
+
+
+}
+
+
+
+
+
+/**
+ * Format file size
+ */
+function formatFileSize(bytes) {
+
+
+    if (bytes === 0) {
+
+        return "0 Bytes";
+
+    }
+
+
+    const units = [
+        "Bytes",
+        "KB",
+        "MB",
+        "GB"
+    ];
+
+
+    const index = Math.floor(
+        Math.log(bytes) /
+        Math.log(1024)
+    );
+
+
+    return (
+        parseFloat(
+            (
+                bytes /
+                Math.pow(1024,index)
+            )
+            .toFixed(2)
+        )
+        +
+        " "
+        +
+        units[index]
+    );
+
+
+}
+
+
+
+
+
+/**
+ * Check if element exists
+ */
+function exists(element) {
+
+
+    return (
+        element !== null &&
+        element !== undefined
+    );
+
+
+}
+
+
+
+
+
+/**
+ * Smooth scroll
+ */
+function scrollToElement(
+    selector
+) {
+
+
+    const element = $(
+        selector
+    );
+
+
+    if (!element) {
+
+        return;
+
+    }
+
+
+    element.scrollIntoView({
+
+        behavior: "smooth",
+
+        block: "start"
+
+    });
+
+
+}
+
+
+
+
+
+/**
+ * Get URL parameter
+ */
+function getURLParam(
+    name
+) {
+
+
+    const params =
+        new URLSearchParams(
+            window.location.search
+        );
+
+
+    return params.get(name);
+
+
+}
+
+
+
+
+
+/**
+ * Delay helper
+ */
+function wait(
+    milliseconds
+) {
+
+
+    return new Promise(
+        resolve =>
+            setTimeout(
+                resolve,
+                milliseconds
+            )
+    );
+
+
+}
+
+
+
+
+
+/**
+ * Export utilities globally
+ */
+window.BHUtils = {
+
+
+    $,
+
+    $$,
+
+    loadJSON,
+
+    createElement,
+
+    debounce,
+
+    throttle,
+
+    capitalize,
+
+    slugify,
+
+    formatFileSize,
+
+    exists,
+
+    scrollToElement,
+
+    getURLParam,
+
+    wait
+
+
 };
-
-
-
-window.Utils = Utils;
