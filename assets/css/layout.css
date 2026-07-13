@@ -1,95 +1,186 @@
+ /*
+ =========================================
+ Layout System
+ Beyond Horizon Technologies
+=========================================
+*/
+
+
+/* =========================================
+   Container
+========================================= */
+
 .container {
 
-    width: var(--container-width);
+    width: 100%;
 
-    max-width: 100%;
+    max-width: 1280px;
 
     margin: 0 auto;
 
-    padding-left: 1.5rem;
+    padding-left: var(--container-padding);
 
-    padding-right: 1.5rem;
+    padding-right: var(--container-padding);
 
 }
 
 
-/* Section Layout */
+
+/* =========================================
+   Main Layout
+========================================= */
+
+
+main {
+
+    width: 100%;
+
+    overflow-x: hidden;
+
+}
+
+
+
+section {
+
+    position: relative;
+
+    width: 100%;
+
+}
+
+
+
+/* =========================================
+   Section Spacing
+========================================= */
+
 
 .section {
 
-    padding: var(--section-padding);
+    padding-top: var(--section-padding);
+
+    padding-bottom: var(--section-padding);
 
 }
+
+
+
+.section--small {
+
+    padding-top: calc(var(--section-padding) / 2);
+
+    padding-bottom: calc(var(--section-padding) / 2);
+
+}
+
+
+
+.section--large {
+
+    padding-top: calc(var(--section-padding) * 1.5);
+
+    padding-bottom: calc(var(--section-padding) * 1.5);
+
+}
+
+
+
+/* =========================================
+   Section Header
+========================================= */
 
 
 .section__header {
 
-    text-align: center;
-
     max-width: 800px;
 
-    margin: 0 auto 3rem;
+    margin-left: auto;
+
+    margin-right: auto;
+
+    margin-bottom: var(--spacing-xl);
+
+    text-align: center;
 
 }
+
 
 
 .section__title {
 
-    margin-bottom: 1rem;
-
-    color: var(--color-heading);
+    margin-bottom: var(--spacing-sm);
 
 }
+
 
 
 .section__description {
 
-    color: var(--color-text-light);
+    color: var(--color-text-secondary);
 
-    line-height: 1.8;
+    line-height: 1.7;
 
 }
 
 
-/* Grid Layout */
+
+/* =========================================
+   Grid Systems
+========================================= */
+
 
 .grid {
 
     display: grid;
 
-    gap: 2rem;
+    gap: var(--spacing-lg);
 
 }
+
 
 
 .grid--2 {
 
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns:
+
+        repeat(2, 1fr);
 
 }
+
 
 
 .grid--3 {
 
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns:
+
+        repeat(3, 1fr);
 
 }
+
 
 
 .grid--4 {
 
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns:
+
+        repeat(4, 1fr);
 
 }
 
 
-/* Flex Layout */
+
+/* =========================================
+   Flex Utilities
+========================================= */
+
 
 .flex {
 
     display: flex;
 
 }
+
 
 
 .flex-center {
@@ -103,6 +194,7 @@
 }
 
 
+
 .flex-between {
 
     display: flex;
@@ -114,6 +206,7 @@
 }
 
 
+
 .flex-column {
 
     flex-direction: column;
@@ -121,245 +214,264 @@
 }
 
 
-/* Main Page Layout */
 
-.page {
-
-    min-height: 100vh;
-
-    display: flex;
-
-    flex-direction: column;
-
-}
+/* =========================================
+   Two Column Layout
+========================================= */
 
 
-.page__content {
-
-    flex: 1;
-
-}
-
-
-/* Two Column Layout */
-
-.two-column {
+.layout-two-column {
 
     display: grid;
 
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns:
 
-    gap: 4rem;
+        repeat(2, 1fr);
 
     align-items: center;
 
+    gap: var(--spacing-xl);
+
 }
 
 
-/* Sidebar Layout */
 
-.layout-with-sidebar {
+.layout-sidebar {
 
     display: grid;
 
-    grid-template-columns: 300px 1fr;
+    grid-template-columns:
 
-    gap: 2rem;
+        280px 1fr;
 
-}
-
-
-.content-area {
-
-    min-width: 0;
-
-}
-
-
-/* Product Layout */
-
-.products-layout {
-
-    display: grid;
-
-    grid-template-columns: repeat(3, 1fr);
-
-    gap: 2rem;
-
-}
-
-
-.product-detail-layout {
-
-    display: grid;
-
-    grid-template-columns: 1fr 1fr;
-
-    gap: 3rem;
+    gap: var(--spacing-xl);
 
     align-items: start;
 
 }
 
 
-/* Hero Layout */
 
-.hero-layout {
-
-    display: grid;
-
-    grid-template-columns: 1fr 1fr;
-
-    gap: 3rem;
-
-    align-items: center;
-
-}
+/* =========================================
+   Full Width
+========================================= */
 
 
-/* Footer Layout */
-
-.footer-grid {
-
-    display: grid;
-
-    grid-template-columns: 2fr 1fr 1fr 1fr;
-
-    gap: 2rem;
-
-}
-
-
-/* Spacing Utilities */
-
-.mt-1 {
-
-    margin-top: 0.5rem;
-
-}
-
-
-.mt-2 {
-
-    margin-top: 1rem;
-
-}
-
-
-.mt-3 {
-
-    margin-top: 2rem;
-
-}
-
-
-.mt-4 {
-
-    margin-top: 3rem;
-
-}
-
-
-.mb-1 {
-
-    margin-bottom: 0.5rem;
-
-}
-
-
-.mb-2 {
-
-    margin-bottom: 1rem;
-
-}
-
-
-.mb-3 {
-
-    margin-bottom: 2rem;
-
-}
-
-
-.mb-4 {
-
-    margin-bottom: 3rem;
-
-}
-
-
-/* Width Utilities */
-
-.w-full {
+.full-width {
 
     width: 100%;
 
 }
 
 
-.max-width {
 
-    max-width: 1200px;
+.full-height {
 
-    margin: 0 auto;
+    min-height: 100vh;
 
 }
 
 
-/* Responsive */
 
-@media (max-width: 1200px) {
+/* =========================================
+   Spacing Utilities
+========================================= */
+
+
+.mt-1 {
+
+    margin-top: var(--spacing-xs);
+
+}
+
+
+.mt-2 {
+
+    margin-top: var(--spacing-sm);
+
+}
+
+
+.mt-3 {
+
+    margin-top: var(--spacing-md);
+
+}
+
+
+.mt-4 {
+
+    margin-top: var(--spacing-lg);
+
+}
+
+
+.mt-5 {
+
+    margin-top: var(--spacing-xl);
+
+}
+
+
+
+.mb-1 {
+
+    margin-bottom: var(--spacing-xs);
+
+}
+
+
+.mb-2 {
+
+    margin-bottom: var(--spacing-sm);
+
+}
+
+
+.mb-3 {
+
+    margin-bottom: var(--spacing-md);
+
+}
+
+
+.mb-4 {
+
+    margin-bottom: var(--spacing-lg);
+
+}
+
+
+.mb-5 {
+
+    margin-bottom: var(--spacing-xl);
+
+}
+
+
+
+/* =========================================
+   Display Utilities
+========================================= */
+
+
+.hidden {
+
+    display: none !important;
+
+}
+
+
+
+.visible {
+
+    display: block !important;
+
+}
+
+
+
+/* =========================================
+   Position Utilities
+========================================= */
+
+
+.relative {
+
+    position: relative;
+
+}
+
+
+
+.absolute {
+
+    position: absolute;
+
+}
+
+
+
+.sticky {
+
+    position: sticky;
+
+    top: 0;
+
+}
+
+
+
+/* =========================================
+   Z Index
+========================================= */
+
+
+.z-1 {
+
+    z-index: 1;
+
+}
+
+
+.z-2 {
+
+    z-index: 2;
+
+}
+
+
+.z-3 {
+
+    z-index: 3;
+
+}
+
+
+
+/* =========================================
+   Responsive Layout
+========================================= */
+
+
+@media (max-width: 1024px) {
+
+
+    .container {
+
+        padding-left: 24px;
+
+        padding-right: 24px;
+
+    }
+
+
 
     .grid--4 {
 
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns:
+
+            repeat(2, 1fr);
 
     }
 
 
-    .footer-grid {
 
-        grid-template-columns: repeat(2, 1fr);
+    .layout-sidebar {
+
+        grid-template-columns:
+
+            1fr;
 
     }
+
 
 }
 
-
-@media (max-width: 992px) {
-
-    .grid--3,
-
-    .grid--4,
-
-    .products-layout {
-
-        grid-template-columns: repeat(2, 1fr);
-
-    }
-
-
-    .two-column,
-
-    .hero-layout,
-
-    .product-detail-layout {
-
-        grid-template-columns: 1fr;
-
-    }
-
-
-    .layout-with-sidebar {
-
-        grid-template-columns: 1fr;
-
-    }
-
-}
 
 
 @media (max-width: 768px) {
+
 
     .grid--2,
 
@@ -367,26 +479,43 @@
 
     .grid--4,
 
-    .products-layout {
+    .layout-two-column {
 
-        grid-template-columns: 1fr;
+        grid-template-columns:
+
+            1fr;
+
+    }
+
+
+
+    .section {
+
+        padding-top:
+
+            calc(var(--section-padding) * .75);
+
+        padding-bottom:
+
+            calc(var(--section-padding) * .75);
 
     }
 
 
-    .footer-grid {
+}
 
-        grid-template-columns: 1fr;
 
-    }
+
+@media (max-width: 480px) {
 
 
     .container {
 
-        padding-left: 1rem;
+        padding-left: 16px;
 
-        padding-right: 1rem;
+        padding-right: 16px;
 
     }
+
 
 }
