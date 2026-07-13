@@ -1,163 +1,434 @@
+/*
+=========================================
+Global Variables
+Beyond Horizon Technologies
+=========================================
+*/
+
+
 :root {
 
-    /* =================================
-       Colors
-    ================================= */
 
-    --color-primary: #0066ff;
-
-    --color-primary-dark: #004dcc;
-
-    --color-secondary: #00b8ff;
+    /*
+    =========================================
+    Brand Colors
+    =========================================
+    */
 
 
-    --color-dark: #0a0f1c;
+    --color-primary:
 
-    --color-dark-light: #182033;
-
-
-    --color-white: #ffffff;
-
-    --color-black: #000000;
+        #00A8E8;
 
 
-    --color-background: #ffffff;
+    --color-primary-dark:
 
-    --color-gray-light: #f4f6f8;
-
-    --color-gray: #d9dee7;
-
-    --color-border: #e5e7eb;
+        #0077B6;
 
 
-    --color-heading: #111827;
+    --color-secondary:
 
-    --color-text: #374151;
+        #023047;
 
-    --color-text-light: #6b7280;
+
+    --color-accent:
+
+        #00D4FF;
 
 
 
-    /* =================================
-       Typography
-    ================================= */
-
-    --font-primary: "Inter", sans-serif;
-
-    --font-secondary: "Poppins", sans-serif;
-
-    --font-display: "Orbitron", sans-serif;
+    /*
+    =========================================
+    Background Colors
+    =========================================
+    */
 
 
-    --font-size-xs: 0.75rem;
+    --color-background:
 
-    --font-size-sm: 0.875rem;
-
-    --font-size-base: 1rem;
-
-    --font-size-lg: 1.125rem;
-
-    --font-size-xl: 1.25rem;
-
-    --font-size-2xl: 1.5rem;
-
-    --font-size-3xl: 2rem;
-
-    --font-size-4xl: 3rem;
+        #ffffff;
 
 
+    --color-background-dark:
 
-    /* =================================
-       Layout
-    ================================= */
+        #020617;
 
-    --container-width: 1200px;
 
-    --section-padding: 5rem 0;
+    --color-surface:
+
+        #f8fafc;
+
+
+    --color-surface-dark:
+
+        #0f172a;
 
 
 
-    /* =================================
-       Border Radius
-    ================================= */
-
-    --radius-sm: 0.25rem;
-
-    --radius-md: 0.5rem;
-
-    --radius-lg: 1rem;
-
-    --radius-xl: 1.5rem;
-
-    --radius-full: 999px;
+    /*
+    =========================================
+    Text Colors
+    =========================================
+    */
 
 
+    --color-heading:
 
-    /* =================================
-       Shadows
-    ================================= */
+        #0f172a;
+
+
+    --color-text:
+
+        #334155;
+
+
+    --color-text-muted:
+
+        #64748b;
+
+
+    --color-text-light:
+
+        #ffffff;
+
+
+
+    /*
+    =========================================
+    Border Colors
+    =========================================
+    */
+
+
+    --color-border:
+
+        #e2e8f0;
+
+
+    --color-border-dark:
+
+        #334155;
+
+
+
+    /*
+    =========================================
+    Typography
+    =========================================
+    */
+
+
+    --font-body:
+
+        "Inter",
+        sans-serif;
+
+
+    --font-heading:
+
+        "Poppins",
+        sans-serif;
+
+
+    --font-display:
+
+        "Orbitron",
+        sans-serif;
+
+
+
+    /*
+    =========================================
+    Font Sizes
+    =========================================
+    */
+
+
+    --fs-xs:
+
+        0.75rem;
+
+
+    --fs-sm:
+
+        0.875rem;
+
+
+    --fs-md:
+
+        1rem;
+
+
+    --fs-lg:
+
+        1.125rem;
+
+
+    --fs-xl:
+
+        1.5rem;
+
+
+    --fs-2xl:
+
+        2rem;
+
+
+    --fs-3xl:
+
+        3rem;
+
+
+    --fs-4xl:
+
+        4rem;
+
+
+
+    /*
+    =========================================
+    Font Weight
+    =========================================
+    */
+
+
+    --fw-light:
+
+        300;
+
+
+    --fw-regular:
+
+        400;
+
+
+    --fw-medium:
+
+        500;
+
+
+    --fw-semibold:
+
+        600;
+
+
+    --fw-bold:
+
+        700;
+
+
+
+    /*
+    =========================================
+    Spacing System
+    =========================================
+    */
+
+
+    --space-1:
+
+        0.25rem;
+
+
+    --space-2:
+
+        0.5rem;
+
+
+    --space-3:
+
+        0.75rem;
+
+
+    --space-4:
+
+        1rem;
+
+
+    --space-5:
+
+        1.5rem;
+
+
+    --space-6:
+
+        2rem;
+
+
+    --space-7:
+
+        3rem;
+
+
+    --space-8:
+
+        4rem;
+
+
+    --space-9:
+
+        6rem;
+
+
+    --space-10:
+
+        8rem;
+
+
+
+    /*
+    =========================================
+    Container
+    =========================================
+    */
+
+
+    --container-width:
+
+        1200px;
+
+
+    --container-padding:
+
+        1.5rem;
+
+
+
+    /*
+    =========================================
+    Border Radius
+    =========================================
+    */
+
+
+    --radius-sm:
+
+        6px;
+
+
+    --radius-md:
+
+        12px;
+
+
+    --radius-lg:
+
+        20px;
+
+
+    --radius-xl:
+
+        32px;
+
+
+    --radius-full:
+
+        999px;
+
+
+
+    /*
+    =========================================
+    Shadows
+    =========================================
+    */
+
 
     --shadow-sm:
 
-        0 1px 3px rgba(0,0,0,0.08);
+        0 2px 8px rgba(0,0,0,0.05);
 
 
     --shadow-md:
 
-        0 5px 15px rgba(0,0,0,0.12);
+        0 8px 25px rgba(0,0,0,0.1);
 
 
     --shadow-lg:
 
-        0 10px 30px rgba(0,0,0,0.15);
-
-
-    --shadow-xl:
-
-        0 20px 50px rgba(0,0,0,0.2);
+        0 20px 50px rgba(0,0,0,0.15);
 
 
 
-    /* =================================
-       Transitions
-    ================================= */
-
-    --transition-fast: 0.2s ease;
-
-    --transition-normal: 0.3s ease;
-
-    --transition-slow: 0.5s ease;
+    /*
+    =========================================
+    Animation
+    =========================================
+    */
 
 
+    --transition-fast:
 
-    /* =================================
-       Z Index
-    ================================= */
+        0.2s ease;
 
-    --z-base: 1;
 
-    --z-navbar: 100;
+    --transition-normal:
 
-    --z-dropdown: 200;
+        0.3s ease;
 
-    --z-sidebar: 300;
 
-    --z-modal: 1000;
+    --transition-slow:
 
-    --z-loader: 2000;
+        0.6s ease;
 
 
 
-    /* =================================
-       Breakpoints
-    ================================= */
+    /*
+    =========================================
+    Z Index
+    =========================================
+    */
 
-    --breakpoint-mobile: 480px;
 
-    --breakpoint-tablet: 768px;
+    --z-dropdown:
 
-    --breakpoint-desktop: 992px;
+        100;
 
-    --breakpoint-wide: 1200px;
+
+    --z-sticky:
+
+        200;
+
+
+    --z-navbar:
+
+        500;
+
+
+    --z-modal:
+
+        1000;
+
+
+    --z-loader:
+
+        2000;
+
+
+
+    /*
+    =========================================
+    Gradients
+    =========================================
+    */
+
+
+    --gradient-primary:
+
+        linear-gradient(
+            135deg,
+            #00A8E8,
+            #0077B6
+        );
+
+
+    --gradient-dark:
+
+        linear-gradient(
+            135deg,
+            #020617,
+            #0f172a
+        );
+
 
 }
