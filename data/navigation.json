@@ -1,85 +1,120 @@
 {
-  "navigation": [
-    {
-      "title": "Home",
-      "url": "pages/home.html",
-      "icon": "home"
-    },
-    {
-      "title": "About",
-      "url": "pages/about.html",
-      "icon": "company"
-    },
-    {
-      "title": "Products",
-      "url": "#products",
-      "icon": "products",
-      "children": [
+    "navigation": [
         {
-          "title": "Crawler",
-          "url": "#crawler"
+            "title": "Home",
+            "url": "home.html",
+            "icon": "home"
         },
         {
-          "title": "DJI Enterprise",
-          "url": "#dji"
+            "title": "About",
+            "url": "about.html",
+            "icon": "info"
         },
         {
-          "title": "KC2",
-          "url": "#kc2"
+            "title": "Products",
+            "url": "products.html",
+            "icon": "products",
+            "children": [
+                {
+                    "title": "All Products",
+                    "url": "products.html"
+                },
+                {
+                    "title": "UAV Solutions",
+                    "url": "products.html?category=uav"
+                },
+                {
+                    "title": "Robotics",
+                    "url": "products.html?category=robotics"
+                },
+                {
+                    "title": "Inspection Systems",
+                    "url": "products.html?category=inspection"
+                },
+                {
+                    "title": "Mapping Solutions",
+                    "url": "products.html?category=mapping"
+                }
+            ]
         },
         {
-          "title": "Pekaka",
-          "url": "#pekaka"
+            "title": "Industries",
+            "url": "industries.html",
+            "icon": "industries",
+            "children": [
+                {
+                    "title": "Construction",
+                    "url": "industries.html#construction"
+                },
+                {
+                    "title": "Infrastructure",
+                    "url": "industries.html#infrastructure"
+                },
+                {
+                    "title": "Oil & Gas",
+                    "url": "industries.html#oil-gas"
+                },
+                {
+                    "title": "Education & Research",
+                    "url": "industries.html#education"
+                }
+            ]
         },
         {
-          "title": "Pekaka Light",
-          "url": "#pekaka-light"
+            "title": "Portfolio",
+            "url": "portfolio.html",
+            "icon": "portfolio"
         },
         {
-          "title": "ROV",
-          "url": "#rov"
+            "title": "Support",
+            "url": "support.html",
+            "icon": "support"
         },
         {
-          "title": "Share UAV",
-          "url": "#shareuav"
-        },
-        {
-          "title": "SkyGauge",
-          "url": "#skygauge"
+            "title": "Contact",
+            "url": "contact.html",
+            "icon": "contact"
         }
-      ]
-    },
-    {
-      "title": "Industries",
-      "url": "pages/industries.html",
-      "icon": "industries"
-    },
-    {
-      "title": "Portfolio",
-      "url": "pages/portfolio.html",
-      "icon": "portfolio"
-    },
-    {
-      "title": "Support",
-      "url": "pages/support.html",
-      "icon": "support"
-    },
-    {
-      "title": "Contact",
-      "url": "pages/contact.html",
-      "icon": "contact"
-    }
-  ],
-  "actions": [
-    {
-      "title": "Request Consultation",
-      "url": "pages/contact.html",
-      "type": "primary"
-    },
-    {
-      "title": "Download Brochure",
-      "url": "downloads/brochures/company-brochure.pdf",
-      "type": "secondary"
-    }
-  ]
+    ],
+
+
+    "sidebar": [
+        {
+            "title": "Products",
+            "items": [
+                {
+                    "name": "Crawler Inspection System",
+                    "url": "products.html#crawler"
+                },
+                {
+                    "name": "DJI UAV Solutions",
+                    "url": "products.html#dji"
+                },
+                {
+                    "name": "KC2 Inspection System",
+                    "url": "products.html#kc2"
+                },
+                {
+                    "name": "Pekaka",
+                    "url": "products.html#pekaka"
+                },
+                {
+                    "name": "Pekaka Light",
+                    "url": "products.html#pekaka-light"
+                },
+                {
+                    "name": "ROV Inspection System",
+                    "url": "products.html#rov"
+                },
+                {
+                    "name": "SHARE UAV",
+                    "url": "products.html#shareuav"
+                },
+                {
+                    "name": "SkyGauge",
+                    "url": "products.html#skygauge"
+                }
+            ]
+        }
+    ]
 }
