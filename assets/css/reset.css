@@ -1,228 +1,308 @@
+ /*
+ =========================================
+ CSS Reset
+ Beyond Horizon Technologies
+=========================================
+*/
+
+
+/* =========================================
+   Box Sizing
+========================================= */
+
+
 *,
 *::before,
 *::after {
 
-    box-sizing: border-box;
+    box-sizing:
+
+        border-box;
 
 }
+
+
+
+/* =========================================
+   Root Defaults
+========================================= */
 
 
 html {
 
-    scroll-behavior: smooth;
+    scroll-behavior:
 
-    font-size: 16px;
+        smooth;
+
+    font-size:
+
+        16px;
 
 }
+
 
 
 body {
 
-    margin: 0;
+    margin:
 
-    padding: 0;
+        0;
 
-    font-family: var(--font-primary);
+    padding:
 
-    color: var(--color-text);
+        0;
 
-    background: var(--color-background);
+    font-family:
 
-    line-height: 1.6;
+        var(--font-body, "Inter", sans-serif);
 
-    -webkit-font-smoothing: antialiased;
+    background:
+
+        var(--color-background, #ffffff);
+
+    color:
+
+        var(--color-text, #111111);
+
+    line-height:
+
+        1.5;
+
+    -webkit-font-smoothing:
+
+        antialiased;
+
+    text-rendering:
+
+        optimizeLegibility;
 
 }
 
 
-img {
 
-    max-width: 100%;
+/* =========================================
+   Remove Default Margins
+========================================= */
 
-    display: block;
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+
+    margin:
+
+        0;
 
 }
 
 
-video {
 
-    max-width: 100%;
+ul,
+ol {
 
-    display: block;
+    margin:
+
+        0;
+
+    padding:
+
+        0;
+
+    list-style:
+
+        none;
 
 }
+
+
+
+/* =========================================
+   Links
+========================================= */
 
 
 a {
 
-    color: inherit;
+    color:
 
-    text-decoration: none;
+        inherit;
+
+    text-decoration:
+
+        none;
 
 }
+
+
+
+a:hover {
+
+    text-decoration:
+
+        none;
+
+}
+
+
+
+/* =========================================
+   Images & Media
+========================================= */
+
+
+img,
+picture,
+video,
+canvas,
+svg {
+
+    display:
+
+        block;
+
+    max-width:
+
+        100%;
+
+}
+
+
+
+img {
+
+    height:
+
+        auto;
+
+}
+
+
+
+/* =========================================
+   Form Elements
+========================================= */
 
 
 button,
-
 input,
-
 textarea,
-
 select {
 
-    font: inherit;
+    font:
+
+        inherit;
+
+    color:
+
+        inherit;
 
 }
+
 
 
 button {
 
-    cursor: pointer;
+    border:
+
+        0;
+
+    padding:
+
+        0;
+
+    background:
+
+        none;
+
+    cursor:
+
+        pointer;
 
 }
 
-
-ul,
-
-ol {
-
-    margin: 0;
-
-    padding: 0;
-
-    list-style: none;
-
-}
-
-
-h1,
-
-h2,
-
-h3,
-
-h4,
-
-h5,
-
-h6,
-
-p {
-
-    margin: 0;
-
-}
-
-
-h1,
-
-h2,
-
-h3,
-
-h4,
-
-h5,
-
-h6 {
-
-    line-height: 1.2;
-
-    font-weight: 700;
-
-}
-
-
-table {
-
-    border-collapse: collapse;
-
-    border-spacing: 0;
-
-}
 
 
 textarea {
 
-    resize: vertical;
+    resize:
+
+        vertical;
 
 }
 
 
-input,
 
-textarea,
-
-select {
-
-    outline: none;
-
-}
+/* =========================================
+   Tables
+========================================= */
 
 
-::selection {
+table {
 
-    background: var(--color-primary);
+    border-collapse:
 
-    color: var(--color-white);
+        collapse;
 
-}
+    border-spacing:
 
-
-/* Remove default browser styles */
-
-::-webkit-scrollbar {
-
-    width: 10px;
+        0;
 
 }
 
 
-::-webkit-scrollbar-track {
 
-    background: var(--color-gray-light);
+/* =========================================
+   Accessibility
+========================================= */
 
-}
-
-
-::-webkit-scrollbar-thumb {
-
-    background: var(--color-primary);
-
-    border-radius: var(--radius-full);
-
-}
-
-
-::-webkit-scrollbar-thumb:hover {
-
-    background: var(--color-primary-dark);
-
-}
-
-
-/* Accessibility */
 
 :focus-visible {
 
-    outline: 3px solid var(--color-primary);
+    outline:
 
-    outline-offset: 3px;
+        3px solid var(--color-primary, #2563eb);
 
-}
+    outline-offset:
 
-
-/* Hidden Utility */
-
-.hidden {
-
-    display: none !important;
+        3px;
 
 }
 
 
-.visible {
 
-    display: block !important;
+/* =========================================
+   Remove Animations For Reduced Motion
+========================================= */
+
+
+@media(prefers-reduced-motion: reduce) {
+
+
+    *,
+    *::before,
+    *::after {
+
+        animation-duration:
+
+            0.01ms !important;
+
+        animation-iteration-count:
+
+            1 !important;
+
+        scroll-behavior:
+
+            auto !important;
+
+        transition-duration:
+
+            0.01ms !important;
+
+    }
+
 
 }
