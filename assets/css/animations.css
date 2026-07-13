@@ -1,4 +1,26 @@
+/* ==========================================================
+   BH-RIT Product Presentation
+   animations.css
+   Animation & Transition Effects
+   ========================================================== */
+
+
+/* ==============================
+   Fade Animations
+   ============================== */
+
+.fade-in {
+    animation: fadeIn 0.8s ease forwards;
+}
+
+
+.fade-out {
+    animation: fadeOut 0.5s ease forwards;
+}
+
+
 @keyframes fadeIn {
+
     from {
         opacity: 0;
     }
@@ -6,252 +28,413 @@
     to {
         opacity: 1;
     }
+
 }
 
 
-@keyframes fadeInUp {
+@keyframes fadeOut {
+
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+
+}
+
+
+
+/* ==============================
+   Slide Animations
+   ============================== */
+
+.slide-up {
+    animation: slideUp 0.8s ease forwards;
+}
+
+
+.slide-down {
+    animation: slideDown 0.8s ease forwards;
+}
+
+
+.slide-left {
+    animation: slideLeft 0.8s ease forwards;
+}
+
+
+.slide-right {
+    animation: slideRight 0.8s ease forwards;
+}
+
+
+
+@keyframes slideUp {
+
     from {
         opacity: 0;
-        transform: translateY(30px);
+        transform: translateY(40px);
     }
 
     to {
         opacity: 1;
         transform: translateY(0);
     }
+
 }
 
 
-@keyframes fadeInDown {
+
+@keyframes slideDown {
+
     from {
         opacity: 0;
-        transform: translateY(-30px);
+        transform: translateY(-40px);
     }
 
     to {
         opacity: 1;
         transform: translateY(0);
     }
+
 }
 
 
-@keyframes fadeInLeft {
+
+@keyframes slideLeft {
+
     from {
         opacity: 0;
-        transform: translateX(-30px);
+        transform: translateX(40px);
     }
 
     to {
         opacity: 1;
         transform: translateX(0);
     }
+
 }
 
 
-@keyframes fadeInRight {
+
+@keyframes slideRight {
+
     from {
         opacity: 0;
-        transform: translateX(30px);
+        transform: translateX(-40px);
     }
 
     to {
         opacity: 1;
         transform: translateX(0);
     }
+
 }
+
+
+
+/* ==============================
+   Scale Animations
+   ============================== */
+
+.scale-in {
+
+    animation: scaleIn 0.6s ease forwards;
+
+}
+
 
 
 @keyframes scaleIn {
+
     from {
+
         opacity: 0;
         transform: scale(0.9);
+
     }
 
+
     to {
+
         opacity: 1;
         transform: scale(1);
+
     }
+
 }
 
 
-@keyframes slideIn {
-    from {
-        transform: translateX(-100%);
-    }
 
-    to {
-        transform: translateX(0);
-    }
+/* ==============================
+   Floating Effects
+   ============================== */
+
+.float {
+
+    animation: floating 4s ease-in-out infinite;
+
 }
 
 
-@keyframes slideOut {
-    from {
-        transform: translateX(0);
+
+@keyframes floating {
+
+    0%,
+    100% {
+
+        transform: translateY(0);
+
     }
 
-    to {
-        transform: translateX(-100%);
+
+    50% {
+
+        transform: translateY(-12px);
+
     }
+
 }
+
+
+
+/* ==============================
+   Pulse Effects
+   ============================== */
+
+.pulse {
+
+    animation: pulse 2s infinite;
+
+}
+
 
 
 @keyframes pulse {
+
     0% {
+
         transform: scale(1);
+
     }
 
+
     50% {
+
         transform: scale(1.05);
+
     }
 
+
     100% {
+
         transform: scale(1);
+
     }
+
 }
 
 
-@keyframes float {
-    0% {
-        transform: translateY(0);
+
+/* ==============================
+   Glow Effect
+   ============================== */
+
+.glow {
+
+    animation: glow 2.5s ease-in-out infinite;
+
+}
+
+
+
+@keyframes glow {
+
+    0%,
+    100% {
+
+        filter: brightness(1);
+
     }
+
 
     50% {
-        transform: translateY(-10px);
+
+        filter: brightness(1.15);
+
     }
 
-    100% {
-        transform: translateY(0);
-    }
 }
 
 
-@keyframes rotate {
+
+/* ==============================
+   Loading Animation
+   ============================== */
+
+.loading-spin {
+
+    animation: spin 1s linear infinite;
+
+}
+
+
+
+@keyframes spin {
+
     from {
+
         transform: rotate(0deg);
+
     }
+
 
     to {
+
         transform: rotate(360deg);
-    }
-}
 
-
-@keyframes shimmer {
-    0% {
-        background-position: -1000px 0;
     }
 
-    100% {
-        background-position: 1000px 0;
-    }
 }
 
 
-/* Animation Utility Classes */
 
-.animate {
-    animation-duration: 0.8s;
-    animation-fill-mode: both;
-}
-
-
-.fade-in {
-    animation-name: fadeIn;
-}
-
-
-.fade-in-up {
-    animation-name: fadeInUp;
-}
-
-
-.fade-in-down {
-    animation-name: fadeInDown;
-}
-
-
-.fade-in-left {
-    animation-name: fadeInLeft;
-}
-
-
-.fade-in-right {
-    animation-name: fadeInRight;
-}
-
-
-.scale-in {
-    animation-name: scaleIn;
-}
-
-
-.slide-in {
-    animation-name: slideIn;
-}
-
-
-.pulse {
-    animation-name: pulse;
-    animation-duration: 1.5s;
-    animation-iteration-count: infinite;
-}
-
-
-.float {
-    animation-name: float;
-    animation-duration: 3s;
-    animation-iteration-count: infinite;
-}
-
-
-.rotate {
-    animation-name: rotate;
-    animation-duration: 2s;
-    animation-iteration-count: infinite;
-    animation-timing-function: linear;
-}
-
-
-/* Scroll Reveal */
-
-.reveal {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.8s ease, transform 0.8s ease;
-}
-
-
-.reveal.active {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-
-/* Hover Animations */
-
-.hover-scale {
-    transition: transform 0.3s ease;
-}
-
-
-.hover-scale:hover {
-    transform: scale(1.05);
-}
-
+/* ==============================
+   Hover Animations
+   ============================== */
 
 .hover-lift {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+
 }
 
 
 .hover-lift:hover {
+
     transform: translateY(-8px);
+
 }
 
 
-/* Loading Animation */
 
-.loading-animation {
-    animation: pulse 1.5s infinite ease-in-out;
+.hover-scale {
+
+    transition: transform 0.3s ease;
+
+}
+
+
+.hover-scale:hover {
+
+    transform: scale(1.05);
+
+}
+
+
+
+/* ==============================
+   Reveal Animation Support
+   ============================== */
+
+.reveal {
+
+    opacity: 0;
+    transform: translateY(30px);
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s ease;
+
+}
+
+
+.reveal.active {
+
+    opacity: 1;
+    transform: translateY(0);
+
+}
+
+
+
+/* ==============================
+   Page Transition
+   ============================== */
+
+.page-enter {
+
+    animation: pageEnter 0.5s ease forwards;
+
+}
+
+
+
+.page-exit {
+
+    animation: pageExit 0.5s ease forwards;
+
+}
+
+
+
+@keyframes pageEnter {
+
+    from {
+
+        opacity: 0;
+        transform: translateY(20px);
+
+    }
+
+
+    to {
+
+        opacity: 1;
+        transform: translateY(0);
+
+    }
+
+}
+
+
+
+@keyframes pageExit {
+
+    from {
+
+        opacity: 1;
+
+    }
+
+
+    to {
+
+        opacity: 0;
+
+    }
+
+}
+
+
+
+/* ==============================
+   Reduced Motion Accessibility
+   ============================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+
+    }
+
 }
