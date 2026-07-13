@@ -1,53 +1,113 @@
-<section class="hero">
+<!--
+    hero.html
 
-    <div class="hero__overlay"></div>
+    Reusable hero section component
 
-    <div class="hero__container">
+    Dynamic values:
+    {{badge}}
+    {{title}}
+    {{description}}
+    {{primary_link}}
+    {{primary_text}}
+    {{secondary_link}}
+    {{secondary_text}}
+    {{image}}
+-->
+
+
+<section class="hero" data-hero>
+
+
+    <div class="container hero-layout">
+
+
+
+        <!-- Hero Content -->
 
         <div class="hero__content">
 
+
+
+            <span class="hero__subtitle">
+
+                {{badge}}
+
+            </span>
+
+
+
             <h1 class="hero__title">
+
                 {{title}}
+
             </h1>
 
+
+
             <p class="hero__description">
+
                 {{description}}
+
             </p>
+
+
 
 
             <div class="hero__actions">
 
-                <a 
-                    href="{{primaryButtonUrl}}" 
+
+
+                <a
+                    href="{{primary_link}}"
                     class="btn btn--primary"
                 >
-                    {{primaryButtonText}}
+
+                    {{primary_text}}
+
                 </a>
 
 
-                <a 
-                    href="{{secondaryButtonUrl}}" 
-                    class="btn btn--secondary"
+
+
+                <a
+                    href="{{secondary_link}}"
+                    class="btn btn--outline"
                 >
-                    {{secondaryButtonText}}
+
+                    {{secondary_text}}
+
                 </a>
+
+
 
             </div>
 
+
+
         </div>
 
+
+
+
+
+        <!-- Hero Image -->
 
         <div class="hero__media">
 
-            <img 
-                src="{{image}}" 
+
+            <img
+                src="{{image}}"
                 alt="{{title}}"
-                class="hero__image"
+                loading="lazy"
             >
+
 
         </div>
 
 
+
+
     </div>
+
 
 </section>
