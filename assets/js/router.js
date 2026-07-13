@@ -1,84 +1,193 @@
-document.addEventListener("DOMContentLoaded", () => {
+/*
+=========================================
+SPA Router Controller
+Beyond Horizon Technologies
+=========================================
+*/
 
-    initializeRouter();
 
-});
+document.addEventListener(
+    "DOMContentLoaded",
+    () => {
 
+        initializeRouter();
+
+    }
+);
+
+
+
+/*
+=========================================
+Router Configuration
+=========================================
+*/
+
+
+const routes = {
+
+
+    "/":
+        "pages/home.html",
+
+
+    "/home":
+        "pages/home.html",
+
+
+    "/about":
+        "pages/about.html",
+
+
+    "/industries":
+        "pages/industries.html",
+
+
+    "/products":
+        "pages/products.html",
+
+
+    "/portfolio":
+        "pages/portfolio.html",
+
+
+    "/support":
+        "pages/support.html",
+
+
+    "/contact":
+        "pages/contact.html"
+
+
+};
+
+
+
+/*
+=========================================
+Initialize Router
+=========================================
+*/
 
 
 function initializeRouter() {
 
-    const routes = {
 
-        "/": "pages/home.html",
-
-        "/home": "pages/home.html",
-
-        "/about": "pages/about.html",
-
-        "/industries": "pages/industries.html",
-
-        "/portfolio": "pages/portfolio.html",
-
-        "/support": "pages/support.html",
-
-        "/contact": "pages/contact.html"
-
-    };
+    const app =
+        document.querySelector(
+            "[data-router]"
+        );
 
 
-    handleRoute(routes);
+
+    if (!app) {
+
+        return;
+
+    }
+
+
+
+    handleRoute();
+
 
 
     window.addEventListener(
         "popstate",
-        () => {
-
-            handleRoute(
-                routes
-            );
-
-        }
+        handleRoute
     );
 
 
-    initializeRouterLinks(
-        routes
-    );
+
+    setupRouterLinks();
+
 
 }
 
 
 
 /*
-====================================
+=========================================
 Handle Route
-====================================
+=========================================
 */
 
-async function handleRoute(
-    routes
-) {
+
+async function handleRoute() {
+
 
     const path =
-        window.location.pathname;
+        window.location.pathname
+            .replace(
+                "/bh-rit-product-presentation",
+                ""
+            )
+            .replace(
+                /\/$/,
+                ""
+            )
+        ||
+        "/";
+
 
 
     const page =
-        routes[path] ||
-        "404.html";
+        routes[path];
 
 
-    const container =
+
+    if (!page) {
+
+
+        loadPage(
+            "404.html"
+        );
+
+
+        return;
+
+    }
+
+
+
+    loadPage(
+        page
+    );
+
+
+}
+
+
+
+/*
+=========================================
+Load Page
+=========================================
+*/
+
+
+async function loadPage(
+    page
+) {
+
+
+    const app =
         document.querySelector(
             "[data-router]"
         );
 
 
-    if (!container) return;
+
+    if (!app) {
+
+        return;
+
+    }
+
 
 
     try {
+
 
         const response =
             await fetch(
@@ -86,162 +195,194 @@ async function handleRoute(
             );
 
 
+
         if (!response.ok) {
 
+
             throw new Error(
-                "Page not found"
+                `Page not found: ${page}`
             );
+
 
         }
 
 
-        container.innerHTML =
+
+        const html =
             await response.text();
 
 
+
+        app.innerHTML =
+            html;
+
+
+
         window.scrollTo(
-            0,
-            0
+            {
+                top: 0,
+                behavior: "instant"
+            }
         );
 
 
-        initializePageScripts();
+
+        refreshPageScripts();
 
 
-    } catch (error) {
+
+    }
+
+    catch(error) {
+
 
         console.error(
-            "Router Error:",
+            "Router error:",
             error
         );
 
 
-        container.innerHTML =
-            `
+        app.innerHTML = `
 
-            <section class="section">
+            <section class="error-page">
 
-                <div class="container text-center">
+                <h1>
+                    Page Not Found
+                </h1>
 
-                    <h1>
-                        Page Not Found
-                    </h1>
 
-                    <p>
-                        The requested page could not be loaded.
-                    </p>
-
-                </div>
+                <p>
+                    The requested page could not be loaded.
+                </p>
 
             </section>
 
-            `;
+        `;
+
 
     }
+
 
 }
 
 
 
 /*
-====================================
+=========================================
 Router Links
-====================================
+=========================================
 */
 
-function initializeRouterLinks(
-    routes
-) {
 
-    const links =
-        document.querySelectorAll(
-            "[data-route]"
-        );
+function setupRouterLinks() {
 
 
-    links.forEach(
-        (link) => {
-
-            link.addEventListener(
-                "click",
-                (event) => {
-
-                    const path =
-                        link.dataset.route;
+    document.addEventListener(
+        "click",
+        (event) => {
 
 
-                    if (
-                        routes[path]
-                    ) {
+            const link =
+                event.target.closest(
+                    "a"
+                );
 
-                        event.preventDefault();
 
 
-                        navigate(
-                            path
-                        );
+            if (
+                !link ||
+                link.target === "_blank"
+            ) {
 
-                    }
+                return;
 
-                }
-            );
+            }
+
+
+
+            const url =
+                new URL(
+                    link.href
+                );
+
+
+
+            if (
+                url.origin !==
+                window.location.origin
+            ) {
+
+                return;
+
+            }
+
+
+
+            const path =
+                url.pathname;
+
+
+
+            if (
+                routes[path]
+            ) {
+
+
+                event.preventDefault();
+
+
+
+                navigate(
+                    path
+                );
+
+
+            }
+
 
         }
     );
 
+
 }
 
 
 
 /*
-====================================
+=========================================
 Navigate
-====================================
+=========================================
 */
+
 
 function navigate(
     path
 ) {
 
-    window.history.pushState(
-        {},
+
+    history.pushState(
+        null,
         "",
         path
     );
 
 
-    initializeRouter();
+
+    handleRoute();
+
 
 }
 
 
 
 /*
-====================================
-Page Initialization
-====================================
+=========================================
+Refresh Dynamic Features
+=========================================
 */
 
-function initializePageScripts() {
 
-    if (
-        typeof initializeGallery ===
-        "function"
-    ) {
-
-        initializeGallery();
-
-    }
-
-
-    if (
-        typeof initializeModals ===
-        "function"
-    ) {
-
-        initializeModals();
-
-    }
+function refreshPageScripts() {
 
 
     if (
@@ -249,39 +390,73 @@ function initializePageScripts() {
         "function"
     ) {
 
+
         initializeAnimations();
 
+
     }
+
 
 
     if (
-        typeof initializeNavigation ===
+        typeof initializeGallery ===
         "function"
     ) {
 
-        initializeNavigation();
+
+        initializeGallery();
+
 
     }
+
+
+
+    if (
+        typeof initializeProductBuilder ===
+        "function"
+    ) {
+
+
+        initializeProductBuilder();
+
+
+    }
+
+
+
+    if (
+        typeof initializeScrollEffects ===
+        "function"
+    ) {
+
+
+        initializeScrollEffects();
+
+
+    }
+
 
 }
 
 
 
 /*
-====================================
-404 Redirect
-====================================
+=========================================
+Export
+=========================================
 */
 
-function redirectTo404() {
 
-    window.history.pushState(
-        {},
-        "",
-        "/404.html"
-    );
+window.Router = {
 
 
-    location.reload();
+    navigate,
 
-}
+
+    routes,
+
+
+    load:
+        loadPage
+
+};
