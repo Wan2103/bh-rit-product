@@ -1,60 +1,96 @@
-document.addEventListener("DOMContentLoaded", () => {
+/*
+=========================================
+Product Builder Controller
+Beyond Horizon Technologies
+=========================================
+*/
 
-    initializeProductBuilder();
 
-});
+document.addEventListener(
+    "DOMContentLoaded",
+    () => {
 
+        initializeProductBuilder();
+
+    }
+);
+
+
+
+/*
+=========================================
+Initialize Product Builder
+=========================================
+*/
 
 
 async function initializeProductBuilder() {
 
-    const productContainers =
+
+    const containers =
         document.querySelectorAll(
             "[data-products]"
         );
 
 
-    if (!productContainers.length) return;
+
+    if (!containers.length) {
+
+        return;
+
+    }
+
 
 
     try {
+
 
         const products =
             await loadProducts();
 
 
-        productContainers.forEach(
+
+        containers.forEach(
             (container) => {
+
 
                 renderProducts(
                     container,
                     products
                 );
 
+
             }
         );
 
 
-    } catch (error) {
+    }
+
+    catch(error) {
+
 
         console.error(
             "Failed to load products:",
             error
         );
 
+
     }
+
 
 }
 
 
 
 /*
-====================================
-Load Product Data
-====================================
+=========================================
+Load Products JSON
+=========================================
 */
 
+
 async function loadProducts() {
+
 
     const response =
         await fetch(
@@ -62,37 +98,51 @@ async function loadProducts() {
         );
 
 
+
     if (!response.ok) {
 
+
         throw new Error(
-            "Unable to fetch products"
+            "Unable to load products data"
         );
+
 
     }
 
 
-    return await response.json();
+
+    const data =
+        await response.json();
+
+
+
+    return data.products || data;
+
 
 }
 
 
 
 /*
-====================================
+=========================================
 Render Products
-====================================
+=========================================
 */
+
 
 function renderProducts(
     container,
     products
 ) {
 
+
     container.innerHTML = "";
+
 
 
     products.forEach(
         (product) => {
+
 
             const card =
                 createProductCard(
@@ -100,26 +150,31 @@ function renderProducts(
                 );
 
 
+
             container.appendChild(
                 card
             );
 
+
         }
     );
+
 
 }
 
 
 
 /*
-====================================
+=========================================
 Create Product Card
-====================================
+=========================================
 */
+
 
 function createProductCard(
     product
 ) {
+
 
     const card =
         document.createElement(
@@ -127,13 +182,16 @@ function createProductCard(
         );
 
 
+
     card.className =
         "product-card";
+
 
 
     card.innerHTML = `
 
         <div class="product-card__image">
+
 
             <img
                 src="${product.image}"
@@ -141,44 +199,44 @@ function createProductCard(
                 loading="lazy"
             >
 
+
         </div>
+
 
 
         <div class="product-card__content">
 
-            <span class="product-card__category">
 
-                ${product.category || ""}
-
-            </span>
-
-
-            <h3 class="product-card__title">
+            <h3>
 
                 ${product.name}
 
             </h3>
 
 
-            <p class="product-card__description">
 
-                ${product.description}
+            <p>
+
+                ${product.shortDescription || product.description}
 
             </p>
 
 
+
             <a
-                href="${product.url || "#"}"
+                href="${product.link || '#'}"
                 class="btn btn--primary"
             >
 
-                View Product
+                View Details
 
             </a>
+
 
         </div>
 
     `;
+
 
 
     return card;
@@ -188,14 +246,16 @@ function createProductCard(
 
 
 /*
-====================================
+=========================================
 Product Filter
-====================================
+=========================================
 */
+
 
 function filterProducts(
     category
 ) {
+
 
     const cards =
         document.querySelectorAll(
@@ -203,103 +263,212 @@ function filterProducts(
         );
 
 
+
     cards.forEach(
         (card) => {
 
-            const cardCategory =
+
+            const productCategory =
                 card.dataset.category;
+
 
 
             if (
                 category === "all" ||
-                category === cardCategory
+                productCategory === category
             ) {
 
-                card.style.display =
-                    "block";
 
-            } else {
+                card.style.display =
+                    "";
+
+
+            }
+
+            else {
+
 
                 card.style.display =
                     "none";
 
+
             }
+
 
         }
     );
+
 
 }
 
 
 
 /*
-====================================
-Search Products
-====================================
+=========================================
+Product Search
+=========================================
 */
+
 
 function searchProducts(
     keyword
 ) {
 
+
     const cards =
         document.querySelectorAll(
             ".product-card"
         );
+
 
 
     const search =
         keyword.toLowerCase();
 
 
+
     cards.forEach(
         (card) => {
+
 
             const text =
                 card.textContent
                     .toLowerCase();
 
 
-            if (
+
+            card.style.display =
                 text.includes(search)
-            ) {
+                ?
+                ""
+                :
+                "none";
 
-                card.style.display =
-                    "block";
-
-            } else {
-
-                card.style.display =
-                    "none";
-
-            }
 
         }
     );
+
 
 }
 
 
 
 /*
-====================================
-Product Modal Preview
-====================================
+=========================================
+Product Detail Builder
+=========================================
 */
 
-function previewProduct(
+
+function buildProductDetail(
     product
 ) {
 
-    if (
-        typeof openProductModal ===
-        "function"
-    ) {
 
-        openProductModal(
-            product
+    const container =
+        document.querySelector(
+            "[data-product-detail]"
         );
+
+
+
+    if (!container) {
+
+        return;
 
     }
 
+
+
+    container.innerHTML = `
+
+
+        <section class="product-detail">
+
+
+            <img
+                src="${product.image}"
+                alt="${product.name}"
+            >
+
+
+
+            <div>
+
+
+                <h1>
+                    ${product.name}
+                </h1>
+
+
+
+                <p>
+                    ${product.description}
+                </p>
+
+
+
+                ${
+                    product.brochure
+                    ?
+                    `
+                    <a 
+                        href="${product.brochure}"
+                        class="btn btn--outline"
+                        target="_blank"
+                    >
+                        Download Brochure
+                    </a>
+                    `
+                    :
+                    ""
+                }
+
+
+            </div>
+
+
+        </section>
+
+
+    `;
+
+
 }
+
+
+
+/*
+=========================================
+Export
+=========================================
+*/
+
+
+window.ProductBuilder = {
+
+
+    initialize:
+        initializeProductBuilder,
+
+
+    load:
+        loadProducts,
+
+
+    render:
+        renderProducts,
+
+
+    filter:
+        filterProducts,
+
+
+    search:
+        searchProducts,
+
+
+    detail:
+        buildProductDetail
+
+};
