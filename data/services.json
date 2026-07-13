@@ -1,94 +1,119 @@
 {
-  "services": [
-    {
-      "id": "robotic-inspection",
-      "title": "Robotic Inspection Solutions",
-      "description": "Advanced robotic systems designed to perform inspections safely and efficiently in hazardous, confined, or difficult-to-access environments.",
-      "features": [
-        "Remote operation",
-        "Real-time monitoring",
-        "High-resolution imaging",
-        "Reduced operational risk"
-      ],
-      "applications": [
-        "Industrial facilities",
-        "Confined spaces",
-        "Pipelines",
-        "Critical infrastructure"
-      ],
-      "image": "assets/images/services/robotic-inspection.webp"
-    },
-    {
-      "id": "uav-inspection",
-      "title": "UAV Inspection & Surveying",
-      "description": "Professional drone solutions for aerial inspection, mapping, surveying, monitoring, and asset management across various industries.",
-      "features": [
-        "Aerial imaging",
-        "Thermal inspection",
-        "Photogrammetry",
-        "High-precision mapping"
-      ],
-      "applications": [
-        "Construction",
-        "Power utilities",
-        "Oil & Gas",
-        "Infrastructure"
-      ],
-      "image": "assets/images/services/uav-inspection.webp"
-    },
-    {
-      "id": "3d-mapping",
-      "title": "3D Mapping & Digital Twin",
-      "description": "Capture accurate spatial data and generate detailed 3D models for engineering, inspection, planning, and digital asset management.",
-      "features": [
-        "LiDAR scanning",
-        "Point cloud generation",
-        "Digital twin creation",
-        "Accurate measurements"
-      ],
-      "applications": [
-        "Engineering",
-        "Construction",
-        "Facility management",
-        "Infrastructure planning"
-      ],
-      "image": "assets/images/services/3d-mapping.webp"
-    },
-    {
-      "id": "inspection-consultancy",
-      "title": "Inspection Consultancy",
-      "description": "Professional consultation services to help organizations identify suitable inspection technologies and optimize inspection workflows.",
-      "features": [
-        "Project consultation",
-        "Technology recommendation",
-        "Workflow optimization",
-        "Solution planning"
-      ],
-      "applications": [
-        "Industrial projects",
-        "Infrastructure inspection",
-        "Asset management",
-        "Operational planning"
-      ],
-      "image": "assets/images/services/consultancy.webp"
-    },
-    {
-      "id": "training-support",
-      "title": "Training & Technical Support",
-      "description": "Comprehensive product training and after-sales technical support to ensure customers maximize the value of their inspection solutions.",
-      "features": [
-        "Operator training",
-        "Technical guidance",
-        "Maintenance support",
-        "Product assistance"
-      ],
-      "applications": [
-        "Equipment onboarding",
-        "Operator certification",
-        "Technical troubleshooting",
-        "Routine maintenance"
-      ],
-      "image": "assets/images/services/training-support.webp"
-    }
-  ]
+    "services": [
+        {
+            "id": "remote-inspection",
+            "title": "Remote Inspection Solutions",
+
+            "icon": "inspection.svg",
+
+            "description": "Advanced inspection technologies that allow safer and more efficient assessment of assets in challenging environments.",
+
+            "capabilities": [
+                "Remote visual inspection",
+                "Robotic inspection systems",
+                "UAV-based inspection",
+                "Confined space inspection",
+                "Asset condition assessment"
+            ],
+
+            "industries": [
+                "Construction",
+                "Infrastructure",
+                "Oil & Gas"
+            ]
+        },
+
+
+        {
+            "id": "uav-solutions",
+            "title": "UAV & Aerial Solutions",
+
+            "icon": "mapping.svg",
+
+            "description": "Professional UAV solutions for aerial data capture, inspection, surveying and digital documentation.",
+
+            "capabilities": [
+                "Aerial inspection",
+                "Survey mapping",
+                "Progress monitoring",
+                "High-resolution imaging",
+                "Data collection"
+            ],
+
+            "industries": [
+                "Construction",
+                "Infrastructure",
+                "Research"
+            ]
+        },
+
+
+        {
+            "id": "3d-mapping",
+            "title": "3D Mapping & Digital Modelling",
+
+            "icon": "mapping.svg",
+
+            "description": "Accurate spatial data capture using LiDAR and 3D scanning technologies to create digital representations of physical assets.",
+
+            "capabilities": [
+                "LiDAR scanning",
+                "3D modelling",
+                "Point cloud processing",
+                "Digital documentation",
+                "Spatial analysis"
+            ],
+
+            "industries": [
+                "Construction",
+                "Infrastructure",
+                "Education"
+            ]
+        },
+
+
+        {
+            "id": "asset-intelligence",
+            "title": "Asset Intelligence Solutions",
+
+            "icon": "analytics.svg",
+
+            "description": "Transforming inspection data into meaningful insights to support smarter asset management decisions.",
+
+            "capabilities": [
+                "Data analysis",
+                "Digital asset records",
+                "Condition monitoring",
+                "Reporting solutions",
+                "Decision support"
+            ],
+
+            "industries": [
+                "Infrastructure",
+                "Industrial",
+                "Government"
+            ]
+        },
+
+
+        {
+            "id": "technology-consultation",
+            "title": "Technology Consultation",
+
+            "icon": "robotics.svg",
+
+            "description": "Providing technical consultation to identify suitable technology solutions based on operational requirements.",
+
+            "capabilities": [
+                "Requirement assessment",
+                "Solution recommendation",
+                "Technology evaluation",
+                "Implementation planning"
+            ],
+
+            "industries": [
+                "All Industries"
+            ]
+        }
+    ]
 }
