@@ -63,6 +63,7 @@ const routes = {
 
 
 
+
 /*
 =========================================
 Initialize Router
@@ -75,12 +76,16 @@ function initializeRouter() {
 
     const app =
         document.querySelector(
-            "[data-router]"
+            "#page-container"
         );
 
 
 
     if (!app) {
+
+        console.error(
+            "Router container not found"
+        );
 
         return;
 
@@ -106,6 +111,8 @@ function initializeRouter() {
 
 
 
+
+
 /*
 =========================================
 Handle Route
@@ -116,16 +123,29 @@ Handle Route
 async function handleRoute() {
 
 
-    const path =
-        window.location.pathname
-            .replace(
-                "/bh-rit-product-presentation",
-                ""
-            )
-            .replace(
-                /\/$/,
-                ""
-            )
+    let path =
+        window.location.pathname;
+
+
+
+    /*
+    Remove GitHub Pages base path
+    */
+
+
+    path =
+        path.replace(
+            "/bh-rit-product",
+            ""
+        );
+
+
+
+    path =
+        path.replace(
+            /\/$/,
+            ""
+        )
         ||
         "/";
 
@@ -140,7 +160,7 @@ async function handleRoute() {
 
 
         loadPage(
-            "404.html"
+            "pages/home.html"
         );
 
 
@@ -159,6 +179,8 @@ async function handleRoute() {
 
 
 
+
+
 /*
 =========================================
 Load Page
@@ -173,7 +195,7 @@ async function loadPage(
 
     const app =
         document.querySelector(
-            "[data-router]"
+            "#page-container"
         );
 
 
@@ -208,20 +230,15 @@ async function loadPage(
 
 
 
-        const html =
-            await response.text();
-
-
-
         app.innerHTML =
-            html;
+            await response.text();
 
 
 
         window.scrollTo(
             {
                 top: 0,
-                behavior: "instant"
+                behavior: "smooth"
             }
         );
 
@@ -232,6 +249,7 @@ async function loadPage(
 
 
     }
+
 
     catch(error) {
 
@@ -250,9 +268,8 @@ async function loadPage(
                     Page Not Found
                 </h1>
 
-
                 <p>
-                    The requested page could not be loaded.
+                    Unable to load requested page.
                 </p>
 
             </section>
@@ -264,6 +281,8 @@ async function loadPage(
 
 
 }
+
+
 
 
 
@@ -318,8 +337,18 @@ function setupRouterLinks() {
 
 
 
-            const path =
+            let path =
                 url.pathname;
+
+
+
+            path =
+                path.replace(
+                    "/bh-rit-product",
+                    ""
+                )
+                ||
+                "/";
 
 
 
@@ -348,6 +377,7 @@ function setupRouterLinks() {
 
 
 
+
 /*
 =========================================
 Navigate
@@ -363,7 +393,7 @@ function navigate(
     history.pushState(
         null,
         "",
-        path
+        "/bh-rit-product" + path
     );
 
 
@@ -372,6 +402,7 @@ function navigate(
 
 
 }
+
 
 
 
@@ -390,9 +421,7 @@ function refreshPageScripts() {
         "function"
     ) {
 
-
         initializeAnimations();
-
 
     }
 
@@ -403,9 +432,7 @@ function refreshPageScripts() {
         "function"
     ) {
 
-
         initializeGallery();
-
 
     }
 
@@ -416,9 +443,7 @@ function refreshPageScripts() {
         "function"
     ) {
 
-
         initializeProductBuilder();
-
 
     }
 
@@ -429,9 +454,7 @@ function refreshPageScripts() {
         "function"
     ) {
 
-
         initializeScrollEffects();
-
 
     }
 
@@ -440,21 +463,13 @@ function refreshPageScripts() {
 
 
 
-/*
-=========================================
-Export
-=========================================
-*/
-
 
 window.Router = {
 
 
     navigate,
 
-
     routes,
-
 
     load:
         loadPage
