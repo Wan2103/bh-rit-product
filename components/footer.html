@@ -1,111 +1,252 @@
+<!--
+    footer.html
+
+    Reusable website footer component
+
+    Dynamic values:
+    {{company_name}}
+    {{address}}
+    {{phone}}
+    {{email}}
+    {{social_links}}
+-->
+
+
 <footer class="footer">
+
+
     <div class="footer__container">
 
-        <div class="footer__brand">
-            <img 
-                src="assets/images/company/logo.webp" 
-                alt="BH RIT Logo" 
-                class="footer__logo"
-            >
+
+        <!-- Company Information -->
+        <div class="footer__column footer__company">
+
+
+            <a href="index.html" class="footer__logo">
+
+
+                <img
+                    src="assets/images/company/logo-white.webp"
+                    alt="{{company_name}} Logo"
+                    loading="lazy"
+                >
+
+
+            </a>
+
+
 
             <p class="footer__description">
-                Advanced robotics, inspection, UAV, and intelligent technology solutions
-                for modern industrial applications.
+
+                Delivering intelligent asset management
+                solutions through advanced inspection,
+                mapping, robotics, and digital technologies.
+
             </p>
+
+
         </div>
 
 
-        <div class="footer__links">
-
-            <div class="footer__column">
-                <h3 class="footer__title">
-                    Company
-                </h3>
-
-                <ul class="footer__list">
-                    <li>
-                        <a href="pages/about.html">
-                            About Us
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="pages/portfolio.html">
-                            Portfolio
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="pages/contact.html">
-                            Contact
-                        </a>
-                    </li>
-                </ul>
-            </div>
 
 
-            <div class="footer__column">
-                <h3 class="footer__title">
-                    Solutions
-                </h3>
-
-                <ul class="footer__list">
-                    <li>
-                        <a href="pages/industries.html">
-                            Industries
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="#products">
-                            Products
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="pages/support.html">
-                            Support
-                        </a>
-                    </li>
-                </ul>
-            </div>
+        <!-- Navigation Links -->
+        <div class="footer__column">
 
 
-            <div class="footer__column">
-                <h3 class="footer__title">
-                    Contact
-                </h3>
+            <h3 class="footer__title">
 
-                <ul class="footer__list footer__contact">
-                    <li>
-                        <a href="mailto:info@beyondhorizon.com.my">
-                            info@beyondhorizon.com.my
-                        </a>
-                    </li>
+                Quick Links
 
-                    <li>
-                        <a href="https://www.beyondhorizon.com.my">
-                            www.beyondhorizon.com.my
-                        </a>
-                    </li>
+            </h3>
 
-                    <li>
-                        Malaysia
-                    </li>
-                </ul>
-            </div>
+
+
+            <ul class="footer__links">
+
+
+                <li>
+
+                    <a href="pages/home.html">
+                        Home
+                    </a>
+
+                </li>
+
+
+                <li>
+
+                    <a href="pages/about.html">
+                        About Us
+                    </a>
+
+                </li>
+
+
+                <li>
+
+                    <a href="pages/products.html">
+                        Products
+                    </a>
+
+                </li>
+
+
+                <li>
+
+                    <a href="pages/industries.html">
+                        Industries
+                    </a>
+
+                </li>
+
+
+                <li>
+
+                    <a href="pages/contact.html">
+                        Contact
+                    </a>
+
+                </li>
+
+
+            </ul>
+
 
         </div>
+
+
+
+
+        <!-- Support Links -->
+        <div class="footer__column">
+
+
+            <h3 class="footer__title">
+
+                Support
+
+            </h3>
+
+
+
+            <ul class="footer__links">
+
+
+                <li>
+
+                    <a href="pages/support.html">
+
+                        Documentation
+
+                    </a>
+
+                </li>
+
+
+                <li>
+
+                    <a href="pages/support.html">
+
+                        Downloads
+
+                    </a>
+
+                </li>
+
+
+                <li>
+
+                    <a href="pages/support.html">
+
+                        FAQ
+
+                    </a>
+
+                </li>
+
+
+            </ul>
+
+
+        </div>
+
+
+
+
+        <!-- Contact Information -->
+        <div class="footer__column">
+
+
+            <h3 class="footer__title">
+
+                Contact
+
+            </h3>
+
+
+
+            <ul class="footer__contact">
+
+
+                <li>
+
+                    {{address}}
+
+                </li>
+
+
+
+                <li>
+
+                    {{phone}}
+
+                </li>
+
+
+
+                <li>
+
+                    {{email}}
+
+                </li>
+
+
+            </ul>
+
+
+
+            <div class="footer__social">
+
+
+                {{social_links}}
+
+
+            </div>
+
+
+        </div>
+
 
     </div>
 
+
+
+
+    <!-- Bottom Footer -->
 
     <div class="footer__bottom">
 
+
         <p>
-            © 2026 Beyond Horizon Technologies Sdn Bhd. All rights reserved.
+
+            © {{year}} {{company_name}}.
+            All Rights Reserved.
+
         </p>
 
+
     </div>
+
 
 </footer>
