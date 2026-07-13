@@ -1,24 +1,42 @@
 {
-  "name": "Beyond Horizon Technologies - RIT Product Presentation",
-  "short_name": "BH RIT",
-  "description": "Interactive product presentation platform for Beyond Horizon Technologies Sdn. Bhd.",
-  "start_url": "./",
-  "scope": "./",
-  "display": "standalone",
-  "orientation": "landscape-primary",
-  "background_color": "#0B1220",
-  "theme_color": "#0056B3",
-  "lang": "en",
-  "categories": [
-    "business",
-    "technology",
-    "productivity"
-  ],
-  "icons": [
-    {
-      "src": "favicon.ico",
-      "sizes": "16x16 32x32 48x48",
-      "type": "image/x-icon"
-    }
-  ]
+    "name": "Beyond Horizon Technologies",
+    "short_name": "BH Technologies",
+
+    "description": "Intelligent asset management solutions powered by UAV, robotics, LiDAR, 3D mapping and advanced inspection technologies.",
+
+    "start_url": "/index.html",
+
+    "display": "standalone",
+
+    "background_color": "#0b132b",
+
+    "theme_color": "#0b132b",
+
+    "orientation": "portrait-primary",
+
+
+    "icons": [
+        {
+            "src": "assets/images/company/logo-icon.webp",
+            "sizes": "192x192",
+            "type": "image/webp"
+        },
+        {
+            "src": "assets/images/company/logo-icon.webp",
+            "sizes": "512x512",
+            "type": "image/webp"
+        }
+    ],
+
+
+    "categories": [
+        "business",
+        "technology",
+        "engineering"
+    ],
+
+
+    "lang": "en",
+
+    "dir": "ltr"
 }
