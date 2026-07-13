@@ -1,241 +1,512 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
+
     <meta charset="UTF-8">
+
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Support | BH RIT</title>
+
+    <title>Products | Beyond Horizon Technologies</title>
+
+
+    <meta
+        name="description"
+        content="Explore Beyond Horizon Technologies products including UAV, robotics, inspection, mapping and intelligent asset management solutions."
+    >
+
+
+
+    <!-- Favicon -->
 
     <link rel="icon" href="../favicon.ico">
-    <link rel="stylesheet" href="../css/style.css">
+
+
+
+    <!-- Styles -->
+
+    <link rel="stylesheet" href="../assets/css/style.css">
+
+
 </head>
+
+
 
 <body>
 
-    <!-- Header -->
-    <header>
-        <nav>
-            <a href="home.html" class="logo">
-                BH RIT
-            </a>
 
-            <ul class="nav-links">
-                <li><a href="home.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="products.html">Products</a></li>
-                <li><a href="industries.html">Industries</a></li>
-                <li><a href="portfolio.html">Portfolio</a></li>
-                <li><a href="support.html" class="active">Support</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+
+    <!-- Loading -->
+
+    <div data-component="loading"></div>
 
 
 
-    <!-- Hero Section -->
-    <section class="page-hero">
 
-        <div class="container">
 
-            <h1>
-                Customer Support
-            </h1>
+    <!-- Navigation -->
 
-            <p>
-                Reliable assistance, technical guidance, and service support
-                to help you get the most from your technology solutions.
-            </p>
-
-        </div>
-
-    </section>
+    <header data-component="navbar"></header>
 
 
 
-    <!-- Support Services -->
-    <section class="support-section">
-
-        <div class="container">
 
 
-            <div class="cards">
 
 
-                <div class="card">
+    <main>
 
-                    <h3>
-                        Technical Support
-                    </h3>
 
-                    <p>
-                        Our technical team provides assistance with
-                        product setup, troubleshooting, and operational
-                        guidance.
+
+
+
+        <!-- Page Hero -->
+
+        <section class="hero hero--inner">
+
+
+            <div class="container">
+
+
+
+                <div class="hero__content">
+
+
+                    <span class="hero__subtitle">
+
+                        Technology Solutions
+
+                    </span>
+
+
+
+
+                    <h1 class="hero__title">
+
+                        Intelligent Products For Modern Asset Management
+
+                    </h1>
+
+
+
+
+                    <p class="hero__description">
+
+                        Discover our range of advanced inspection,
+                        robotics, UAV and digital mapping technologies
+                        designed to improve asset visibility and
+                        operational efficiency.
+
                     </p>
+
+
 
                 </div>
 
 
 
-                <div class="card">
+            </div>
 
-                    <h3>
-                        Product Consultation
-                    </h3>
 
-                    <p>
-                        Get expert advice to identify the right solution
-                        based on your project requirements and workflow.
-                    </p>
+        </section>
+
+
+
+
+
+
+
+
+
+        <!-- Product Category Filter -->
+
+        <section class="section">
+
+
+            <div class="container">
+
+
+
+                <div class="products-filter">
+
+
+
+                    <button
+                        class="products-filter__button active"
+                        data-filter="all"
+                    >
+
+                        All Products
+
+                    </button>
+
+
+
+
+                    <button
+                        class="products-filter__button"
+                        data-filter="uav"
+                    >
+
+                        UAV Solutions
+
+                    </button>
+
+
+
+
+
+                    <button
+                        class="products-filter__button"
+                        data-filter="robotics"
+                    >
+
+                        Robotics
+
+                    </button>
+
+
+
+
+
+                    <button
+                        class="products-filter__button"
+                        data-filter="inspection"
+                    >
+
+                        Inspection
+
+                    </button>
+
+
+
+
+
+                    <button
+                        class="products-filter__button"
+                        data-filter="mapping"
+                    >
+
+                        Mapping
+
+                    </button>
+
+
+
 
                 </div>
 
 
 
-                <div class="card">
 
-                    <h3>
-                        Training & Demonstration
-                    </h3>
+            </div>
 
-                    <p>
-                        We provide product demonstrations and training
-                        sessions to ensure effective technology adoption.
-                    </p>
+
+        </section>
+
+
+
+
+
+
+
+
+
+        <!-- Product Grid -->
+
+        <section class="section">
+
+
+            <div class="container">
+
+
+
+                <div
+                    class="products-grid"
+                    data-product-container
+                >
+
+
+
+                    <!-- Products loaded dynamically -->
+
+
 
                 </div>
 
 
 
-                <div class="card">
+            </div>
 
-                    <h3>
-                        Maintenance & Service
-                    </h3>
+
+        </section>
+
+
+
+
+
+
+
+
+
+        <!-- Featured Technology -->
+
+        <section class="section section--dark">
+
+
+            <div class="container">
+
+
+
+                <div class="section__header">
+
+
+                    <h2>
+
+                        Complete Asset Intelligence Ecosystem
+
+                    </h2>
+
+
+
 
                     <p>
-                        Supporting equipment performance through
-                        maintenance guidance and service coordination.
+
+                        Our solutions combine advanced hardware,
+                        intelligent software and data-driven
+                        workflows.
+
                     </p>
+
+
 
                 </div>
 
 
+
+
+
+
+
+
+                <div class="features-grid">
+
+
+
+
+
+                    <div class="feature-card">
+
+
+                        <img
+                            src="../assets/icons/features/inspection.svg"
+                            alt="Inspection"
+                        >
+
+
+                        <h3>
+
+                            Remote Inspection
+
+                        </h3>
+
+
+                        <p>
+
+                            Reduce inspection risks through advanced
+                            remote technologies.
+
+                        </p>
+
+
+                    </div>
+
+
+
+
+
+
+                    <div class="feature-card">
+
+
+                        <img
+                            src="../assets/icons/features/robotics.svg"
+                            alt="Automation"
+                        >
+
+
+                        <h3>
+
+                            Autonomous Systems
+
+                        </h3>
+
+
+                        <p>
+
+                            Improve productivity using robotics and
+                            automated solutions.
+
+                        </p>
+
+
+                    </div>
+
+
+
+
+
+
+
+                    <div class="feature-card">
+
+
+                        <img
+                            src="../assets/icons/features/mapping.svg"
+                            alt="Mapping"
+                        >
+
+
+                        <h3>
+
+                            Digital Data Capture
+
+                        </h3>
+
+
+                        <p>
+
+                            Generate accurate spatial data through
+                            LiDAR and 3D mapping technologies.
+
+                        </p>
+
+
+                    </div>
+
+
+
+
+
+
+                </div>
+
+
+
+
             </div>
 
 
-        </div>
-
-    </section>
+        </section>
 
 
 
 
-    <!-- FAQ Section -->
-    <section class="faq-section">
-
-        <div class="container">
-
-            <h2>
-                Frequently Asked Questions
-            </h2>
 
 
-            <div class="faq-item">
 
-                <h3>
-                    How can I request technical support?
-                </h3>
 
-                <p>
-                    Contact our support team through email or the contact
-                    form, and we will assist with your request.
-                </p>
+        <!-- Product Enquiry CTA -->
+
+        <section class="section">
+
+
+            <div class="container">
+
+
+
+                <div class="cta">
+
+
+
+                    <h2>
+
+                        Need A Custom Technology Solution?
+
+                    </h2>
+
+
+
+
+                    <p>
+
+                        Contact our team to discuss the best solution
+                        for your asset management requirements.
+
+                    </p>
+
+
+
+
+                    <a
+                        href="contact.html"
+                        class="btn btn--primary"
+                    >
+
+                        Request Consultation
+
+                    </a>
+
+
+
+
+                </div>
+
+
 
             </div>
 
 
-
-            <div class="faq-item">
-
-                <h3>
-                    Do you provide product training?
-                </h3>
-
-                <p>
-                    Yes. We provide product demonstrations and training
-                    sessions based on customer requirements.
-                </p>
-
-            </div>
-
-
-
-            <div class="faq-item">
-
-                <h3>
-                    Can you recommend a solution for my project?
-                </h3>
-
-                <p>
-                    Our team can review your requirements and suggest
-                    suitable technology solutions.
-                </p>
-
-            </div>
-
-
-        </div>
-
-    </section>
+        </section>
 
 
 
 
-    <!-- Support CTA -->
-    <section class="cta-section">
-
-        <div class="container">
-
-            <h2>
-                Need Assistance?
-            </h2>
-
-            <p>
-                Our team is ready to help you with product enquiries,
-                technical support, and solution planning.
-            </p>
 
 
-            <a href="contact.html" class="btn">
-                Contact Support
-            </a>
+    </main>
 
 
-        </div>
 
-    </section>
 
 
 
 
     <!-- Footer -->
-    <footer>
 
-        <div class="container">
-
-            <p>
-                © 2026 Beyond Horizon Technologies. All Rights Reserved.
-            </p>
-
-        </div>
-
-    </footer>
+    <footer data-component="footer"></footer>
 
 
 
-    <script src="../js/main.js"></script>
+
+
+
+
+    <!-- Scripts -->
+
+    <script src="../assets/js/utils.js"></script>
+
+    <script src="../assets/js/loader.js"></script>
+
+    <script src="../assets/js/navigation.js"></script>
+
+    <script src="../assets/js/productBuilder.js"></script>
+
+    <script src="../assets/js/search.js"></script>
+
+    <script src="../assets/js/modal.js"></script>
+
+    <script src="../assets/js/animation.js"></script>
+
+    <script src="../assets/js/theme.js"></script>
+
+    <script src="../assets/js/app.js"></script>
+
+
 
 </body>
+
 </html>
