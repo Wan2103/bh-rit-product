@@ -3,8 +3,10 @@
         {
             "id": "construction",
             "name": "Construction",
-            "icon": "construction.svg",
-            "image": "construction.webp",
+
+            "icon": "assets/images/industries/construction.svg",
+
+            "image": "assets/images/industries/construction.webp",
 
             "description": "Supporting construction projects with intelligent technology solutions for monitoring, documentation and progress tracking.",
 
@@ -28,8 +30,10 @@
         {
             "id": "infrastructure",
             "name": "Infrastructure",
-            "icon": "infrastructure.svg",
-            "image": "infrastructure.webp",
+
+            "icon": "assets/images/industries/infrastructure.svg",
+
+            "image": "assets/images/industries/infrastructure.webp",
 
             "description": "Improving infrastructure management through safer inspection methods, accurate data capture and intelligent monitoring.",
 
@@ -53,8 +57,10 @@
         {
             "id": "oil-gas",
             "name": "Oil & Gas",
-            "icon": "oil-gas.svg",
-            "image": "oil-gas.webp",
+
+            "icon": "assets/images/industries/oil-gas.svg",
+
+            "image": "assets/images/industries/oil-gas.webp",
 
             "description": "Providing advanced inspection technologies for challenging environments where safety and efficiency are critical.",
 
@@ -78,8 +84,10 @@
         {
             "id": "education",
             "name": "Education & Research",
-            "icon": "education.svg",
-            "image": "education.webp",
+
+            "icon": "assets/images/industries/education.svg",
+
+            "image": "assets/images/industries/education.webp",
 
             "description": "Supporting universities and research institutions with advanced technology platforms for learning, innovation and experimentation.",
 
