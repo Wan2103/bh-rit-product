@@ -1,380 +1,333 @@
+ /*
+ =========================================
+ Responsive Styles
+ Beyond Horizon Technologies
+=========================================
+*/
+
+
+/* =========================================
+   Large Screens
+========================================= */
+
+
 @media (max-width: 1200px) {
-
-    :root {
-
-        --container-width: 95%;
-
-    }
-
-
-    .hero__title {
-
-        font-size: 3.5rem;
-
-    }
-
-
-    .grid--4 {
-
-        grid-template-columns: repeat(3, 1fr);
-
-    }
-
-
-    .footer-grid {
-
-        grid-template-columns: repeat(2, 1fr);
-
-    }
-
-}
-
-
-/* Tablet */
-
-@media (max-width: 992px) {
-
-
-    .navbar__menu {
-
-        display: none;
-
-    }
-
-
-    .navbar__toggle {
-
-        display: flex;
-
-    }
-
-
-    .hero__container {
-
-        grid-template-columns: 1fr;
-
-        text-align: center;
-
-    }
-
-
-    .hero__content {
-
-        margin: 0 auto;
-
-    }
-
-
-    .hero__actions {
-
-        justify-content: center;
-
-    }
-
-
-    .hero__media {
-
-        margin-top: 2rem;
-
-    }
-
-
-    .two-column {
-
-        grid-template-columns: 1fr;
-
-        gap: 2rem;
-
-    }
-
-
-    .grid--3 {
-
-        grid-template-columns: repeat(2, 1fr);
-
-    }
-
-
-    .grid--4 {
-
-        grid-template-columns: repeat(2, 1fr);
-
-    }
-
-
-    .products__grid {
-
-        grid-template-columns: repeat(2, 1fr);
-
-    }
-
-
-    .product-detail__hero {
-
-        grid-template-columns: 1fr;
-
-    }
-
-
-    .layout-with-sidebar {
-
-        grid-template-columns: 1fr;
-
-    }
-
-
-    .sidebar {
-
-        display: none;
-
-    }
-
-
-    .gallery__grid {
-
-        grid-template-columns: repeat(3, 1fr);
-
-    }
-
-}
-
-
-/* Mobile */
-
-@media (max-width: 768px) {
-
-
-    :root {
-
-        --section-padding: 3rem 0;
-
-    }
 
 
     .container {
 
-        padding-left: 1rem;
+        width:
 
-        padding-right: 1rem;
-
-    }
-
-
-    .hero {
-
-        min-height: auto;
+            min(90%, 1100px);
 
     }
 
 
-    .hero__container {
 
-        padding: 3rem 1rem;
+    .hero-layout {
 
-    }
+        gap:
 
-
-    .hero__title {
-
-        font-size: 2.2rem;
+            40px;
 
     }
 
 
-    .hero__description {
-
-        font-size: 1rem;
-
-    }
-
-
-    .hero__actions {
-
-        flex-direction: column;
-
-        width: 100%;
-
-    }
-
-
-    .hero__actions .btn {
-
-        width: 100%;
-
-    }
-
-
-    .grid--2,
-
-    .grid--3,
-
-    .grid--4,
 
     .products__grid {
 
-        grid-template-columns: 1fr;
+        grid-template-columns:
+
+            repeat(3, 1fr);
 
     }
 
-
-    .product-card__image {
-
-        height: 220px;
-
-    }
-
-
-    .product-detail__image {
-
-        height: 300px;
-
-    }
-
-
-    .product-features__grid {
-
-        grid-template-columns: 1fr;
-
-    }
-
-
-    .gallery__grid {
-
-        grid-template-columns: repeat(2, 1fr);
-
-    }
-
-
-    .gallery__item--large {
-
-        grid-column: span 1;
-
-        grid-row: span 1;
-
-    }
-
-
-    .footer-grid {
-
-        grid-template-columns: 1fr;
-
-    }
-
-
-    .modal__container {
-
-        width: 95%;
-
-    }
 
 }
 
 
-/* Small Mobile */
 
-@media (max-width: 480px) {
+/* =========================================
+   Tablets
+========================================= */
+
+
+@media (max-width: 992px) {
 
 
     html {
 
-        font-size: 14px;
+        font-size:
+
+            15px;
 
     }
 
 
-    .navbar__logo img {
 
-        height: 40px;
+    .hero-layout {
 
-    }
+        grid-template-columns:
 
+            1fr;
 
-    .hero__title {
+        text-align:
 
-        font-size: 1.8rem;
-
-    }
-
-
-    .section__title {
-
-        font-size: 1.6rem;
+            center;
 
     }
 
 
-    .gallery__grid {
 
-        grid-template-columns: 1fr;
+    .hero__media {
 
-    }
+        order:
 
-
-    .product-documents {
-
-        flex-direction: column;
+            -1;
 
     }
 
 
-    .product-documents .btn {
 
-        width: 100%;
+    .hero__actions {
+
+        justify-content:
+
+            center;
+
+    }
+
+
+
+    .products__grid {
+
+        grid-template-columns:
+
+            repeat(2, 1fr);
 
     }
 
 
-    .btn {
 
-        padding: 0.75rem 1.2rem;
+    .section {
+
+        padding:
+
+            70px 0;
 
     }
+
+
+
+    .navbar__menu {
+
+        display:
+
+            none;
+
+    }
+
+
+
+    .navbar__toggle {
+
+        display:
+
+            flex;
+
+    }
+
 
 }
 
 
-/* Landscape Mobile */
 
-@media (max-height: 600px) and (orientation: landscape) {
+/* =========================================
+   Mobile Devices
+========================================= */
+
+
+@media (max-width: 768px) {
+
+
+    html {
+
+        font-size:
+
+            14px;
+
+    }
+
+
+
+    .container {
+
+        width:
+
+            92%;
+
+    }
+
 
 
     .hero {
 
-        min-height: 100vh;
+        padding:
+
+            80px 0 50px;
 
     }
 
 
-    .hero__container {
 
-        padding-top: 2rem;
+    .hero__title {
 
-        padding-bottom: 2rem;
+        font-size:
+
+            2.2rem;
 
     }
+
+
+
+    .hero__description {
+
+        font-size:
+
+            1rem;
+
+    }
+
+
+
+    .hero__actions {
+
+        flex-direction:
+
+            column;
+
+        width:
+
+            100%;
+
+    }
+
+
+
+    .hero__actions .btn {
+
+        width:
+
+            100%;
+
+    }
+
+
+
+    .products__grid {
+
+        grid-template-columns:
+
+            1fr;
+
+    }
+
+
+
+    .section {
+
+        padding:
+
+            50px 0;
+
+    }
+
+
+
+    .section__title {
+
+        font-size:
+
+            1.8rem;
+
+    }
+
+
+
+    .modal__content {
+
+        width:
+
+            95%;
+
+        padding:
+
+            20px;
+
+    }
+
+
 
 }
 
 
-/* Reduced Motion */
 
-@media (prefers-reduced-motion: reduce) {
+/* =========================================
+   Small Mobile
+========================================= */
 
 
-    *,
+@media (max-width: 480px) {
 
-    *::before,
 
-    *::after {
+    .hero__title {
 
-        animation-duration: 0.01ms !important;
+        font-size:
 
-        animation-iteration-count: 1 !important;
-
-        scroll-behavior: auto !important;
-
-        transition-duration: 0.01ms !important;
+            1.8rem;
 
     }
+
+
+
+    .hero__subtitle {
+
+        font-size:
+
+            0.8rem;
+
+    }
+
+
+
+    .btn {
+
+        padding:
+
+            12px 20px;
+
+    }
+
+
+
+    .product-card {
+
+        padding:
+
+            15px;
+
+    }
+
+
+
+    .navbar {
+
+        padding:
+
+            15px 0;
+
+    }
+
+
 
 }
