@@ -1,232 +1,637 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
+
     <meta charset="UTF-8">
+
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Industries | BH RIT</title>
+
+    <title>Industries | Beyond Horizon Technologies</title>
+
+
+    <meta
+        name="description"
+        content="Explore industries supported by Beyond Horizon Technologies including construction, infrastructure, education and oil & gas."
+    >
+
+
+
+    <!-- Favicon -->
 
     <link rel="icon" href="../favicon.ico">
-    <link rel="stylesheet" href="../css/style.css">
+
+
+
+    <!-- Styles -->
+
+    <link rel="stylesheet" href="../assets/css/style.css">
+
+
 </head>
+
+
 
 <body>
 
-    <!-- Header -->
-    <header>
-        <nav>
-            <a href="home.html" class="logo">
-                BH RIT
-            </a>
-
-            <ul class="nav-links">
-                <li><a href="home.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="products.html">Products</a></li>
-                <li><a href="industries.html" class="active">Industries</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
 
 
-    <!-- Hero Section -->
-    <section class="page-hero">
+    <!-- Loading -->
 
-        <div class="container">
-
-            <h1>
-                Industries We Serve
-            </h1>
-
-            <p>
-                Delivering advanced technology solutions tailored
-                to meet the unique requirements of different industries.
-            </p>
-
-        </div>
-
-    </section>
+    <div data-component="loading"></div>
 
 
 
-    <!-- Industries Section -->
-    <section class="industries-section">
-
-        <div class="container">
-
-            <div class="cards">
 
 
-                <div class="card">
+    <!-- Navigation -->
 
-                    <img 
-                        src="../assets/images/industries/construction.webp"
-                        alt="Construction Industry"
-                    >
+    <header data-component="navbar"></header>
 
-                    <h3>
-                        Construction & Engineering
-                    </h3>
 
-                    <p>
-                        Supporting contractors, engineers, and project
-                        teams with accurate site documentation,
-                        measurement solutions, and digital workflows.
+
+
+
+
+
+    <main>
+
+
+
+
+
+        <!-- Page Hero -->
+
+        <section class="hero hero--inner">
+
+
+            <div class="container">
+
+
+
+                <div class="hero__content">
+
+
+                    <span class="hero__subtitle">
+
+                        Industry Solutions
+
+                    </span>
+
+
+
+
+                    <h1 class="hero__title">
+
+                        Technology Solutions Across Multiple Industries
+
+                    </h1>
+
+
+
+
+                    <p class="hero__description">
+
+                        We provide intelligent asset management
+                        technologies that help organisations improve
+                        inspection, monitoring and operational
+                        efficiency.
+
                     </p>
+
+
 
                 </div>
 
 
 
-                <div class="card">
+            </div>
 
-                    <img 
-                        src="../assets/images/industries/architecture.webp"
-                        alt="Architecture Industry"
-                    >
 
-                    <h3>
-                        Architecture & Design
-                    </h3>
+        </section>
 
-                    <p>
-                        Helping architects and designers capture
-                        existing spaces, create digital models,
-                        and improve project planning.
-                    </p>
+
+
+
+
+
+
+
+
+        <!-- Industries Grid -->
+
+        <section class="section">
+
+
+            <div class="container">
+
+
+
+                <div
+                    class="industries-grid"
+                    data-industries
+                >
+
+
+
+                    <!-- Construction -->
+
+                    <article class="industry-card">
+
+
+
+                        <div class="industry-card__image">
+
+
+                            <img
+                                src="../assets/images/industries/construction.webp"
+                                alt="Construction Industry"
+                                loading="lazy"
+                            >
+
+
+                        </div>
+
+
+
+
+
+                        <div class="industry-card__content">
+
+
+                            <img
+                                src="../assets/icons/industries/construction.svg"
+                                alt="Construction icon"
+                                class="industry-card__icon"
+                            >
+
+
+
+                            <h2>
+
+                                Construction
+
+                            </h2>
+
+
+
+
+                            <p>
+
+                                Supporting construction projects with
+                                digital mapping, progress monitoring,
+                                UAV inspection and 3D documentation.
+
+                            </p>
+
+
+
+                        </div>
+
+
+
+                    </article>
+
+
+
+
+
+
+
+
+
+                    <!-- Infrastructure -->
+
+                    <article class="industry-card">
+
+
+
+                        <div class="industry-card__image">
+
+
+                            <img
+                                src="../assets/images/industries/infrastructure.webp"
+                                alt="Infrastructure Industry"
+                                loading="lazy"
+                            >
+
+
+                        </div>
+
+
+
+
+
+                        <div class="industry-card__content">
+
+
+                            <img
+                                src="../assets/icons/industries/infrastructure.svg"
+                                alt="Infrastructure icon"
+                                class="industry-card__icon"
+                            >
+
+
+
+                            <h2>
+
+                                Infrastructure
+
+                            </h2>
+
+
+
+
+                            <p>
+
+                                Enabling safer infrastructure
+                                inspection through intelligent
+                                monitoring and remote inspection
+                                technologies.
+
+                            </p>
+
+
+
+                        </div>
+
+
+
+                    </article>
+
+
+
+
+
+
+
+
+
+                    <!-- Oil & Gas -->
+
+                    <article class="industry-card">
+
+
+
+                        <div class="industry-card__image">
+
+
+                            <img
+                                src="../assets/images/industries/oil-gas.webp"
+                                alt="Oil and Gas Industry"
+                                loading="lazy"
+                            >
+
+
+                        </div>
+
+
+
+
+
+                        <div class="industry-card__content">
+
+
+                            <img
+                                src="../assets/icons/industries/oil-gas.svg"
+                                alt="Oil and Gas icon"
+                                class="industry-card__icon"
+                            >
+
+
+
+                            <h2>
+
+                                Oil & Gas
+
+                            </h2>
+
+
+
+
+                            <p>
+
+                                Providing advanced inspection
+                                solutions for challenging and
+                                high-risk environments.
+
+                            </p>
+
+
+
+                        </div>
+
+
+
+                    </article>
+
+
+
+
+
+
+
+
+
+                    <!-- Education -->
+
+                    <article class="industry-card">
+
+
+
+                        <div class="industry-card__image">
+
+
+                            <img
+                                src="../assets/images/industries/education.webp"
+                                alt="Education Industry"
+                                loading="lazy"
+                            >
+
+
+                        </div>
+
+
+
+
+
+                        <div class="industry-card__content">
+
+
+                            <img
+                                src="../assets/icons/industries/education.svg"
+                                alt="Education icon"
+                                class="industry-card__icon"
+                            >
+
+
+
+                            <h2>
+
+                                Education & Research
+
+                            </h2>
+
+
+
+
+                            <p>
+
+                                Empowering universities and research
+                                institutions with advanced technology
+                                platforms and practical solutions.
+
+                            </p>
+
+
+
+                        </div>
+
+
+
+                    </article>
+
+
+
+
 
                 </div>
 
 
 
-                <div class="card">
 
-                    <img 
-                        src="../assets/images/industries/manufacturing.webp"
-                        alt="Manufacturing Industry"
-                    >
+            </div>
 
-                    <h3>
-                        Manufacturing
-                    </h3>
+
+        </section>
+
+
+
+
+
+
+
+
+        <!-- Application Section -->
+
+        <section class="section section--dark">
+
+
+            <div class="container">
+
+
+
+                <div class="section__header">
+
+
+                    <h2>
+
+                        Technology Applications
+
+                    </h2>
+
+
+
 
                     <p>
-                        Providing technology solutions for inspection,
-                        quality control, and production optimization.
+
+                        Our solutions support various operational
+                        requirements including:
+
                     </p>
+
+
 
                 </div>
 
 
 
-                <div class="card">
 
-                    <img 
-                        src="../assets/images/industries/oil-gas.webp"
-                        alt="Oil and Gas Industry"
-                    >
 
-                    <h3>
-                        Oil & Gas
-                    </h3>
 
-                    <p>
-                        Enabling efficient asset management,
-                        inspection, and documentation for complex
-                        industrial environments.
-                    </p>
+
+                <div class="cards-grid">
+
+
+
+                    <div class="card">
+
+
+                        <h3>
+
+                            Asset Inspection
+
+                        </h3>
+
+
+                        <p>
+
+                            Remote and safer inspection methods
+                            for critical assets.
+
+                        </p>
+
+
+                    </div>
+
+
+
+
+
+                    <div class="card">
+
+
+                        <h3>
+
+                            Digital Documentation
+
+                        </h3>
+
+
+                        <p>
+
+                            Accurate 3D models, maps and digital
+                            records for better decision-making.
+
+                        </p>
+
+
+                    </div>
+
+
+
+
+
+                    <div class="card">
+
+
+                        <h3>
+
+                            Monitoring & Analysis
+
+                        </h3>
+
+
+                        <p>
+
+                            Data-driven insights to improve
+                            maintenance strategies.
+
+                        </p>
+
+
+                    </div>
+
+
+
 
                 </div>
 
 
 
-                <div class="card">
 
-                    <img 
-                        src="../assets/images/industries/public-safety.webp"
-                        alt="Public Safety Industry"
-                    >
+            </div>
 
-                    <h3>
-                        Public Safety & Government
-                    </h3>
+
+        </section>
+
+
+
+
+
+
+
+        <!-- CTA -->
+
+        <section class="section">
+
+
+            <div class="container">
+
+
+                <div class="cta">
+
+
+
+                    <h2>
+
+                        Find The Right Solution For Your Industry
+
+                    </h2>
+
+
+
 
                     <p>
-                        Supporting agencies with reliable data capture,
-                        analysis tools, and operational technology.
+
+                        Speak with our team to identify the best
+                        technology approach for your requirements.
+
                     </p>
 
-                </div>
 
 
 
-                <div class="card">
-
-                    <img 
-                        src="../assets/images/industries/education.webp"
-                        alt="Education Industry"
+                    <a
+                        href="contact.html"
+                        class="btn btn--primary"
                     >
 
-                    <h3>
-                        Education & Research
-                    </h3>
+                        Contact Our Team
 
-                    <p>
-                        Providing institutions with innovative tools
-                        for training, research, and digital learning.
-                    </p>
+                    </a>
+
+
 
                 </div>
 
 
             </div>
 
-        </div>
 
-    </section>
-
+        </section>
 
 
-    <!-- CTA Section -->
-    <section class="cta-section">
 
-        <div class="container">
 
-            <h2>
-                Need A Solution For Your Industry?
-            </h2>
 
-            <p>
-                Our team can help identify the right technology
-                approach based on your operational requirements.
-            </p>
+    </main>
 
-            <a href="contact.html" class="btn">
-                Talk To Our Team
-            </a>
 
-        </div>
 
-    </section>
+
 
 
 
     <!-- Footer -->
-    <footer>
 
-        <div class="container">
-
-            <p>
-                © 2026 Beyond Horizon Technologies. All Rights Reserved.
-            </p>
-
-        </div>
-
-    </footer>
+    <footer data-component="footer"></footer>
 
 
-    <script src="../js/main.js"></script>
+
+
+
+
+
+    <!-- Scripts -->
+
+    <script src="../assets/js/utils.js"></script>
+
+    <script src="../assets/js/loader.js"></script>
+
+    <script src="../assets/js/navigation.js"></script>
+
+    <script src="../assets/js/animation.js"></script>
+
+    <script src="../assets/js/theme.js"></script>
+
+    <script src="../assets/js/app.js"></script>
+
+
 
 </body>
+
 </html>
