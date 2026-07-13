@@ -1,60 +1,78 @@
 {
-  "company": {
-    "name": "Beyond Horizon Technologies Sdn Bhd",
-    "shortName": "BH RIT",
-    "tagline": "Advanced Robotics, Inspection & Technology Solutions",
-    "description": "Beyond Horizon Technologies provides innovative robotics, inspection, and intelligent technology solutions designed to improve operational efficiency, safety, and decision-making across industrial sectors.",
-    "mission": "To deliver reliable technology solutions that empower industries through automation, advanced inspection capabilities, and intelligent systems.",
-    "vision": "To become a trusted technology partner in industrial innovation by providing world-class robotics and inspection solutions.",
-    "values": [
-      {
-        "title": "Innovation",
-        "description": "Continuously adopting emerging technologies to solve complex industrial challenges."
-      },
-      {
-        "title": "Reliability",
-        "description": "Providing dependable solutions designed for real-world operational environments."
-      },
-      {
-        "title": "Safety",
-        "description": "Helping industries reduce risk through remote and intelligent technology solutions."
-      },
-      {
-        "title": "Excellence",
-        "description": "Delivering quality services and solutions that exceed customer expectations."
-      }
-    ],
-    "history": [
-      {
-        "year": "2020",
-        "title": "Company Establishment",
-        "description": "Beyond Horizon Technologies was established to provide advanced technology solutions for industrial applications."
-      },
-      {
-        "year": "2022",
-        "title": "Technology Expansion",
-        "description": "Expanded solutions portfolio with robotics, UAV, and inspection technologies."
-      },
-      {
-        "year": "2025",
-        "title": "Industrial Innovation",
-        "description": "Continued developing smart inspection solutions for modern industrial requirements."
-      }
-    ],
-    "contact": {
-      "email": "info@beyondhorizon.com",
-      "phone": "+60 3 XXXX XXXX",
-      "website": "https://www.beyondhorizon.com"
-    },
-    "socialMedia": {
-      "linkedin": "",
-      "facebook": "",
-      "instagram": ""
-    },
-    "images": {
-      "logo": "assets/images/company/logo.webp",
-      "hero": "assets/images/company/company-hero.webp",
-      "office": "assets/images/company/office.webp"
+    "company": {
+        "name": "Beyond Horizon Technologies Sdn. Bhd.",
+        "short_name": "Beyond Horizon Technologies",
+        "tagline": "Intelligent Asset Management Through Advanced Technology",
+
+        "description": "Beyond Horizon Technologies is an asset intelligence technology company providing advanced solutions through UAV, robotics, LiDAR, 3D mapping and digital technologies to improve asset visibility, inspection efficiency and operational decision-making.",
+
+        "mission": "To provide intelligent technology solutions that enhance asset management, inspection efficiency and operational reliability.",
+
+        "vision": "To become a leading technology partner in digital transformation and intelligent asset management.",
+
+        "about": [
+            "Beyond Horizon Technologies focuses on delivering innovative technology solutions for modern asset management challenges.",
+            "By integrating advanced hardware, intelligent software and data-driven workflows, we help organisations capture accurate information and make better decisions."
+        ],
+
+
+        "technology_focus": [
+            {
+                "title": "Smart Inspection",
+                "description": "Advanced inspection technologies that improve safety, efficiency and data accuracy.",
+                "icon": "inspection.svg"
+            },
+            {
+                "title": "Robotics & Automation",
+                "description": "Autonomous and robotic systems designed for challenging inspection environments.",
+                "icon": "robotics.svg"
+            },
+            {
+                "title": "Digital Mapping",
+                "description": "LiDAR, 3D scanning and spatial data solutions for accurate digital documentation.",
+                "icon": "mapping.svg"
+            },
+            {
+                "title": "Asset Intelligence",
+                "description": "Transforming collected data into actionable insights for better asset management.",
+                "icon": "analytics.svg"
+            }
+        ],
+
+
+        "industries": [
+            "Construction",
+            "Infrastructure",
+            "Oil & Gas",
+            "Education",
+            "Research"
+        ],
+
+
+        "contact": {
+            "email": "info@beyondhorizon.com.my",
+            "phone": "",
+            "address": "Malaysia",
+            "website": "https://www.beyondhorizon.com.my"
+        },
+
+
+        "social_media": {
+            "linkedin": "",
+            "facebook": "",
+            "instagram": ""
+        },
+
+
+        "certifications": [
+            {
+                "name": "ISO 9001",
+                "file": "iso9001.pdf"
+            },
+            {
+                "name": "ISO 14001",
+                "file": "iso14001.pdf"
+            }
+        ]
     }
-  }
 }
