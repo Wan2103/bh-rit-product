@@ -1,181 +1,84 @@
-<aside class="sidebar">
+<!--
+    sidebar.html
+
+    Reusable sidebar component
+
+    Used for:
+    - Product filtering
+    - Documentation navigation
+    - Support pages
+    - Category navigation
+
+    Dynamic values:
+    {{title}}
+    {{menu_items}}
+-->
+
+
+<aside class="sidebar" data-sidebar>
+
+
+
+
+    <!-- Sidebar Header -->
 
     <div class="sidebar__header">
 
-        <h2 class="sidebar__title">
-            Explore
-        </h2>
+
+        <h3 class="sidebar__title">
+
+            {{title}}
+
+        </h3>
+
 
     </div>
 
 
-    <div class="sidebar__content">
 
-        <ul class="sidebar__menu">
+
+
+    <!-- Sidebar Menu -->
+
+    <nav class="sidebar__navigation">
+
+
+        <ul class="sidebar__list">
+
+
+
+            {{menu_items}}
+
+
+
+            <!--
+
+            Example:
 
             <li class="sidebar__item">
 
-                <a 
-                    href="pages/home.html"
+                <a
+                    href="#"
                     class="sidebar__link"
                 >
-                    Home
+
+                    Product Overview
+
                 </a>
 
             </li>
 
-
-            <li class="sidebar__item">
-
-                <a 
-                    href="pages/about.html"
-                    class="sidebar__link"
-                >
-                    About
-                </a>
-
-            </li>
+            -->
 
 
-            <li class="sidebar__item sidebar__item--dropdown">
-
-                <button 
-                    class="sidebar__toggle"
-                    type="button"
-                >
-                    Products
-
-                    <span class="sidebar__arrow">
-                        ▾
-                    </span>
-
-                </button>
-
-
-                <ul class="sidebar__submenu">
-
-                    <li>
-                        <a href="#crawler">
-                            Crawler
-                        </a>
-                    </li>
-
-
-                    <li>
-                        <a href="#dji">
-                            DJI Enterprise
-                        </a>
-                    </li>
-
-
-                    <li>
-                        <a href="#kc2">
-                            KC2
-                        </a>
-                    </li>
-
-
-                    <li>
-                        <a href="#pekaka">
-                            Pekaka
-                        </a>
-                    </li>
-
-
-                    <li>
-                        <a href="#pekaka-light">
-                            Pekaka Light
-                        </a>
-                    </li>
-
-
-                    <li>
-                        <a href="#rov">
-                            ROV
-                        </a>
-                    </li>
-
-
-                    <li>
-                        <a href="#shareuav">
-                            Share UAV
-                        </a>
-                    </li>
-
-
-                    <li>
-                        <a href="#skygauge">
-                            SkyGauge
-                        </a>
-                    </li>
-
-                </ul>
-
-            </li>
-
-
-            <li class="sidebar__item">
-
-                <a 
-                    href="pages/industries.html"
-                    class="sidebar__link"
-                >
-                    Industries
-                </a>
-
-            </li>
-
-
-            <li class="sidebar__item">
-
-                <a 
-                    href="pages/portfolio.html"
-                    class="sidebar__link"
-                >
-                    Portfolio
-                </a>
-
-            </li>
-
-
-            <li class="sidebar__item">
-
-                <a 
-                    href="pages/support.html"
-                    class="sidebar__link"
-                >
-                    Support
-                </a>
-
-            </li>
-
-
-            <li class="sidebar__item">
-
-                <a 
-                    href="pages/contact.html"
-                    class="sidebar__link"
-                >
-                    Contact
-                </a>
-
-            </li>
 
         </ul>
 
-    </div>
+
+    </nav>
 
 
-    <div class="sidebar__footer">
 
-        <a 
-            href="pages/contact.html"
-            class="btn btn--primary"
-        >
-            Request Consultation
-        </a>
-
-    </div>
 
 
 </aside>
