@@ -1,293 +1,402 @@
-document.addEventListener("DOMContentLoaded", () => {
+/*
+=========================================
+Gallery Controller
+Beyond Horizon Technologies
+=========================================
+*/
 
-    initializeGallery();
 
-});
+document.addEventListener(
+    "DOMContentLoaded",
+    () => {
+
+        initializeGallery();
+
+    }
+);
+
+
+
+/*
+=========================================
+Initialize Gallery
+=========================================
+*/
 
 
 function initializeGallery() {
 
-    const galleryItems = document.querySelectorAll(
-        ".gallery__item"
-    );
 
-
-    if (!galleryItems.length) return;
-
-
-    galleryItems.forEach((item) => {
-
-        item.addEventListener(
-            "click",
-            () => {
-
-                const image =
-                    item.querySelector("img");
-
-
-                if (image) {
-
-                    openGalleryLightbox(
-                        image.src,
-                        image.alt
-                    );
-
-                }
-
-            }
-        );
-
-    });
-
-
-    createLightbox();
-
-}
-
-
-
-/*
-====================================
-Create Lightbox
-====================================
-*/
-
-function createLightbox() {
-
-    if (
-        document.querySelector(
-            ".gallery-lightbox"
-        )
-    ) return;
-
-
-    const lightbox =
-        document.createElement("div");
-
-
-    lightbox.className =
-        "gallery-lightbox";
-
-
-    lightbox.innerHTML = `
-
-        <button class="gallery-lightbox__close">
-            &times;
-        </button>
-
-        <img 
-            src="" 
-            alt="Gallery Preview"
-        >
-
-    `;
-
-
-    document.body.appendChild(
-        lightbox
-    );
-
-
-    const close =
-        lightbox.querySelector(
-            ".gallery-lightbox__close"
-        );
-
-
-    close.addEventListener(
-        "click",
-        closeGalleryLightbox
-    );
-
-
-    lightbox.addEventListener(
-        "click",
-        (event) => {
-
-            if (
-                event.target === lightbox
-            ) {
-
-                closeGalleryLightbox();
-
-            }
-
-        }
-    );
-
-}
-
-
-
-/*
-====================================
-Open Lightbox
-====================================
-*/
-
-function openGalleryLightbox(
-    imageSrc,
-    imageAlt = ""
-) {
-
-    const lightbox =
-        document.querySelector(
-            ".gallery-lightbox"
-        );
-
-
-    if (!lightbox) return;
-
-
-    const image =
-        lightbox.querySelector("img");
-
-
-    image.src = imageSrc;
-
-    image.alt = imageAlt;
-
-
-    lightbox.classList.add(
-        "active"
-    );
-
-
-    document.body.style.overflow =
-        "hidden";
-
-}
-
-
-
-/*
-====================================
-Close Lightbox
-====================================
-*/
-
-function closeGalleryLightbox() {
-
-    const lightbox =
-        document.querySelector(
-            ".gallery-lightbox"
-        );
-
-
-    if (!lightbox) return;
-
-
-    lightbox.classList.remove(
-        "active"
-    );
-
-
-    document.body.style.overflow =
-        "";
-
-}
-
-
-
-/*
-====================================
-Gallery Filter
-====================================
-*/
-
-function filterGallery(category) {
-
-    const items =
+    const galleries =
         document.querySelectorAll(
-            ".gallery__item"
+            "[data-gallery]"
         );
 
 
-    items.forEach((item) => {
 
-        const itemCategory =
-            item.dataset.category;
+    if (!galleries.length) {
 
-
-        if (
-            category === "all" ||
-            itemCategory === category
-        ) {
-
-            item.style.display =
-                "block";
-
-        } else {
-
-            item.style.display =
-                "none";
-
-        }
-
-    });
-
-}
-
-
-
-/*
-====================================
-Gallery Slider
-====================================
-*/
-
-function initializeGallerySlider() {
-
-    const slider =
-        document.querySelector(
-            ".gallery-slider"
-        );
-
-
-    if (!slider) return;
-
-
-    const items =
-        slider.querySelectorAll(
-            ".gallery-slider__item"
-        );
-
-
-    let current = 0;
-
-
-    function showSlide(index) {
-
-        items.forEach(
-            (item, i) => {
-
-                item.classList.toggle(
-                    "active",
-                    i === index
-                );
-
-            }
-        );
+        return;
 
     }
 
 
-    setInterval(() => {
 
-        current++;
+    galleries.forEach(
+        (gallery) => {
 
-        if (
-            current >= items.length
-        ) {
 
-            current = 0;
+            setupGallery(
+                gallery
+            );
+
 
         }
+    );
 
 
-        showSlide(current);
+}
 
 
-    }, 5000);
+
+/*
+=========================================
+Setup Gallery
+=========================================
+*/
+
+
+function setupGallery(
+    gallery
+) {
+
+
+    const images =
+        gallery.querySelectorAll(
+            "img"
+        );
+
+
+
+    images.forEach(
+        (image) => {
+
+
+            image.addEventListener(
+                "click",
+                () => {
+
+
+                    openGalleryViewer(
+                        image.src,
+                        image.alt
+                    );
+
+
+                }
+            );
+
+
+        }
+    );
+
+
+}
+
+
+
+/*
+=========================================
+Gallery Viewer
+=========================================
+*/
+
+
+function openGalleryViewer(
+    image,
+    title = ""
+) {
+
+
+    let viewer =
+        document.querySelector(
+            ".gallery-viewer"
+        );
+
+
+
+    if (!viewer) {
+
+
+        viewer =
+            document.createElement(
+                "div"
+            );
+
+
+        viewer.className =
+            "gallery-viewer";
+
+
+
+        viewer.innerHTML = `
+
+            <div class="gallery-viewer__overlay"></div>
+
+            <div class="gallery-viewer__content">
+
+                <button 
+                    class="gallery-viewer__close"
+                    aria-label="Close gallery"
+                >
+                    &times;
+                </button>
+
+
+                <img 
+                    class="gallery-viewer__image"
+                    src=""
+                    alt=""
+                >
+
+
+                <p class="gallery-viewer__title"></p>
+
+            </div>
+
+        `;
+
+
+
+        document.body.appendChild(
+            viewer
+        );
+
+
+        setupViewerEvents(
+            viewer
+        );
+
+
+    }
+
+
+
+    const viewerImage =
+        viewer.querySelector(
+            ".gallery-viewer__image"
+        );
+
+
+    const viewerTitle =
+        viewer.querySelector(
+            ".gallery-viewer__title"
+        );
+
+
+
+    viewerImage.src =
+        image;
+
+
+
+    viewerImage.alt =
+        title;
+
+
+
+    viewerTitle.textContent =
+        title;
+
+
+
+    viewer.classList.add(
+        "active"
+    );
+
+
+
+    document.body.classList.add(
+        "no-scroll"
+    );
+
+
+}
+
+
+
+/*
+=========================================
+Viewer Events
+=========================================
+*/
+
+
+function setupViewerEvents(
+    viewer
+) {
+
+
+    const closeButton =
+        viewer.querySelector(
+            ".gallery-viewer__close"
+        );
+
+
+    const overlay =
+        viewer.querySelector(
+            ".gallery-viewer__overlay"
+        );
+
+
+
+    closeButton.addEventListener(
+        "click",
+        closeGalleryViewer
+    );
+
+
+
+    overlay.addEventListener(
+        "click",
+        closeGalleryViewer
+    );
+
+
+
+    document.addEventListener(
+        "keydown",
+        (event) => {
+
+
+            if (
+                event.key === "Escape"
+            ) {
+
+
+                closeGalleryViewer();
+
+
+            }
+
+
+        }
+    );
+
+
+}
+
+
+
+/*
+=========================================
+Close Viewer
+=========================================
+*/
+
+
+function closeGalleryViewer() {
+
+
+    const viewer =
+        document.querySelector(
+            ".gallery-viewer"
+        );
+
+
+
+    if (!viewer) {
+
+        return;
+
+    }
+
+
+
+    viewer.classList.remove(
+        "active"
+    );
+
+
+
+    document.body.classList.remove(
+        "no-scroll"
+    );
+
+
+}
+
+
+
+/*
+=========================================
+Dynamic Gallery Builder
+=========================================
+*/
+
+
+function buildGallery(
+    container,
+    images = []
+) {
+
+
+    if (!container) {
+
+        return;
+
+    }
+
+
+
+    container.innerHTML = "";
+
+
+
+    images.forEach(
+        (
+            image,
+            index
+        ) => {
+
+
+            const item =
+                document.createElement(
+                    "div"
+                );
+
+
+
+            item.className =
+                "gallery__item";
+
+
+
+            item.innerHTML = `
+
+                <img
+                    src="${image}"
+                    alt="Gallery image ${index + 1}"
+                    loading="lazy"
+                >
+
+            `;
+
+
+
+            container.appendChild(
+                item
+            );
+
+
+        }
+    );
+
+
+
+    setupGallery(
+        container
+    );
+
 
 }
