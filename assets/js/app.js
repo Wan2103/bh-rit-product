@@ -1,350 +1,210 @@
-document.addEventListener("DOMContentLoaded", () => {
+/*
+=========================================
+Application Controller
+Beyond Horizon Technologies
+=========================================
+*/
 
-    initializeApp();
 
-});
+document.addEventListener(
+    "DOMContentLoaded",
+    () => {
+
+        initializeApplication();
+
+    }
+);
 
 
-function initializeApp() {
 
-    loadComponents();
+/*
+=========================================
+Initialize Application
+=========================================
+*/
 
-    initializeNavigation();
 
-    initializeAnimations();
+function initializeApplication() {
 
-    initializeGallery();
 
-    initializeModals();
+    initializeComponents();
 
-    initializeTheme();
+    initializeRouter();
+
+    initializePageFeatures();
 
 }
 
 
 
 /*
-====================================
-Component Loader
-====================================
+=========================================
+Load Components
+=========================================
 */
 
-async function loadComponents() {
 
-    const components = document.querySelectorAll(
-        "[data-component]"
-    );
+async function initializeComponents() {
 
 
-    for (const element of components) {
+    const components =
+        document.querySelectorAll(
+            "[data-component]"
+        );
 
-        const componentName =
-            element.dataset.component;
+
+
+    for (
+        const component of components
+    ) {
+
+
+        const name =
+            component.dataset.component;
+
 
 
         try {
 
-            const response = await fetch(
-                `components/${componentName}.html`
-            );
+
+            const response =
+                await fetch(
+                    `components/${name}.html`
+                );
 
 
-            if (!response.ok) {
+
+            if (
+                !response.ok
+            ) {
 
                 throw new Error(
-                    "Component not found"
+                    `Component not found: ${name}`
                 );
 
             }
 
 
-            element.innerHTML =
+
+            component.innerHTML =
                 await response.text();
 
 
-        } catch (error) {
+
+        }
+
+        catch(error) {
+
 
             console.error(
-                `Failed loading component: ${componentName}`,
+                "Component loading failed:",
                 error
             );
 
+
         }
+
 
     }
 
-}
-
-
-
-/*
-====================================
-Navigation
-====================================
-*/
-
-function initializeNavigation() {
-
-    const toggle =
-        document.querySelector(
-            ".navbar__toggle"
-        );
-
-
-    const menu =
-        document.querySelector(
-            ".navbar__menu"
-        );
-
-
-    if (!toggle || !menu) return;
-
-
-    toggle.addEventListener(
-        "click",
-        () => {
-
-            menu.classList.toggle(
-                "active"
-            );
-
-        }
-    );
 
 }
 
 
 
 /*
-====================================
-Animations
-====================================
+=========================================
+Page Features
+=========================================
 */
 
-function initializeAnimations() {
 
-    const animatedElements =
-        document.querySelectorAll(
-            ".animate"
-        );
+function initializePageFeatures() {
 
 
-    animatedElements.forEach(
-        (element) => {
+    initializeNavigation();
 
-            element.classList.add(
-                "active"
-            );
+    initializeAnimations();
 
-        }
-    );
+    initializeScrollEffects();
+
+    initializeProductBuilder();
+
+    initializeSearch();
 
 }
 
 
 
 /*
-====================================
-Gallery
-====================================
+=========================================
+Global Helpers
+=========================================
 */
 
-function initializeGallery() {
 
-    const galleryItems =
-        document.querySelectorAll(
-            ".gallery__item"
-        );
+window.BHApp = {
 
 
-    galleryItems.forEach(
-        (item) => {
-
-            item.addEventListener(
-                "click",
-                () => {
-
-                    const image =
-                        item.querySelector(
-                            "img"
-                        );
-
-
-                    if (image) {
-
-                        openImageModal(
-                            image.src
-                        );
-
-                    }
-
-                }
-            );
-
-        }
-    );
-
-}
+    version:
+        "1.0.0",
 
 
 
-/*
-====================================
-Modal
-====================================
-*/
-
-function initializeModals() {
-
-    const modal =
-        document.querySelector(
-            ".modal"
-        );
-
-
-    if (!modal) return;
-
-
-    const closeButton =
-        modal.querySelector(
-            ".modal__close"
-        );
-
-
-    const overlay =
-        modal.querySelector(
-            ".modal__overlay"
-        );
-
-
-    closeButton?.addEventListener(
-        "click",
-        closeModal
-    );
-
-
-    overlay?.addEventListener(
-        "click",
-        closeModal
-    );
-
-}
+    company:
+        "Beyond Horizon Technologies",
 
 
 
-function openModal() {
-
-    const modal =
-        document.querySelector(
-            ".modal"
-        );
+    reload() {
 
 
-    if (modal) {
+        window.location.reload();
 
-        modal.classList.add(
-            "active"
-        );
 
-        document.body.style.overflow =
-            "hidden";
+    },
+
+
+    scrollToTop() {
+
+
+        window.scrollTo({
+
+            top: 0,
+
+            behavior: "smooth"
+
+        });
+
 
     }
 
-}
 
-
-
-function closeModal() {
-
-    const modal =
-        document.querySelector(
-            ".modal"
-        );
-
-
-    if (modal) {
-
-        modal.classList.remove(
-            "active"
-        );
-
-        document.body.style.overflow =
-            "";
-
-    }
-
-}
-
-
-
-function openImageModal(src) {
-
-    const modal =
-        document.querySelector(
-            ".modal"
-        );
-
-
-    if (!modal) return;
-
-
-    const body =
-        modal.querySelector(
-            ".modal__body"
-        );
-
-
-    body.innerHTML = `
-
-        <img 
-            src="${src}" 
-            alt="Gallery Image"
-        >
-
-    `;
-
-
-    openModal();
-
-}
+};
 
 
 
 /*
-====================================
-Theme
-====================================
+=========================================
+Console Branding
+=========================================
 */
 
-function initializeTheme() {
 
-    const savedTheme =
-        localStorage.getItem(
-            "theme"
-        );
-
-
-    if (savedTheme) {
-
-        document.documentElement.dataset.theme =
-            savedTheme;
-
-    }
-
-}
+console.log(
+    "%cBeyond Horizon Technologies",
+    `
+    color:#00A8E8;
+    font-size:20px;
+    font-weight:bold;
+    `
+);
 
 
-
-function setTheme(theme) {
-
-    document.documentElement.dataset.theme =
-        theme;
-
-
-    localStorage.setItem(
-        "theme",
-        theme
-    );
-
-}
+console.log(
+    "%cDigital Asset Intelligence Solutions",
+    `
+    color:#64748b;
+    font-size:14px;
+    `
+);
