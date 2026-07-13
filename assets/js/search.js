@@ -1,333 +1,248 @@
-document.addEventListener("DOMContentLoaded", () => {
+/**
+ * search.js
+ * Handles website search functionality
+ */
 
-    initializeSearch();
+(function () {
 
-});
-
-
-
-function initializeSearch() {
-
-    const searchInput =
-        document.querySelector(
-            ".search__input"
-        );
+    "use strict";
 
 
-    const searchButton =
-        document.querySelector(
-            ".search__button"
-        );
+    const SEARCH_SELECTOR = "[data-search]";
+    const SEARCH_INPUT_SELECTOR = "[data-search-input]";
+    const SEARCH_RESULT_SELECTOR = "[data-search-results]";
 
 
-    if (!searchInput) return;
+    let searchData = [];
 
 
-    searchInput.addEventListener(
-        "input",
-        () => {
+    /**
+     * Initialize search
+     */
+    async function initializeSearch() {
 
-            performSearch(
-                searchInput.value
-            );
+        const searchElements = document.querySelectorAll(SEARCH_SELECTOR);
 
-        }
-    );
+        if (!searchElements.length) return;
 
 
-    searchButton?.addEventListener(
-        "click",
-        () => {
-
-            performSearch(
-                searchInput.value
-            );
-
-        }
-    );
-
-}
+        await loadSearchData();
 
 
+        searchElements.forEach(search => {
 
-/*
-====================================
-Search Products
-====================================
-*/
-
-function performSearch(
-    keyword
-) {
-
-    const searchTerm =
-        keyword
-            .toLowerCase()
-            .trim();
+            const input = search.querySelector(SEARCH_INPUT_SELECTOR);
+            const results = search.querySelector(SEARCH_RESULT_SELECTOR);
 
 
-    const items =
-        document.querySelectorAll(
-            "[data-search-item]"
-        );
+            if (!input) return;
 
 
-    if (!items.length) return;
+            input.addEventListener("input", function () {
+
+                const keyword = this.value.trim().toLowerCase();
 
 
-    items.forEach(
-        (item) => {
+                if (!keyword) {
 
-            const content =
-                item.textContent
-                    .toLowerCase();
+                    clearResults(results);
+                    return;
+
+                }
 
 
-            if (
-                content.includes(searchTerm)
-                ||
-                searchTerm === ""
-            ) {
+                const matches = performSearch(keyword);
 
-                item.style.display =
-                    "";
 
-            } else {
+                renderResults(results, matches);
 
-                item.style.display =
-                    "none";
+            });
+
+
+        });
+
+
+    }
+
+
+
+    /**
+     * Load searchable content
+     */
+    async function loadSearchData() {
+
+        try {
+
+            const sources = [
+
+                "data/products.json",
+                "data/services.json",
+                "data/industries.json"
+
+            ];
+
+
+            let combined = [];
+
+
+            for (const source of sources) {
+
+                const response = await fetch(source);
+
+
+                if (!response.ok) continue;
+
+
+                const data = await response.json();
+
+
+                if (Array.isArray(data)) {
+
+                    combined = combined.concat(data);
+
+                }
 
             }
 
-        }
-    );
 
-}
+            searchData = combined;
 
 
+        } catch (error) {
 
-/*
-====================================
-Data Search
-====================================
-*/
-
-async function searchData(
-    keyword
-) {
-
-    try {
-
-        const response =
-            await fetch(
-                "data/products.json"
-            );
-
-
-        const data =
-            await response.json();
-
-
-        const results =
-            data.filter(
-                (item) => {
-
-                    return (
-
-                        item.name
-                            .toLowerCase()
-                            .includes(
-                                keyword.toLowerCase()
-                            )
-
-                        ||
-
-                        item.category
-                            ?.toLowerCase()
-                            .includes(
-                                keyword.toLowerCase()
-                            )
-
-                    );
-
-                }
-            );
-
-
-        return results;
-
-
-    } catch (error) {
-
-        console.error(
-            "Search error:",
-            error
-        );
-
-
-        return [];
-
-    }
-
-}
-
-
-
-/*
-====================================
-Search Suggestions
-====================================
-*/
-
-function showSearchSuggestions(
-    results
-) {
-
-    const container =
-        document.querySelector(
-            ".search__suggestions"
-        );
-
-
-    if (!container) return;
-
-
-    container.innerHTML = "";
-
-
-    results.forEach(
-        (item) => {
-
-            const suggestion =
-                document.createElement(
-                    "a"
-                );
-
-
-            suggestion.href =
-                item.url || "#";
-
-
-            suggestion.className =
-                "search__suggestion";
-
-
-            suggestion.textContent =
-                item.name;
-
-
-            container.appendChild(
-                suggestion
+            console.error(
+                "Failed to load search data:",
+                error
             );
 
         }
-    );
-
-
-    if (results.length) {
-
-        container.classList.add(
-            "active"
-        );
-
-    } else {
-
-        container.classList.remove(
-            "active"
-        );
-
-    }
-
-}
-
-
-
-/*
-====================================
-Advanced Search
-====================================
-*/
-
-function advancedSearch(
-    filters
-) {
-
-    const items =
-        document.querySelectorAll(
-            "[data-search-item]"
-        );
-
-
-    items.forEach(
-        (item) => {
-
-            let visible = true;
-
-
-            Object.keys(filters)
-                .forEach(
-                    (key) => {
-
-                        const value =
-                            item.dataset[key];
-
-
-                        if (
-                            filters[key] &&
-                            value !== filters[key]
-                        ) {
-
-                            visible = false;
-
-                        }
-
-                    }
-                );
-
-
-            item.style.display =
-                visible
-                    ? ""
-                    : "none";
-
-        }
-    );
-
-}
-
-
-
-/*
-====================================
-Clear Search
-====================================
-*/
-
-function clearSearch() {
-
-    const input =
-        document.querySelector(
-            ".search__input"
-        );
-
-
-    if (input) {
-
-        input.value = "";
-
-        performSearch("");
 
     }
 
 
-    const suggestions =
-        document.querySelector(
-            ".search__suggestions"
-        );
+
+    /**
+     * Search content
+     */
+    function performSearch(keyword) {
+
+        return searchData.filter(item => {
 
 
-    suggestions?.classList.remove(
-        "active"
+            const searchableText = [
+
+                item.name,
+                item.title,
+                item.description,
+                item.category
+
+            ]
+            .filter(Boolean)
+            .join(" ")
+            .toLowerCase();
+
+
+
+            return searchableText.includes(keyword);
+
+
+        })
+        .slice(0, 10);
+
+    }
+
+
+
+    /**
+     * Display search results
+     */
+    function renderResults(container, results) {
+
+        if (!container) return;
+
+
+        container.innerHTML = "";
+
+
+        if (!results.length) {
+
+            container.innerHTML = `
+
+                <div class="search-empty">
+
+                    No results found
+
+                </div>
+
+            `;
+
+            return;
+
+        }
+
+
+
+        results.forEach(item => {
+
+
+            const result = document.createElement("a");
+
+
+            result.className = "search-result";
+
+
+            result.href = item.link || "#";
+
+
+            result.innerHTML = `
+
+                <h4>
+
+                    ${item.name || item.title || "Untitled"}
+
+                </h4>
+
+
+                <p>
+
+                    ${item.description || ""}
+
+                </p>
+
+            `;
+
+
+            container.appendChild(result);
+
+
+        });
+
+
+    }
+
+
+
+    /**
+     * Clear results
+     */
+    function clearResults(container) {
+
+        if (!container) return;
+
+
+        container.innerHTML = "";
+
+    }
+
+
+
+    /**
+     * Start search
+     */
+    document.addEventListener(
+        "DOMContentLoaded",
+        initializeSearch
     );
 
-}
+
+})();
