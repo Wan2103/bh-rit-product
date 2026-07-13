@@ -1,53 +1,88 @@
-document.addEventListener("DOMContentLoaded", () => {
+/*
+=========================================
+Scroll Controller
+Beyond Horizon Technologies
+=========================================
+*/
 
-    initializeScroll();
 
-});
+document.addEventListener(
+    "DOMContentLoaded",
+    () => {
+
+        initializeScrollEffects();
+
+    }
+);
 
 
 
-function initializeScroll() {
+/*
+=========================================
+Initialize Scroll Effects
+=========================================
+*/
 
-    initializeScrollReveal();
 
-    initializeBackToTop();
+function initializeScrollEffects() {
 
-    initializeScrollProgress();
+
+    setupScrollReveal();
+
+    setupBackToTop();
+
+    setupSmoothScroll();
+
+    setupParallax();
+
 
 }
 
 
 
 /*
-====================================
-Scroll Reveal
-====================================
+=========================================
+Scroll Reveal Animation
+=========================================
 */
 
-function initializeScrollReveal() {
+
+function setupScrollReveal() {
+
 
     const elements =
         document.querySelectorAll(
-            ".scroll-reveal"
+            "[data-reveal]"
         );
 
 
-    if (!elements.length) return;
+
+    if (!elements.length) {
+
+        return;
+
+    }
+
 
 
     const observer =
         new IntersectionObserver(
-            (entries) => {
+            (
+                entries
+            ) => {
+
 
                 entries.forEach(
                     (entry) => {
+
 
                         if (
                             entry.isIntersecting
                         ) {
 
+
                             entry.target.classList.add(
-                                "visible"
+                                "revealed"
                             );
 
 
@@ -55,10 +90,13 @@ function initializeScrollReveal() {
                                 entry.target
                             );
 
+
                         }
+
 
                     }
                 );
+
 
             },
             {
@@ -67,191 +105,191 @@ function initializeScrollReveal() {
         );
 
 
+
     elements.forEach(
         (element) => {
+
 
             observer.observe(
                 element
             );
 
+
         }
     );
+
 
 }
 
 
 
 /*
-====================================
+=========================================
 Back To Top Button
-====================================
+=========================================
 */
 
-function initializeBackToTop() {
+
+function setupBackToTop() {
+
 
     const button =
         document.querySelector(
-            ".back-to-top"
+            "[data-back-to-top]"
         );
 
 
-    if (!button) return;
+
+    if (!button) {
+
+        return;
+
+    }
+
 
 
     window.addEventListener(
         "scroll",
         () => {
 
+
             if (
                 window.scrollY > 500
             ) {
 
+
                 button.classList.add(
-                    "active"
+                    "visible"
                 );
 
-            } else {
-
-                button.classList.remove(
-                    "active"
-                );
 
             }
 
+            else {
+
+
+                button.classList.remove(
+                    "visible"
+                );
+
+
+            }
+
+
         }
     );
+
 
 
     button.addEventListener(
         "click",
         () => {
 
+
             window.scrollTo({
 
                 top: 0,
 
-                behavior: "smooth"
+                behavior:
+                    "smooth"
 
             });
 
+
         }
     );
+
 
 }
 
 
 
 /*
-====================================
-Scroll Progress
-====================================
+=========================================
+Smooth Scroll Links
+=========================================
 */
 
-function initializeScrollProgress() {
 
-    const progress =
-        document.querySelector(
-            ".scroll-progress"
-        );
+function setupSmoothScroll() {
 
 
-    if (!progress) return;
-
-
-    window.addEventListener(
-        "scroll",
-        () => {
-
-            const scrollTop =
-                document.documentElement.scrollTop;
-
-
-            const height =
-                document.documentElement.scrollHeight -
-                document.documentElement.clientHeight;
-
-
-            const percentage =
-                (scrollTop / height) * 100;
-
-
-            progress.style.width =
-                `${percentage}%`;
-
-        }
-    );
-
-}
-
-
-
-/*
-====================================
-Smooth Anchor Scroll
-====================================
-*/
-
-function enableAnchorScroll() {
-
-    const anchors =
+    const links =
         document.querySelectorAll(
-            'a[href^="#"]'
+            "a[href^='#']"
         );
 
 
-    anchors.forEach(
-        (anchor) => {
 
-            anchor.addEventListener(
+    links.forEach(
+        (link) => {
+
+
+            link.addEventListener(
                 "click",
                 (event) => {
 
-                    const target =
-                        document.querySelector(
-                            anchor.getAttribute(
-                                "href"
-                            )
+
+                    const targetId =
+                        link.getAttribute(
+                            "href"
                         );
 
 
-                    if (target) {
+
+                    const target =
+                        document.querySelector(
+                            targetId
+                        );
+
+
+
+                    if (
+                        target
+                    ) {
+
 
                         event.preventDefault();
 
 
-                        target.scrollIntoView({
 
-                            behavior: "smooth",
+                        target.scrollIntoView(
+                            {
 
-                            block: "start"
+                                behavior:
+                                    "smooth",
 
-                        });
+                                block:
+                                    "start"
+
+                            }
+                        );
+
 
                     }
+
 
                 }
             );
 
+
         }
     );
+
 
 }
 
 
-document.addEventListener(
-    "DOMContentLoaded",
-    enableAnchorScroll
-);
-
-
 
 /*
-====================================
+=========================================
 Parallax Effect
-====================================
+=========================================
 */
 
-function initializeParallax() {
+
+function setupParallax() {
+
 
     const elements =
         document.querySelectorAll(
@@ -259,34 +297,149 @@ function initializeParallax() {
         );
 
 
+
+    if (!elements.length) {
+
+        return;
+
+    }
+
+
+
     window.addEventListener(
         "scroll",
         () => {
+
 
             const scrollY =
                 window.scrollY;
 
 
+
             elements.forEach(
-                (element) => {
+                (
+                    element
+                ) => {
+
 
                     const speed =
-                        element.dataset.parallax || 0.2;
+                        element.dataset.parallax
+                        ||
+                        0.2;
+
 
 
                     element.style.transform =
-                        `translateY(${scrollY * speed}px)`;
+                        `
+                        translateY(
+                            ${scrollY * speed}px
+                        )
+                        `;
+
 
                 }
             );
 
+
         }
     );
+
 
 }
 
 
-document.addEventListener(
-    "DOMContentLoaded",
-    initializeParallax
-);
+
+/*
+=========================================
+Scroll Progress Bar
+=========================================
+*/
+
+
+function createScrollProgress() {
+
+
+    const progress =
+        document.createElement(
+            "div"
+        );
+
+
+
+    progress.className =
+        "scroll-progress";
+
+
+
+    document.body.appendChild(
+        progress
+    );
+
+
+
+    window.addEventListener(
+        "scroll",
+        () => {
+
+
+            const height =
+                document.documentElement
+                    .scrollHeight -
+                window.innerHeight;
+
+
+
+            const percentage =
+                (
+                    window.scrollY /
+                    height
+                ) * 100;
+
+
+
+            progress.style.width =
+                `${percentage}%`;
+
+
+        }
+    );
+
+
+}
+
+
+
+/*
+=========================================
+Export
+=========================================
+*/
+
+
+window.ScrollController = {
+
+
+    initialize:
+        initializeScrollEffects,
+
+
+    reveal:
+        setupScrollReveal,
+
+
+    top:
+        () => {
+
+
+            window.scrollTo({
+
+                top:0,
+
+                behavior:"smooth"
+
+            });
+
+
+        }
+
+};
