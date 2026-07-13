@@ -1,197 +1,451 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
+
     <meta charset="UTF-8">
+
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Home | BH RIT</title>
+
+    <title>Home | Beyond Horizon Technologies</title>
+
+
+    <meta 
+        name="description" 
+        content="Beyond Horizon Technologies provides intelligent asset management solutions through advanced inspection, mapping, robotics, UAV and digital technologies."
+    >
+
+
+
+    <!-- Favicon -->
 
     <link rel="icon" href="../favicon.ico">
-    <link rel="stylesheet" href="../css/style.css">
+
+
+
+    <!-- Styles -->
+
+    <link rel="stylesheet" href="../assets/css/style.css">
+
+
 </head>
+
+
 
 <body>
 
-    <!-- Header -->
-    <header>
-        <nav>
-            <a href="home.html" class="logo">
-                BH RIT
-            </a>
-
-            <ul class="nav-links">
-                <li><a href="home.html" class="active">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="products.html">Products</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
 
 
-    <!-- Hero Section -->
-    <section class="hero">
+    <!-- Loading Component -->
 
-        <div class="container">
-
-            <div class="hero-content">
-
-                <h1>
-                    Innovative Technology Solutions
-                    For Modern Industries
-                </h1>
-
-                <p>
-                    Empowering businesses with advanced technology,
-                    digital solutions, and reliable products designed
-                    to improve efficiency and productivity.
-                </p>
+    <div data-component="loading"></div>
 
 
-                <div class="hero-buttons">
 
-                    <a href="products.html" class="btn">
-                        Explore Products
+
+
+    <!-- Navigation -->
+
+    <header data-component="navbar"></header>
+
+
+
+
+
+    <!-- Main Content -->
+
+    <main>
+
+
+
+
+        <!-- Hero Section -->
+
+        <section class="hero">
+
+
+            <div class="container hero-layout">
+
+
+
+                <div class="hero__content">
+
+
+                    <span class="hero__subtitle">
+
+                        Intelligent Asset Management
+
+                    </span>
+
+
+
+
+
+                    <h1 class="hero__title">
+
+                        Transforming Asset Intelligence Through Advanced Technology
+
+                    </h1>
+
+
+
+
+
+                    <p class="hero__description">
+
+                        Beyond Horizon Technologies delivers smart solutions
+                        using UAV, robotics, LiDAR, 3D mapping and digital
+                        technologies to improve inspection efficiency and
+                        asset decision-making.
+
+                    </p>
+
+
+
+
+
+                    <div class="hero__actions">
+
+
+                        <a 
+                            href="products.html"
+                            class="btn btn--primary"
+                        >
+
+                            Explore Solutions
+
+                        </a>
+
+
+
+
+
+                        <a 
+                            href="contact.html"
+                            class="btn btn--outline"
+                        >
+
+                            Contact Us
+
+                        </a>
+
+
+
+                    </div>
+
+
+
+
+                </div>
+
+
+
+
+
+                <div class="hero__media">
+
+
+                    <img
+                        src="../assets/images/backgrounds/hero.webp"
+                        alt="Beyond Horizon Technologies Intelligent Asset Management"
+                    >
+
+
+
+                </div>
+
+
+
+
+            </div>
+
+
+
+        </section>
+
+
+
+
+
+
+
+
+        <!-- Solutions Preview -->
+
+        <section class="section">
+
+
+            <div class="container">
+
+
+                <div class="section__header">
+
+
+                    <h2 class="section__title">
+
+                        Our Solutions
+
+                    </h2>
+
+
+
+
+                    <p class="section__description">
+
+                        Explore our advanced technology solutions designed
+                        for modern asset management.
+
+                    </p>
+
+
+
+                </div>
+
+
+
+
+
+                <div 
+                    class="products__grid"
+                    data-products
+                ></div>
+
+
+
+
+            </div>
+
+
+        </section>
+
+
+
+
+
+
+
+
+
+        <!-- Industries Preview -->
+
+        <section class="section section--dark">
+
+
+            <div class="container">
+
+
+
+                <div class="section__header">
+
+
+                    <h2 class="section__title">
+
+                        Industries We Serve
+
+                    </h2>
+
+
+
+                    <p class="section__description">
+
+                        Supporting infrastructure, construction,
+                        education and industrial sectors with
+                        intelligent technology.
+
+                    </p>
+
+
+
+                </div>
+
+
+
+
+                <div class="industries__grid">
+
+
+                    <a 
+                        href="industries.html"
+                        class="industry-card"
+                    >
+
+
+                        <img
+                            src="../assets/icons/industries/construction.svg"
+                            alt="Construction"
+                        >
+
+
+                        <h3>
+
+                            Construction
+
+                        </h3>
+
+
                     </a>
 
-                    <a href="contact.html" class="btn secondary">
-                        Contact Us
+
+
+
+
+                    <a 
+                        href="industries.html"
+                        class="industry-card"
+                    >
+
+
+                        <img
+                            src="../assets/icons/industries/infrastructure.svg"
+                            alt="Infrastructure"
+                        >
+
+
+                        <h3>
+
+                            Infrastructure
+
+                        </h3>
+
+
                     </a>
 
+
+
+
+
+                    <a 
+                        href="industries.html"
+                        class="industry-card"
+                    >
+
+
+                        <img
+                            src="../assets/icons/industries/oil-gas.svg"
+                            alt="Oil and Gas"
+                        >
+
+
+                        <h3>
+
+                            Oil & Gas
+
+                        </h3>
+
+
+                    </a>
+
+
+
+
+
                 </div>
 
+
+
+
             </div>
 
 
-            <div class="hero-image">
-
-                <img 
-                    src="../assets/images/hero.webp"
-                    alt="BH RIT Technology Solutions"
-                >
-
-            </div>
-
-        </div>
-
-    </section>
+        </section>
 
 
 
-    <!-- Solutions Section -->
-    <section class="solutions-section">
-
-        <div class="container">
-
-            <h2>
-                Our Solutions
-            </h2>
-
-            <p class="section-description">
-                Providing practical technology solutions that support
-                businesses across different industries.
-            </p>
 
 
-            <div class="cards">
+
+        <!-- Call To Action -->
+
+        <section class="section">
 
 
-                <div class="card">
+            <div class="container">
 
-                    <h3>
-                        Reality Capture
-                    </h3>
+
+                <div class="cta">
+
+
+
+                    <h2>
+
+                        Ready To Transform Your Asset Management?
+
+                    </h2>
+
+
 
                     <p>
-                        Advanced scanning and digital mapping solutions
-                        for accurate documentation and analysis.
+
+                        Discover how our technology solutions can improve
+                        inspection, monitoring and operational efficiency.
+
                     </p>
+
+
+
+                    <a
+                        href="contact.html"
+                        class="btn btn--primary"
+                    >
+
+                        Get In Touch
+
+                    </a>
+
+
 
                 </div>
 
-
-
-                <div class="card">
-
-                    <h3>
-                        Industrial Technology
-                    </h3>
-
-                    <p>
-                        Reliable equipment and solutions designed to
-                        improve operational performance.
-                    </p>
-
-                </div>
-
-
-
-                <div class="card">
-
-                    <h3>
-                        Digital Transformation
-                    </h3>
-
-                    <p>
-                        Smart technology integration to optimize
-                        workflows and business processes.
-                    </p>
-
-                </div>
 
 
             </div>
 
-        </div>
 
-    </section>
-
+        </section>
 
 
-    <!-- Featured Section -->
-    <section class="featured-section">
 
-        <div class="container">
 
-            <div class="featured-content">
 
-                <h2>
-                    Transform The Way You Work
-                </h2>
+    </main>
 
-                <p>
-                    We help organizations adopt innovative technology
-                    solutions that deliver better accuracy, efficiency,
-                    and long-term value.
-                </p>
 
-                <a href="contact.html" class="btn">
-                    Get Started
-                </a>
 
-            </div>
 
-        </div>
-
-    </section>
 
 
 
     <!-- Footer -->
-    <footer>
 
-        <div class="container">
-
-            <p>
-                © 2026 Beyond Horizon Technologies. All Rights Reserved.
-            </p>
-
-        </div>
-
-    </footer>
+    <footer data-component="footer"></footer>
 
 
-    <script src="../js/main.js"></script>
+
+
+
+
+
+    <!-- Scripts -->
+
+    <script src="../assets/js/utils.js"></script>
+
+    <script src="../assets/js/loader.js"></script>
+
+    <script src="../assets/js/navigation.js"></script>
+
+    <script src="../assets/js/productBuilder.js"></script>
+
+    <script src="../assets/js/animation.js"></script>
+
+    <script src="../assets/js/theme.js"></script>
+
+    <script src="../assets/js/app.js"></script>
+
+
 
 </body>
+
 </html>
