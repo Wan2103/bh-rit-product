@@ -1,162 +1,360 @@
-document.addEventListener("DOMContentLoaded", () => {
+/*
+=========================================
+Animation Controller
+Beyond Horizon Technologies
+=========================================
+*/
 
-    const animatedElements = document.querySelectorAll(
-        ".reveal, .animate"
-    );
 
+document.addEventListener(
+    "DOMContentLoaded",
+    () => {
 
-    const observer = new IntersectionObserver(
-        (entries) => {
+        initializeAnimations();
 
-            entries.forEach((entry) => {
-
-                if (entry.isIntersecting) {
-
-                    entry.target.classList.add("active");
-
-                    observer.unobserve(entry.target);
-
-                }
-
-            });
-
-        },
-        {
-            threshold: 0.15
-        }
-    );
-
-
-    animatedElements.forEach((element) => {
-
-        observer.observe(element);
-
-    });
-
-
-});
-
-
-
-/* Scroll Animation */
-
-function revealOnScroll() {
-
-    const reveals = document.querySelectorAll(".reveal");
-
-
-    reveals.forEach((element) => {
-
-        const windowHeight = window.innerHeight;
-
-        const elementTop = element.getBoundingClientRect().top;
-
-        const revealPoint = 120;
-
-
-        if (elementTop < windowHeight - revealPoint) {
-
-            element.classList.add("active");
-
-        }
-
-    });
-
-}
-
-
-window.addEventListener(
-    "scroll",
-    revealOnScroll
-);
-
-
-revealOnScroll();
-
-
-
-
-/* Counter Animation */
-
-function animateCounter(element) {
-
-    const target = Number(
-        element.dataset.target
-    );
-
-
-    let current = 0;
-
-
-    const increment = Math.ceil(
-        target / 100
-    );
-
-
-    const updateCounter = () => {
-
-        current += increment;
-
-
-        if (current >= target) {
-
-            element.textContent = target;
-
-            return;
-
-        }
-
-
-        element.textContent = current;
-
-
-        requestAnimationFrame(
-            updateCounter
-        );
-
-    };
-
-
-    updateCounter();
-
-}
-
-
-
-const counters = document.querySelectorAll(
-    "[data-target]"
-);
-
-
-const counterObserver = new IntersectionObserver(
-    (entries) => {
-
-        entries.forEach((entry) => {
-
-            if (entry.isIntersecting) {
-
-                animateCounter(
-                    entry.target
-                );
-
-                counterObserver.unobserve(
-                    entry.target
-                );
-
-            }
-
-        });
-
-    },
-    {
-        threshold: 0.5
     }
 );
 
 
 
-counters.forEach((counter) => {
+/*
+=========================================
+Initialize Animations
+=========================================
+*/
 
-    counterObserver.observe(counter);
 
-});
+function initializeAnimations() {
+
+
+    const animatedElements =
+        document.querySelectorAll(
+            "[data-animation]"
+        );
+
+
+    if (!animatedElements.length) {
+
+        return;
+
+    }
+
+
+
+    const observer =
+        new IntersectionObserver(
+            (entries) => {
+
+
+                entries.forEach(
+                    (entry) => {
+
+
+                        if (
+                            entry.isIntersecting
+                        ) {
+
+
+                            const element =
+                                entry.target;
+
+
+                            const animation =
+                                element.dataset.animation;
+
+
+
+                            element.classList.add(
+                                "animate",
+                                animation
+                            );
+
+
+
+                            observer.unobserve(
+                                element
+                            );
+
+
+                        }
+
+
+                    }
+                );
+
+
+            },
+            {
+                threshold: 0.15
+            }
+        );
+
+
+
+    animatedElements.forEach(
+        (element) => {
+
+            observer.observe(
+                element
+            );
+
+        }
+    );
+
+
+}
+
+
+
+/*
+=========================================
+Reveal On Scroll
+=========================================
+*/
+
+
+function revealOnScroll(
+    selector,
+    animation = "fade-up"
+) {
+
+
+    const elements =
+        document.querySelectorAll(
+            selector
+        );
+
+
+
+    elements.forEach(
+        (element) => {
+
+
+            element.dataset.animation =
+                animation;
+
+
+        }
+    );
+
+
+
+    initializeAnimations();
+
+
+}
+
+
+
+/*
+=========================================
+Stagger Animation
+=========================================
+*/
+
+
+function staggerAnimation(
+    selector,
+    delay = 100
+) {
+
+
+    const elements =
+        document.querySelectorAll(
+            selector
+        );
+
+
+
+    elements.forEach(
+        (
+            element,
+            index
+        ) => {
+
+
+            element.style.transitionDelay =
+                `${index * delay}ms`;
+
+
+
+            element.dataset.animation =
+                "fade-up";
+
+
+        }
+    );
+
+
+
+    initializeAnimations();
+
+
+}
+
+
+
+/*
+=========================================
+Counter Animation
+=========================================
+*/
+
+
+function animateCounter(
+    element,
+    target,
+    duration = 2000
+) {
+
+
+    let start = 0;
+
+
+    const increment =
+        target /
+        (duration / 16);
+
+
+
+    const counter =
+        setInterval(
+            () => {
+
+
+                start += increment;
+
+
+
+                if (
+                    start >= target
+                ) {
+
+
+                    element.textContent =
+                        target;
+
+
+                    clearInterval(
+                        counter
+                    );
+
+
+                }
+
+                else {
+
+
+                    element.textContent =
+                        Math.floor(start);
+
+
+                }
+
+
+            },
+            16
+        );
+
+
+}
+
+
+
+/*
+=========================================
+Initialize Counters
+=========================================
+*/
+
+
+function initializeCounters() {
+
+
+    const counters =
+        document.querySelectorAll(
+            "[data-counter]"
+        );
+
+
+
+    if (!counters.length) {
+
+        return;
+
+    }
+
+
+
+    const observer =
+        new IntersectionObserver(
+            (entries) => {
+
+
+                entries.forEach(
+                    (entry) => {
+
+
+                        if (
+                            entry.isIntersecting
+                        ) {
+
+
+                            const element =
+                                entry.target;
+
+
+
+                            const target =
+                                Number(
+                                    element.dataset.counter
+                                );
+
+
+
+                            animateCounter(
+                                element,
+                                target
+                            );
+
+
+
+                            observer.unobserve(
+                                element
+                            );
+
+
+                        }
+
+
+                    }
+                );
+
+
+            },
+            {
+                threshold: 0.5
+            }
+        );
+
+
+
+    counters.forEach(
+        (counter) => {
+
+            observer.observe(
+                counter
+            );
+
+        }
+    );
+
+
+}
+
+
+
+document.addEventListener(
+    "DOMContentLoaded",
+    initializeCounters
+);
