@@ -1,184 +1,243 @@
-document.addEventListener("DOMContentLoaded", () => {
+/*
+=========================================
+Modal Controller
+Beyond Horizon Technologies
+=========================================
+*/
 
-    initializeModals();
 
-});
+document.addEventListener(
+    "DOMContentLoaded",
+    () => {
+
+        initializeModals();
+
+    }
+);
+
+
+
+/*
+=========================================
+Initialize Modals
+=========================================
+*/
 
 
 function initializeModals() {
 
-    const modals =
+
+    const modalTriggers =
         document.querySelectorAll(
-            ".modal"
+            "[data-modal]"
         );
 
 
-    modals.forEach((modal) => {
 
-        const closeButton =
-            modal.querySelector(
-                ".modal__close"
+    modalTriggers.forEach(
+        (trigger) => {
+
+
+            trigger.addEventListener(
+                "click",
+                (event) => {
+
+
+                    event.preventDefault();
+
+
+
+                    const modalId =
+                        trigger.dataset.modal;
+
+
+
+                    openModal(
+                        modalId
+                    );
+
+
+                }
             );
 
 
-        const overlay =
-            modal.querySelector(
-                ".modal__overlay"
-            );
+        }
+    );
 
 
-        closeButton?.addEventListener(
-            "click",
-            () => {
+
+    document.addEventListener(
+        "click",
+        (event) => {
+
+
+            if (
+                event.target.matches(
+                    "[data-modal-close]"
+                )
+            ) {
+
 
                 closeModal(
-                    modal
+                    event.target.closest(
+                        ".modal"
+                    )
                 );
 
+
             }
-        );
 
 
-        overlay?.addEventListener(
-            "click",
-            () => {
+
+            if (
+                event.target.classList.contains(
+                    "modal__overlay"
+                )
+            ) {
+
 
                 closeModal(
-                    modal
+                    event.target.closest(
+                        ".modal"
+                    )
                 );
 
-            }
-        );
 
-    });
+            }
+
+
+        }
+    );
+
 
 
     document.addEventListener(
         "keydown",
         (event) => {
 
+
             if (
                 event.key === "Escape"
             ) {
 
+
                 closeAllModals();
 
+
             }
+
 
         }
     );
 
 
-    initializeModalTriggers();
-
 }
 
 
 
 /*
-====================================
-Modal Triggers
-====================================
-*/
-
-function initializeModalTriggers() {
-
-    const triggers =
-        document.querySelectorAll(
-            "[data-modal]"
-        );
-
-
-    triggers.forEach((trigger) => {
-
-        trigger.addEventListener(
-            "click",
-            () => {
-
-                const modalId =
-                    trigger.dataset.modal;
-
-
-                const modal =
-                    document.getElementById(
-                        modalId
-                    );
-
-
-                if (modal) {
-
-                    openModal(
-                        modal
-                    );
-
-                }
-
-            }
-        );
-
-    });
-
-}
-
-
-
-/*
-====================================
+=========================================
 Open Modal
-====================================
+=========================================
 */
 
-function openModal(modal) {
+
+function openModal(
+    modalId
+) {
+
+
+    const modal =
+        document.getElementById(
+            modalId
+        );
+
+
+
+    if (!modal) {
+
+
+        console.warn(
+            `Modal not found: ${modalId}`
+        );
+
+
+        return;
+
+    }
+
+
 
     modal.classList.add(
         "active"
     );
 
 
+
     document.body.classList.add(
-        "modal-open"
+        "no-scroll"
     );
 
 
-    document.body.style.overflow =
-        "hidden";
 
 }
 
 
 
 /*
-====================================
+=========================================
 Close Modal
-====================================
+=========================================
 */
 
-function closeModal(modal) {
+
+function closeModal(
+    modal
+) {
+
+
+    if (!modal) {
+
+        return;
+
+    }
+
+
 
     modal.classList.remove(
         "active"
     );
 
 
-    document.body.classList.remove(
-        "modal-open"
-    );
+
+    if (
+        !document.querySelector(
+            ".modal.active"
+        )
+    ) {
 
 
-    document.body.style.overflow =
-        "";
+        document.body.classList.remove(
+            "no-scroll"
+        );
+
+
+    }
+
 
 }
 
 
 
 /*
-====================================
+=========================================
 Close All Modals
-====================================
+=========================================
 */
 
+
 function closeAllModals() {
+
 
     const modals =
         document.querySelectorAll(
@@ -186,127 +245,197 @@ function closeAllModals() {
         );
 
 
-    modals.forEach((modal) => {
 
-        closeModal(
-            modal
-        );
-
-    });
-
-}
+    modals.forEach(
+        (modal) => {
 
 
-
-/*
-====================================
-Dynamic Modal Content
-====================================
-*/
-
-function openDynamicModal(
-    title,
-    content,
-    buttonText = "",
-    buttonUrl = "#"
-) {
-
-    const modal =
-        document.querySelector(
-            ".modal"
-        );
+            closeModal(
+                modal
+            );
 
 
-    if (!modal) return;
-
-
-    const modalTitle =
-        modal.querySelector(
-            ".modal__title"
-        );
-
-
-    const modalBody =
-        modal.querySelector(
-            ".modal__body"
-        );
-
-
-    const modalButton =
-        modal.querySelector(
-            ".modal__actions .btn"
-        );
-
-
-    if (modalTitle) {
-
-        modalTitle.textContent =
-            title;
-
-    }
-
-
-    if (modalBody) {
-
-        modalBody.innerHTML =
-            content;
-
-    }
-
-
-    if (modalButton) {
-
-        modalButton.textContent =
-            buttonText;
-
-        modalButton.href =
-            buttonUrl;
-
-    }
-
-
-    openModal(
-        modal
+        }
     );
 
+
 }
 
 
 
 /*
-====================================
-Product Modal
-====================================
+=========================================
+Create Dynamic Modal
+=========================================
 */
 
-function openProductModal(product) {
 
-    openDynamicModal(
+function createModal(
+    options = {}
+) {
 
-        product.name,
 
-        `
+    const {
 
-        <div class="product-modal__image">
+        id =
+            "dynamic-modal",
 
-            <img 
-                src="${product.image}" 
-                alt="${product.name}"
+        title =
+            "",
+
+        content =
+            ""
+
+    } = options;
+
+
+
+    const modal =
+        document.createElement(
+            "div"
+        );
+
+
+
+    modal.id =
+        id;
+
+
+
+    modal.className =
+        "modal";
+
+
+
+    modal.innerHTML = `
+
+        <div class="modal__overlay"></div>
+
+
+        <div class="modal__container">
+
+
+            <button 
+                class="modal__close"
+                data-modal-close
             >
+                &times;
+            </button>
+
+
+            ${
+                title
+                ?
+                `<h2 class="modal__title">${title}</h2>`
+                :
+                ""
+            }
+
+
+            <div class="modal__content">
+
+                ${content}
+
+            </div>
+
 
         </div>
 
+    `;
 
-        <p>
-            ${product.description}
-        </p>
 
-        `,
 
-        "View Product",
-
-        product.url
-
+    document.body.appendChild(
+        modal
     );
 
+
+
+    return modal;
+
 }
+
+
+
+/*
+=========================================
+Product Detail Modal
+=========================================
+*/
+
+
+function openProductModal(
+    product
+) {
+
+
+    const modal =
+        createModal({
+
+            id:
+                "product-modal",
+
+            title:
+                product.name,
+
+
+            content:
+
+            `
+
+            <img 
+                src="${product.image}"
+                alt="${product.name}"
+            >
+
+
+            <p>
+                ${product.description}
+            </p>
+
+
+            `
+
+        });
+
+
+
+    openModal(
+        modal.id
+    );
+
+
+}
+
+
+
+/*
+=========================================
+Export
+=========================================
+*/
+
+
+window.Modal = {
+
+
+    open:
+        openModal,
+
+
+    close:
+        closeModal,
+
+
+    closeAll:
+        closeAllModals,
+
+
+    create:
+        createModal,
+
+
+    product:
+        openProductModal
+
+};
