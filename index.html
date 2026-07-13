@@ -2,35 +2,40 @@
 <html lang="en">
 
 <head>
-
     <meta charset="UTF-8">
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Beyond Horizon Technologies</title>
+    <title>
+        Beyond Horizon Technologies | Intelligent Asset Management Solutions
+    </title>
 
-    <meta name="description" content="Beyond Horizon Technologies provides advanced inspection, mapping, robotics, UAV and digital solutions.">
+    <meta name="description"
+        content="Beyond Horizon Technologies provides intelligent asset management solutions through UAV, robotics, LiDAR, 3D mapping and advanced inspection technologies.">
+
+    <meta name="keywords"
+        content="asset intelligence, asset management, UAV inspection, LiDAR, 3D mapping, robotics, remote inspection">
+
+    <meta name="author"
+        content="Beyond Horizon Technologies Sdn. Bhd.">
 
 
+    <!-- Favicon -->
     <link rel="icon" href="favicon.ico">
 
 
+    <!-- Manifest -->
     <link rel="manifest" href="manifest.json">
 
 
-    <!-- Fonts -->
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-
-    <!-- CSS -->
-
+    <!-- Styles -->
     <link rel="stylesheet" href="assets/css/style.css">
 
+
+    <!-- Preload Hero Image -->
+    <link rel="preload"
+        href="assets/images/backgrounds/hero.webp"
+        as="image">
 
 </head>
 
@@ -38,170 +43,81 @@
 <body>
 
 
-    <!-- Loading -->
+    <!-- Loading Screen -->
+    <div id="loader"></div>
 
-    <div class="loading" data-component="loading"></div>
 
+    <!-- Application Container -->
+    <div id="app">
+
+
+        <!-- Navbar -->
+        <header id="navbar-container"></header>
+
+
+        <!-- Main Content -->
+        <main id="page-container"></main>
+
+
+        <!-- Footer -->
+        <footer id="footer-container"></footer>
+
+
+    </div>
+
+
+
+    <!-- Scripts -->
+
+    <!-- Utility Functions -->
+    <script src="assets/js/utils.js"></script>
+
+
+    <!-- Component Loader -->
+    <script src="assets/js/loader.js"></script>
+
+
+    <!-- Routing -->
+    <script src="assets/js/router.js"></script>
 
 
     <!-- Navigation -->
-
-    <header data-component="navbar"></header>
-
-
-
-    <!-- Main Content -->
-
-    <main id="app" data-router>
-
-
-        <section class="hero">
-
-            <div class="container hero-layout">
-
-
-                <div class="hero__content">
-
-
-                    <span class="hero__subtitle">
-
-                        Beyond Innovation
-
-                    </span>
-
-
-                    <h1 class="hero__title">
-
-                        Advanced Technology Solutions For The Future
-
-                    </h1>
-
-
-                    <p class="hero__description">
-
-                        Delivering cutting-edge inspection, mapping, robotics, UAV and digital transformation solutions.
-
-                    </p>
-
-
-                    <div class="hero__actions">
-
-
-                        <a href="pages/products.html" class="btn btn--primary">
-
-                            Explore Solutions
-
-                        </a>
-
-
-                        <a href="pages/contact.html" class="btn btn--outline">
-
-                            Contact Us
-
-                        </a>
-
-
-                    </div>
-
-
-                </div>
-
-
-
-                <div class="hero__media">
-
-
-                    <img 
-                        src="assets/images/backgrounds/hero.webp"
-                        alt="Beyond Horizon Technology"
-                    >
-
-
-                </div>
-
-
-            </div>
-
-        </section>
-
-
-
-        <section class="section">
-
-
-            <div class="container">
-
-
-                <div class="section__header">
-
-
-                    <h2 class="section__title">
-
-                        Our Solutions
-
-                    </h2>
-
-
-                    <p class="section__description">
-
-                        Explore our range of advanced technology products and services.
-
-                    </p>
-
-
-                </div>
-
-
-
-                <div 
-                    class="products__grid"
-                    data-products
-                ></div>
-
-
-            </div>
-
-
-        </section>
-
-
-    </main>
-
-
-
-    <!-- Footer -->
-
-    <footer data-component="footer"></footer>
-
-
-
-
-    <!-- JavaScript -->
-
-    <script src="assets/js/utils.js"></script>
-
-    <script src="assets/js/loader.js"></script>
-
     <script src="assets/js/navigation.js"></script>
 
-    <script src="assets/js/modal.js"></script>
 
-    <script src="assets/js/gallery.js"></script>
-
-    <script src="assets/js/animation.js"></script>
-
-    <script src="assets/js/scroll.js"></script>
-
-    <script src="assets/js/search.js"></script>
-
+    <!-- Product System -->
     <script src="assets/js/productBuilder.js"></script>
 
+
+    <!-- Gallery -->
+    <script src="assets/js/gallery.js"></script>
+
+
+    <!-- Modal -->
+    <script src="assets/js/modal.js"></script>
+
+
+    <!-- Search -->
+    <script src="assets/js/search.js"></script>
+
+
+    <!-- Slides -->
     <script src="assets/js/slideBuilder.js"></script>
 
+
+    <!-- Animations -->
+    <script src="assets/js/animation.js"></script>
+
+
+    <!-- Scroll -->
+    <script src="assets/js/scroll.js"></script>
+
+
+    <!-- Theme -->
     <script src="assets/js/theme.js"></script>
 
-    <script src="assets/js/router.js"></script>
 
+    <!-- Application Start -->
     <script src="assets/js/app.js"></script>
 
 
