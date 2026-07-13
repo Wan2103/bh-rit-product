@@ -1,0 +1,24 @@
+{
+  "name": "Beyond Horizon Technologies - RIT Product Presentation",
+  "short_name": "BH RIT",
+  "description": "Interactive product presentation platform for Beyond Horizon Technologies Sdn. Bhd.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "landscape-primary",
+  "background_color": "#0B1220",
+  "theme_color": "#0056B3",
+  "lang": "en",
+  "categories": [
+    "business",
+    "technology",
+    "productivity"
+  ],
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "16x16 32x32 48x48",
+      "type": "image/x-icon"
+    }
+  ]
+}

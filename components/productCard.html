@@ -1,0 +1,57 @@
+<div class="product-card">
+
+    <div class="product-card__image">
+
+        <img 
+            src="{{image}}" 
+            alt="{{name}}"
+            loading="lazy"
+        >
+
+    </div>
+
+
+    <div class="product-card__content">
+
+        <span class="product-card__category">
+            {{category}}
+        </span>
+
+
+        <h3 class="product-card__title">
+            {{name}}
+        </h3>
+
+
+        <p class="product-card__description">
+            {{description}}
+        </p>
+
+
+        <div class="product-card__features">
+
+            <ul>
+
+                {{#features}}
+
+                <li>
+                    {{feature}}
+                </li>
+
+                {{/features}}
+
+            </ul>
+
+        </div>
+
+
+        <a 
+            href="{{url}}"
+            class="btn btn--primary product-card__button"
+        >
+            View Product
+        </a>
+
+    </div>
+
+</div>

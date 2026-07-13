@@ -1,0 +1,85 @@
+{
+  "navigation": [
+    {
+      "title": "Home",
+      "url": "pages/home.html",
+      "icon": "home"
+    },
+    {
+      "title": "About",
+      "url": "pages/about.html",
+      "icon": "company"
+    },
+    {
+      "title": "Products",
+      "url": "#products",
+      "icon": "products",
+      "children": [
+        {
+          "title": "Crawler",
+          "url": "#crawler"
+        },
+        {
+          "title": "DJI Enterprise",
+          "url": "#dji"
+        },
+        {
+          "title": "KC2",
+          "url": "#kc2"
+        },
+        {
+          "title": "Pekaka",
+          "url": "#pekaka"
+        },
+        {
+          "title": "Pekaka Light",
+          "url": "#pekaka-light"
+        },
+        {
+          "title": "ROV",
+          "url": "#rov"
+        },
+        {
+          "title": "Share UAV",
+          "url": "#shareuav"
+        },
+        {
+          "title": "SkyGauge",
+          "url": "#skygauge"
+        }
+      ]
+    },
+    {
+      "title": "Industries",
+      "url": "pages/industries.html",
+      "icon": "industries"
+    },
+    {
+      "title": "Portfolio",
+      "url": "pages/portfolio.html",
+      "icon": "portfolio"
+    },
+    {
+      "title": "Support",
+      "url": "pages/support.html",
+      "icon": "support"
+    },
+    {
+      "title": "Contact",
+      "url": "pages/contact.html",
+      "icon": "contact"
+    }
+  ],
+  "actions": [
+    {
+      "title": "Request Consultation",
+      "url": "pages/contact.html",
+      "type": "primary"
+    },
+    {
+      "title": "Download Brochure",
+      "url": "downloads/brochures/company-brochure.pdf",
+      "type": "secondary"
+    }
+  ]
+}

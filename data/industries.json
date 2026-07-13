@@ -1,0 +1,160 @@
+{
+  "industries": [
+    {
+      "id": "oil-gas",
+      "name": "Oil & Gas",
+      "description": "Advanced inspection and robotic solutions designed to improve safety, efficiency, and reliability in oil and gas operations.",
+      "challenges": [
+        "High-risk inspection environments",
+        "Limited accessibility to critical assets",
+        "Operational downtime during inspections"
+      ],
+      "solutions": [
+        "Remote robotic inspection systems",
+        "Drone-based monitoring solutions",
+        "Advanced data collection technologies"
+      ],
+      "applications": [
+        "Pipeline inspection",
+        "Storage tank inspection",
+        "Facility monitoring",
+        "Asset assessment"
+      ],
+      "image": "assets/images/industries/oil-gas.webp",
+      "products": [
+        "crawler",
+        "rov",
+        "dji"
+      ]
+    },
+    {
+      "id": "construction",
+      "name": "Construction",
+      "description": "Technology solutions that support accurate monitoring, surveying, and progress tracking for construction projects.",
+      "challenges": [
+        "Large project areas",
+        "Manual inspection limitations",
+        "Need for accurate documentation"
+      ],
+      "solutions": [
+        "Aerial mapping systems",
+        "3D inspection technology",
+        "Digital monitoring solutions"
+      ],
+      "applications": [
+        "Site surveying",
+        "Progress monitoring",
+        "Structural inspection",
+        "Project documentation"
+      ],
+      "image": "assets/images/industries/construction.webp",
+      "products": [
+        "dji",
+        "skygauge"
+      ]
+    },
+    {
+      "id": "energy",
+      "name": "Energy",
+      "description": "Smart inspection technologies that help energy providers maintain critical infrastructure safely and efficiently.",
+      "challenges": [
+        "Infrastructure reliability",
+        "Maintenance accessibility",
+        "Asset monitoring requirements"
+      ],
+      "solutions": [
+        "Automated inspection systems",
+        "Remote monitoring technology",
+        "Data-driven analysis"
+      ],
+      "applications": [
+        "Power facility inspection",
+        "Solar inspection",
+        "Equipment monitoring"
+      ],
+      "image": "assets/images/industries/energy.webp",
+      "products": [
+        "dji",
+        "skygauge",
+        "shareuav"
+      ]
+    },
+    {
+      "id": "infrastructure",
+      "name": "Infrastructure",
+      "description": "Inspection solutions for bridges, buildings, and critical infrastructure assets.",
+      "challenges": [
+        "Difficult access locations",
+        "Safety risks during inspection",
+        "Large-scale asset management"
+      ],
+      "solutions": [
+        "Robotic inspection platforms",
+        "UAV inspection systems",
+        "High-resolution imaging solutions"
+      ],
+      "applications": [
+        "Bridge inspection",
+        "Building assessment",
+        "Infrastructure monitoring"
+      ],
+      "image": "assets/images/industries/infrastructure.webp",
+      "products": [
+        "crawler",
+        "dji",
+        "rov"
+      ]
+    },
+    {
+      "id": "marine",
+      "name": "Marine",
+      "description": "Underwater inspection and monitoring solutions designed for marine assets and environments.",
+      "challenges": [
+        "Underwater accessibility",
+        "Difficult inspection conditions",
+        "Marine asset maintenance"
+      ],
+      "solutions": [
+        "Remote operated vehicles",
+        "Underwater inspection systems",
+        "Real-time monitoring technology"
+      ],
+      "applications": [
+        "Underwater inspection",
+        "Marine structure assessment",
+        "Port and offshore monitoring"
+      ],
+      "image": "assets/images/industries/marine.webp",
+      "products": [
+        "rov",
+        "pekaka",
+        "pekaka-light"
+      ]
+    },
+    {
+      "id": "manufacturing",
+      "name": "Manufacturing",
+      "description": "Automation and inspection technologies that improve productivity and quality control in manufacturing environments.",
+      "challenges": [
+        "Production efficiency",
+        "Quality inspection requirements",
+        "Operational consistency"
+      ],
+      "solutions": [
+        "Automated inspection systems",
+        "Robotic technology",
+        "Smart monitoring solutions"
+      ],
+      "applications": [
+        "Equipment inspection",
+        "Quality monitoring",
+        "Factory automation"
+      ],
+      "image": "assets/images/industries/manufacturing.webp",
+      "products": [
+        "crawler",
+        "shareuav"
+      ]
+    }
+  ]
+}

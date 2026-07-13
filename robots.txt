@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://wan2103.github.io/bh-rit-product-presentation/sitemap.xml

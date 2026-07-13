@@ -1,0 +1,270 @@
+{
+  "products": [
+    {
+      "id": "crawler",
+      "name": "Crawler Inspection Robot",
+      "category": "Robotic Inspection",
+      "description": "A compact robotic inspection platform designed for remote visual inspection in challenging industrial environments.",
+      "image": "assets/images/products/crawler/hero.webp",
+      "overview": "The Crawler Inspection Robot provides reliable mobility and inspection capabilities for areas that are difficult or unsafe for human access.",
+      "features": [
+        "Remote controlled operation",
+        "High-resolution inspection camera",
+        "Compact design for confined spaces",
+        "Real-time monitoring capability"
+      ],
+      "applications": [
+        "Industrial inspection",
+        "Pipeline inspection",
+        "Confined space inspection",
+        "Facility monitoring"
+      ],
+      "specifications": [
+        {
+          "name": "Operation Mode",
+          "value": "Remote Control"
+        },
+        {
+          "name": "Camera System",
+          "value": "High Resolution Camera"
+        },
+        {
+          "name": "Application",
+          "value": "Industrial Inspection"
+        }
+      ],
+      "media": {
+        "gallery": [
+          "assets/images/products/crawler/gallery1.webp",
+          "assets/images/products/crawler/gallery2.webp",
+          "assets/images/products/crawler/gallery3.webp"
+        ],
+        "video": "assets/videos/products/crawler/demo.mp4"
+      },
+      "documents": {
+        "brochure": "assets/pdf/products/crawler/brochure.pdf",
+        "datasheet": "assets/pdf/products/crawler/datasheet.pdf"
+      }
+    },
+    {
+      "id": "dji",
+      "name": "DJI Enterprise Solution",
+      "category": "UAV Inspection",
+      "description": "Professional drone solutions designed for aerial inspection, mapping, and industrial monitoring applications.",
+      "image": "assets/images/products/dji/hero.webp",
+      "overview": "DJI Enterprise solutions provide advanced aerial data collection capabilities for safer and more efficient industrial operations.",
+      "features": [
+        "High precision aerial imaging",
+        "Advanced flight control system",
+        "Thermal inspection capability",
+        "Efficient data collection"
+      ],
+      "applications": [
+        "Infrastructure inspection",
+        "Surveying and mapping",
+        "Asset monitoring",
+        "Industrial inspection"
+      ],
+      "specifications": [
+        {
+          "name": "Platform",
+          "value": "Enterprise UAV"
+        },
+        {
+          "name": "Imaging",
+          "value": "RGB and Thermal Options"
+        },
+        {
+          "name": "Control",
+          "value": "Remote Flight System"
+        }
+      ],
+      "media": {
+        "gallery": [
+          "assets/images/products/dji/gallery1.webp",
+          "assets/images/products/dji/gallery2.webp",
+          "assets/images/products/dji/gallery3.webp"
+        ],
+        "video": "assets/videos/products/dji/demo.mp4"
+      },
+      "documents": {
+        "brochure": "assets/pdf/products/dji/brochure.pdf",
+        "datasheet": "assets/pdf/products/dji/datasheet.pdf"
+      }
+    },
+    {
+      "id": "kc2",
+      "name": "KC2 Inspection System",
+      "category": "Inspection Technology",
+      "description": "Advanced inspection equipment designed to support accurate assessment and monitoring of industrial assets.",
+      "image": "assets/images/products/kc2/hero.webp",
+      "overview": "KC2 provides reliable inspection performance for industrial applications requiring precision and efficiency.",
+      "features": [
+        "Precision inspection capability",
+        "Durable industrial design",
+        "Easy operation"
+      ],
+      "applications": [
+        "Asset inspection",
+        "Maintenance support",
+        "Industrial monitoring"
+      ],
+      "specifications": [
+        {
+          "name": "System Type",
+          "value": "Inspection Platform"
+        },
+        {
+          "name": "Usage",
+          "value": "Industrial Application"
+        }
+      ],
+      "media": {
+        "gallery": [
+          "assets/images/products/kc2/gallery1.webp",
+          "assets/images/products/kc2/gallery2.webp"
+        ],
+        "video": "assets/videos/products/kc2/demo.mp4"
+      },
+      "documents": {
+        "brochure": "assets/pdf/products/kc2/brochure.pdf"
+      }
+    },
+    {
+      "id": "pekaka",
+      "name": "Pekaka Robotic System",
+      "category": "Robotic Solution",
+      "description": "Robotic technology designed for inspection and monitoring in demanding environments.",
+      "image": "assets/images/products/pekaka/hero.webp",
+      "overview": "Pekaka provides flexible robotic capabilities for industrial inspection and remote operation.",
+      "features": [
+        "Remote operation",
+        "Industrial mobility",
+        "Inspection support"
+      ],
+      "applications": [
+        "Industrial facilities",
+        "Remote inspection",
+        "Asset monitoring"
+      ],
+      "specifications": [
+        {
+          "name": "System Type",
+          "value": "Robotic Platform"
+        }
+      ],
+      "media": {
+        "gallery": [
+          "assets/images/products/pekaka/gallery1.webp"
+        ],
+        "video": "assets/videos/products/pekaka/demo.mp4"
+      },
+      "documents": {
+        "brochure": "assets/pdf/products/pekaka/brochure.pdf"
+      }
+    },
+    {
+      "id": "pekaka-light",
+      "name": "Pekaka Light",
+      "category": "Portable Robotic Solution",
+      "description": "A lightweight robotic inspection solution designed for flexible field operations.",
+      "image": "assets/images/products/pekaka-light/hero.webp",
+      "features": [
+        "Portable design",
+        "Easy deployment",
+        "Remote inspection capability"
+      ],
+      "applications": [
+        "Field inspection",
+        "Maintenance operations"
+      ],
+      "media": {
+        "gallery": [
+          "assets/images/products/pekaka-light/gallery1.webp"
+        ],
+        "video": "assets/videos/products/pekaka-light/demo.mp4"
+      },
+      "documents": {
+        "brochure": "assets/pdf/products/pekaka-light/brochure.pdf"
+      }
+    },
+    {
+      "id": "rov",
+      "name": "ROV Underwater System",
+      "category": "Underwater Inspection",
+      "description": "Remote operated vehicle designed for underwater inspection and monitoring.",
+      "image": "assets/images/products/rov/hero.webp",
+      "features": [
+        "Underwater operation",
+        "Remote monitoring",
+        "Real-time inspection"
+      ],
+      "applications": [
+        "Marine inspection",
+        "Underwater structures",
+        "Offshore monitoring"
+      ],
+      "media": {
+        "gallery": [
+          "assets/images/products/rov/gallery1.webp"
+        ],
+        "video": "assets/videos/products/rov/demo.mp4"
+      },
+      "documents": {
+        "brochure": "assets/pdf/products/rov/brochure.pdf"
+      }
+    },
+    {
+      "id": "shareuav",
+      "name": "Share UAV",
+      "category": "UAV Solution",
+      "description": "UAV technology designed for aerial data collection and inspection workflows.",
+      "image": "assets/images/products/shareuav/hero.webp",
+      "features": [
+        "Aerial inspection",
+        "Data collection",
+        "Efficient operation"
+      ],
+      "applications": [
+        "Surveying",
+        "Monitoring",
+        "Inspection"
+      ],
+      "media": {
+        "gallery": [
+          "assets/images/products/shareuav/gallery1.webp"
+        ],
+        "video": "assets/videos/products/shareuav/demo.mp4"
+      },
+      "documents": {
+        "brochure": "assets/pdf/products/shareuav/brochure.pdf"
+      }
+    },
+    {
+      "id": "skygauge",
+      "name": "SkyGauge",
+      "category": "Drone Inspection Technology",
+      "description": "Advanced inspection solution combining aerial technology and intelligent measurement capabilities.",
+      "image": "assets/images/products/skygauge/hero.webp",
+      "features": [
+        "Precision measurement",
+        "Aerial inspection capability",
+        "Digital data analysis"
+      ],
+      "applications": [
+        "Infrastructure inspection",
+        "Asset measurement",
+        "Industrial monitoring"
+      ],
+      "media": {
+        "gallery": [
+          "assets/images/products/skygauge/gallery1.webp"
+        ],
+        "video": "assets/videos/products/skygauge/demo.mp4"
+      },
+      "documents": {
+        "brochure": "assets/pdf/products/skygauge/brochure.pdf"
+      }
+    }
+  ]
+}

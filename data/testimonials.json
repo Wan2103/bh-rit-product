@@ -1,0 +1,49 @@
+{
+  "testimonials": [
+    {
+      "id": 1,
+      "name": "Michael Tan",
+      "position": "Maintenance Manager",
+      "company": "Industrial Engineering Solutions",
+      "message": "The robotic inspection solution significantly improved our inspection efficiency while reducing the need for personnel to enter hazardous environments.",
+      "rating": 5,
+      "image": "assets/images/company/testimonials/michael-tan.webp"
+    },
+    {
+      "id": 2,
+      "name": "Sarah Lim",
+      "position": "Project Engineer",
+      "company": "Infrastructure Development Group",
+      "message": "The UAV inspection system delivered accurate aerial data that greatly improved our project planning and progress monitoring.",
+      "rating": 5,
+      "image": "assets/images/company/testimonials/sarah-lim.webp"
+    },
+    {
+      "id": 3,
+      "name": "David Wong",
+      "position": "Operations Supervisor",
+      "company": "Energy Services Malaysia",
+      "message": "BH RIT provided a professional solution that enhanced our inspection workflow and minimized operational downtime.",
+      "rating": 5,
+      "image": "assets/images/company/testimonials/david-wong.webp"
+    },
+    {
+      "id": 4,
+      "name": "Nur Aisyah",
+      "position": "Technical Consultant",
+      "company": "Smart Asset Management",
+      "message": "Their technical expertise and responsive support helped us successfully implement advanced inspection technologies into our operations.",
+      "rating": 5,
+      "image": "assets/images/company/testimonials/nur-aisyah.webp"
+    },
+    {
+      "id": 5,
+      "name": "James Lee",
+      "position": "Engineering Manager",
+      "company": "Precision Inspection Services",
+      "message": "The combination of innovative products and excellent customer support made BH RIT a valuable technology partner for our organization.",
+      "rating": 5,
+      "image": "assets/images/company/testimonials/james-lee.webp"
+    }
+  ]
+}

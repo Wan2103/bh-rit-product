@@ -1,0 +1,35 @@
+{
+  "name": "bh-rit-product-presentation",
+  "version": "1.0.0",
+  "description": "Beyond Horizon Technologies - RIT Product Presentation Platform",
+  "author": "Beyond Horizon Technologies Sdn. Bhd.",
+  "license": "MIT",
+  "private": true,
+  "homepage": "https://wan2103.github.io/bh-rit-product-presentation/",
+  "scripts": {
+    "start": "npx live-server . --open=index.html",
+    "serve": "npx live-server . --open=index.html",
+    "format": "prettier --write .",
+    "lint": "eslint assets/js/**/*.js",
+    "check": "prettier --check ."
+  },
+  "devDependencies": {
+    "eslint": "^9.31.0",
+    "live-server": "^1.2.2",
+    "prettier": "^3.6.2"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "keywords": [
+    "beyond-horizon",
+    "rit",
+    "product-presentation",
+    "uav",
+    "drone",
+    "slam",
+    "inspection",
+    "mapping",
+    "github-pages"
+  ]
+}

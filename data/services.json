@@ -1,0 +1,94 @@
+{
+  "services": [
+    {
+      "id": "robotic-inspection",
+      "title": "Robotic Inspection Solutions",
+      "description": "Advanced robotic systems designed to perform inspections safely and efficiently in hazardous, confined, or difficult-to-access environments.",
+      "features": [
+        "Remote operation",
+        "Real-time monitoring",
+        "High-resolution imaging",
+        "Reduced operational risk"
+      ],
+      "applications": [
+        "Industrial facilities",
+        "Confined spaces",
+        "Pipelines",
+        "Critical infrastructure"
+      ],
+      "image": "assets/images/services/robotic-inspection.webp"
+    },
+    {
+      "id": "uav-inspection",
+      "title": "UAV Inspection & Surveying",
+      "description": "Professional drone solutions for aerial inspection, mapping, surveying, monitoring, and asset management across various industries.",
+      "features": [
+        "Aerial imaging",
+        "Thermal inspection",
+        "Photogrammetry",
+        "High-precision mapping"
+      ],
+      "applications": [
+        "Construction",
+        "Power utilities",
+        "Oil & Gas",
+        "Infrastructure"
+      ],
+      "image": "assets/images/services/uav-inspection.webp"
+    },
+    {
+      "id": "3d-mapping",
+      "title": "3D Mapping & Digital Twin",
+      "description": "Capture accurate spatial data and generate detailed 3D models for engineering, inspection, planning, and digital asset management.",
+      "features": [
+        "LiDAR scanning",
+        "Point cloud generation",
+        "Digital twin creation",
+        "Accurate measurements"
+      ],
+      "applications": [
+        "Engineering",
+        "Construction",
+        "Facility management",
+        "Infrastructure planning"
+      ],
+      "image": "assets/images/services/3d-mapping.webp"
+    },
+    {
+      "id": "inspection-consultancy",
+      "title": "Inspection Consultancy",
+      "description": "Professional consultation services to help organizations identify suitable inspection technologies and optimize inspection workflows.",
+      "features": [
+        "Project consultation",
+        "Technology recommendation",
+        "Workflow optimization",
+        "Solution planning"
+      ],
+      "applications": [
+        "Industrial projects",
+        "Infrastructure inspection",
+        "Asset management",
+        "Operational planning"
+      ],
+      "image": "assets/images/services/consultancy.webp"
+    },
+    {
+      "id": "training-support",
+      "title": "Training & Technical Support",
+      "description": "Comprehensive product training and after-sales technical support to ensure customers maximize the value of their inspection solutions.",
+      "features": [
+        "Operator training",
+        "Technical guidance",
+        "Maintenance support",
+        "Product assistance"
+      ],
+      "applications": [
+        "Equipment onboarding",
+        "Operator certification",
+        "Technical troubleshooting",
+        "Routine maintenance"
+      ],
+      "image": "assets/images/services/training-support.webp"
+    }
+  ]
+}
