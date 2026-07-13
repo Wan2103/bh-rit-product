@@ -1,44 +1,44 @@
 {
-  "faq": [
-    {
-      "question": "What solutions does BH RIT provide?",
-      "answer": "BH RIT provides advanced robotics, inspection, UAV, and intelligent technology solutions designed for industrial applications."
-    },
-    {
-      "question": "What industries can use BH RIT solutions?",
-      "answer": "Our solutions support industries such as oil and gas, energy, construction, infrastructure, manufacturing, and other industrial sectors."
-    },
-    {
-      "question": "What are the benefits of using robotic inspection solutions?",
-      "answer": "Robotic inspection solutions improve safety, reduce operational risks, increase inspection efficiency, and allow access to challenging environments."
-    },
-    {
-      "question": "Does BH RIT provide product demonstrations?",
-      "answer": "Yes. Product demonstrations can be arranged to showcase system capabilities, applications, and operational workflows."
-    },
-    {
-      "question": "Can BH RIT provide technical consultation?",
-      "answer": "Yes. Our team provides consultation to understand customer requirements and recommend suitable technology solutions."
-    },
-    {
-      "question": "Do you provide training and support?",
-      "answer": "Yes. Training, technical guidance, and after-sales support are available to help customers operate and maintain the solutions effectively."
-    },
-    {
-      "question": "Are the solutions suitable for hazardous environments?",
-      "answer": "Many of our inspection technologies are designed to support safer operations in challenging and hazardous environments."
-    },
-    {
-      "question": "Can BH RIT customize solutions based on project requirements?",
-      "answer": "Yes. Solutions can be adapted based on operational needs, inspection requirements, and specific project conditions."
-    },
-    {
-      "question": "How can I request a quotation?",
-      "answer": "You can contact BH RIT through our contact page or communication channels to discuss your requirements and request a quotation."
-    },
-    {
-      "question": "Where can I download product documents?",
-      "answer": "Product brochures, datasheets, and technical documents are available through the product pages and download sections."
-    }
-  ]
+    "faq": [
+        {
+            "question": "What solutions does Beyond Horizon Technologies provide?",
+            "answer": "Beyond Horizon Technologies provides intelligent asset management solutions including UAV systems, robotics, LiDAR, 3D mapping, remote inspection technologies and digital asset intelligence solutions."
+        },
+        {
+            "question": "What industries can benefit from your solutions?",
+            "answer": "Our technologies support industries such as construction, infrastructure, oil and gas, education, research and other sectors requiring efficient asset monitoring and data collection."
+        },
+        {
+            "question": "What is intelligent asset management?",
+            "answer": "Intelligent asset management combines advanced technologies, data collection and analytics to help organisations monitor, maintain and make better decisions about their physical assets."
+        },
+        {
+            "question": "Do you provide customised solutions?",
+            "answer": "Yes. We work with clients to understand their requirements and recommend suitable technology solutions based on their operational challenges and objectives."
+        },
+        {
+            "question": "What types of inspection technologies do you offer?",
+            "answer": "We provide remote inspection solutions using UAV, robotics and specialised systems designed to improve inspection safety, efficiency and data accuracy."
+        },
+        {
+            "question": "Do you provide UAV and drone solutions?",
+            "answer": "Yes. Our UAV solutions support applications such as aerial inspection, monitoring, mapping and data collection for various industries."
+        },
+        {
+            "question": "What is LiDAR and 3D mapping used for?",
+            "answer": "LiDAR and 3D mapping technologies are used to capture accurate spatial data, create digital models and support analysis, documentation and planning activities."
+        },
+        {
+            "question": "Can your solutions integrate with existing workflows?",
+            "answer": "Yes. Our solutions can be adapted to support existing operational workflows, reporting requirements and digital asset management processes."
+        },
+        {
+            "question": "Do you provide product documentation?",
+            "answer": "Yes. Product brochures, datasheets, manuals and technical resources are available through our support section."
+        },
+        {
+            "question": "How can I request a consultation?",
+            "answer": "You can contact our team through the contact page. We will discuss your requirements and recommend the most suitable technology solution."
+        }
+    ]
 }
