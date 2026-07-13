@@ -1,453 +1,452 @@
-document.addEventListener("DOMContentLoaded", () => {
+/**
+ * slideBuilder.js
+ * 
+ * Handles dynamic slide/carousel rendering.
+ * Loads slide data and builds reusable slider components.
+ */
 
-    initializeSlides();
+class SlideBuilder {
 
-});
+    constructor(selector, options = {}) {
 
+        this.container = document.querySelector(selector);
 
+        this.options = {
+            autoplay: true,
+            interval: 5000,
+            loop: true,
+            showIndicators: true,
+            showControls: true,
+            ...options
+        };
 
-async function initializeSlides() {
-
-    const sliders =
-        document.querySelectorAll(
-            "[data-slides]"
-        );
-
-
-    if (!sliders.length) return;
-
-
-    sliders.forEach(
-        async (slider) => {
-
-            const source =
-                slider.dataset.slides;
-
-
-            try {
-
-                const slides =
-                    await loadSlides(
-                        source
-                    );
-
-
-                buildSlider(
-                    slider,
-                    slides
-                );
-
-
-            } catch (error) {
-
-                console.error(
-                    "Failed loading slides:",
-                    error
-                );
-
-            }
-
-        }
-    );
-
-}
-
-
-
-/*
-====================================
-Load Slides Data
-====================================
-*/
-
-async function loadSlides(
-    source
-) {
-
-    const response =
-        await fetch(
-            source
-        );
-
-
-    if (!response.ok) {
-
-        throw new Error(
-            "Unable to load slides"
-        );
+        this.slides = [];
+        this.currentIndex = 0;
+        this.timer = null;
 
     }
 
 
-    return await response.json();
-
-}
-
-
-
-/*
-====================================
-Build Slider
-====================================
-*/
-
-function buildSlider(
-    container,
-    slides
-) {
-
-    container.innerHTML = `
-
-        <div class="slides__container"></div>
-
-
-        <div class="slide__controls">
-
-            <button class="slide__button slide-prev">
-
-                &#10094;
-
-            </button>
-
-
-            <button class="slide__button slide-next">
-
-                &#10095;
-
-            </button>
-
-        </div>
-
-
-        <div class="slide__indicators"></div>
-
-    `;
-
-
-    const track =
-        container.querySelector(
-            ".slides__container"
-        );
-
-
-    const indicators =
-        container.querySelector(
-            ".slide__indicators"
-        );
-
-
-    slides.forEach(
-        (slide, index) => {
-
-            const item =
-                createSlide(
-                    slide,
-                    index
-                );
-
-
-            track.appendChild(
-                item
-            );
-
-
-            const indicator =
-                document.createElement(
-                    "button"
-                );
-
-
-            indicator.className =
-                "slide__indicator";
-
-
-            if (index === 0) {
-
-                indicator.classList.add(
-                    "active"
-                );
-
-            }
-
-
-            indicator.dataset.index =
-                index;
-
-
-            indicators.appendChild(
-                indicator
-            );
-
-        }
-    );
-
-
-    initializeSliderControls(
-        container
-    );
-
-}
-
-
-
-/*
-====================================
-Create Slide
-====================================
-*/
-
-function createSlide(
-    slide,
-    index
-) {
-
-    const element =
-        document.createElement(
-            "div"
-        );
-
-
-    element.className =
-        "slide";
-
-
-    if (index === 0) {
-
-        element.classList.add(
-            "active"
-        );
-
-    }
-
-
-    element.innerHTML = `
-
-        <img 
-            src="${slide.image}"
-            alt="${slide.title || "Slide"}"
-        >
-
-
-        <div class="slide__content">
-
-            ${
-                slide.title
-                ?
-                `<h2 class="slide__title">
-                    ${slide.title}
-                </h2>`
-                :
-                ""
-            }
-
-
-            ${
-                slide.description
-                ?
-                `<p class="slide__description">
-                    ${slide.description}
-                </p>`
-                :
-                ""
-            }
-
-
-            ${
-                slide.button
-                ?
-                `<a 
-                    href="${slide.button.url}"
-                    class="btn btn--primary"
-                >
-                    ${slide.button.text}
-                </a>`
-                :
-                ""
-            }
-
-        </div>
-
-    `;
-
-
-    return element;
-
-}
-
-
-
-/*
-====================================
-Slider Controls
-====================================
-*/
-
-function initializeSliderControls(
-    slider
-) {
-
-    const track =
-        slider.querySelector(
-            ".slides__container"
-        );
-
-
-    const slides =
-        slider.querySelectorAll(
-            ".slide"
-        );
-
-
-    const indicators =
-        slider.querySelectorAll(
-            ".slide__indicator"
-        );
-
-
-    const next =
-        slider.querySelector(
-            ".slide-next"
-        );
-
-
-    const prev =
-        slider.querySelector(
-            ".slide-prev"
-        );
-
-
-    let current = 0;
-
-
-    function showSlide(
-        index
-    ) {
-
-        if (
-            index >= slides.length
-        ) {
-
-            current = 0;
-
-        } else if (
-            index < 0
-        ) {
-
-            current =
-                slides.length - 1;
-
-        } else {
-
-            current = index;
-
+    /**
+     * Initialize slider
+     */
+    async init(data = []) {
+
+        if (!this.container) {
+            console.warn("Slide container not found");
+            return;
         }
 
 
-        track.style.transform =
-            `translateX(-${current * 100}%)`;
+        this.slides = data;
 
 
-        slides.forEach(
-            (slide, i) => {
-
-                slide.classList.toggle(
-                    "active",
-                    i === current
-                );
-
-            }
-        );
+        if (!this.slides.length) {
+            this.renderEmpty();
+            return;
+        }
 
 
-        indicators.forEach(
-            (indicator, i) => {
+        this.render();
 
-                indicator.classList.toggle(
-                    "active",
-                    i === current
-                );
+        this.attachEvents();
 
-            }
-        );
+
+        if (this.options.autoplay) {
+            this.startAutoplay();
+        }
 
     }
 
 
 
-    next?.addEventListener(
-        "click",
-        () => {
+    /**
+     * Render slider HTML
+     */
+    render() {
 
-            showSlide(
-                current + 1
+        this.container.innerHTML = `
+
+            <div class="slider">
+
+                <div class="slider__track">
+
+                    ${this.slides.map((slide, index) => `
+
+                        <div class="slider__item ${index === 0 ? "active" : ""}" data-index="${index}">
+
+                            ${slide.image ? `
+
+                                <img 
+                                    src="${slide.image}" 
+                                    alt="${slide.title || "Slide"}"
+                                    class="slider__image"
+                                >
+
+                            ` : ""}
+
+
+                            <div class="slider__content">
+
+                                ${
+                                    slide.title
+                                    ?
+                                    `<h3 class="slider__title">
+                                        ${slide.title}
+                                    </h3>`
+                                    :
+                                    ""
+                                }
+
+
+                                ${
+                                    slide.description
+                                    ?
+                                    `<p class="slider__description">
+                                        ${slide.description}
+                                    </p>`
+                                    :
+                                    ""
+                                }
+
+
+                                ${
+                                    slide.link
+                                    ?
+                                    `
+                                    <a 
+                                        href="${slide.link}"
+                                        class="btn btn--primary"
+                                    >
+                                        Learn More
+                                    </a>
+                                    `
+                                    :
+                                    ""
+                                }
+
+
+                            </div>
+
+
+                        </div>
+
+
+                    `).join("")}
+
+                </div>
+
+
+                ${
+                    this.options.showControls
+                    ?
+                    `
+
+                    <button 
+                        class="slider__control slider__control--prev"
+                        aria-label="Previous slide"
+                    >
+                        ‹
+                    </button>
+
+
+                    <button 
+                        class="slider__control slider__control--next"
+                        aria-label="Next slide"
+                    >
+                        ›
+                    </button>
+
+                    `
+                    :
+                    ""
+
+                }
+
+
+                ${
+                    this.options.showIndicators
+                    ?
+                    `
+
+                    <div class="slider__indicators">
+
+                        ${
+                            this.slides.map((_, index) => `
+
+                                <button 
+                                    class="slider__indicator ${index === 0 ? "active" : ""}"
+                                    data-index="${index}"
+                                    aria-label="Go to slide ${index + 1}"
+                                ></button>
+
+                            `).join("")
+                        }
+
+                    </div>
+
+                    `
+                    :
+                    ""
+                }
+
+
+            </div>
+
+        `;
+
+
+    }
+
+
+
+    /**
+     * Attach slider controls
+     */
+    attachEvents() {
+
+
+        const next = this.container.querySelector(".slider__control--next");
+
+        const prev = this.container.querySelector(".slider__control--prev");
+
+
+        if (next) {
+
+            next.addEventListener(
+                "click",
+                () => this.next()
             );
 
         }
-    );
 
 
+        if (prev) {
 
-    prev?.addEventListener(
-        "click",
-        () => {
-
-            showSlide(
-                current - 1
+            prev.addEventListener(
+                "click",
+                () => this.previous()
             );
 
         }
-    );
 
 
 
-    indicators.forEach(
-        (indicator) => {
+        const indicators = this.container.querySelectorAll(
+            ".slider__indicator"
+        );
 
-            indicator.addEventListener(
+
+        indicators.forEach(button => {
+
+            button.addEventListener(
                 "click",
                 () => {
 
-                    showSlide(
-                        Number(
-                            indicator.dataset.index
-                        )
-                    );
+                    const index = Number(button.dataset.index);
+
+                    this.goTo(index);
 
                 }
             );
 
+        });
+
+
+
+        this.container.addEventListener(
+            "mouseenter",
+            () => this.stopAutoplay()
+        );
+
+
+        this.container.addEventListener(
+            "mouseleave",
+            () => {
+
+                if (this.options.autoplay) {
+                    this.startAutoplay();
+                }
+
+            }
+        );
+
+
+    }
+
+
+
+
+    /**
+     * Change slide
+     */
+    goTo(index) {
+
+
+        if (index < 0 || index >= this.slides.length) {
+            return;
         }
-    );
+
+
+        const items = this.container.querySelectorAll(
+            ".slider__item"
+        );
+
+
+        const indicators = this.container.querySelectorAll(
+            ".slider__indicator"
+        );
+
+
+        items.forEach(item => {
+
+            item.classList.remove("active");
+
+        });
+
+
+        indicators.forEach(indicator => {
+
+            indicator.classList.remove("active");
+
+        });
 
 
 
-    startAutoSlide(
-        showSlide
-    );
+        items[index]?.classList.add("active");
+
+        indicators[index]?.classList.add("active");
+
+
+
+        this.currentIndex = index;
+
+
+    }
+
+
+
+    /**
+     * Next slide
+     */
+    next() {
+
+        let nextIndex = this.currentIndex + 1;
+
+
+        if (nextIndex >= this.slides.length) {
+
+            nextIndex = this.options.loop 
+                ? 0 
+                : this.currentIndex;
+
+        }
+
+
+        this.goTo(nextIndex);
+
+    }
+
+
+
+
+    /**
+     * Previous slide
+     */
+    previous() {
+
+
+        let previousIndex = this.currentIndex - 1;
+
+
+        if (previousIndex < 0) {
+
+            previousIndex = this.options.loop
+                ? this.slides.length - 1
+                : 0;
+
+        }
+
+
+        this.goTo(previousIndex);
+
+
+    }
+
+
+
+
+    /**
+     * Autoplay
+     */
+    startAutoplay() {
+
+
+        this.stopAutoplay();
+
+
+        this.timer = setInterval(
+            () => this.next(),
+            this.options.interval
+        );
+
+
+    }
+
+
+
+    stopAutoplay() {
+
+
+        if (this.timer) {
+
+            clearInterval(this.timer);
+
+            this.timer = null;
+
+        }
+
+    }
+
+
+
+
+    /**
+     * Empty state
+     */
+    renderEmpty() {
+
+        this.container.innerHTML = `
+
+            <div class="slider__empty">
+
+                No slides available.
+
+            </div>
+
+        `;
+
+    }
+
 
 }
 
 
 
-/*
-====================================
-Auto Slide
-====================================
-*/
+/**
+ * Global helper
+ */
+window.createSlider = function(selector, slides, options = {}) {
 
-function startAutoSlide(
-    callback
-) {
-
-    setInterval(
-        () => {
-
-            callback(
-                "next"
-            );
-
-        },
-        6000
+    const slider = new SlideBuilder(
+        selector,
+        options
     );
 
-}
+
+    slider.init(slides);
+
+
+    return slider;
+
+};
