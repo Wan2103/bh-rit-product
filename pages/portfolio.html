@@ -1,206 +1,624 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
+
     <meta charset="UTF-8">
+
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Portfolio | BH RIT</title>
+
+    <title>Portfolio | Beyond Horizon Technologies</title>
+
+
+    <meta
+        name="description"
+        content="Explore Beyond Horizon Technologies projects, applications and technology implementations across different industries."
+    >
+
+
+
+    <!-- Favicon -->
 
     <link rel="icon" href="../favicon.ico">
-    <link rel="stylesheet" href="../css/style.css">
+
+
+
+    <!-- Styles -->
+
+    <link rel="stylesheet" href="../assets/css/style.css">
+
+
 </head>
+
+
 
 <body>
 
-    <!-- Header -->
-    <header>
-        <nav>
-            <a href="home.html" class="logo">
-                BH RIT
-            </a>
 
-            <ul class="nav-links">
-                <li><a href="home.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="products.html">Products</a></li>
-                <li><a href="industries.html">Industries</a></li>
-                <li><a href="portfolio.html" class="active">Portfolio</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+
+    <!-- Loading -->
+
+    <div data-component="loading"></div>
 
 
 
-    <!-- Hero Section -->
-    <section class="page-hero">
 
-        <div class="container">
 
-            <h1>
-                Our Portfolio
-            </h1>
+    <!-- Navigation -->
 
-            <p>
-                Explore our completed projects, technology applications,
-                and solutions delivered for different industries.
-            </p>
-
-        </div>
-
-    </section>
+    <header data-component="navbar"></header>
 
 
 
-    <!-- Portfolio Gallery -->
-    <section class="portfolio-section">
-
-        <div class="container">
 
 
-            <div class="portfolio-grid">
 
 
-                <div class="portfolio-card">
+    <main>
 
-                    <img 
-                        src="../assets/images/portfolio/project-1.webp"
-                        alt="Project 1"
-                    >
 
-                    <div class="portfolio-content">
 
-                        <h3>
-                            Digital Documentation Project
-                        </h3>
 
-                        <p>
-                            Reality capture and 3D documentation
-                            solution for accurate site recording
-                            and project reference.
-                        </p>
 
-                    </div>
+        <!-- Page Hero -->
+
+        <section class="hero hero--inner">
+
+
+            <div class="container">
+
+
+
+                <div class="hero__content">
+
+
+                    <span class="hero__subtitle">
+
+                        Our Projects
+
+                    </span>
+
+
+
+
+                    <h1 class="hero__title">
+
+                        Technology Applications & Project Portfolio
+
+                    </h1>
+
+
+
+
+                    <p class="hero__description">
+
+                        Discover how our intelligent asset management
+                        technologies are applied across industries
+                        through inspection, mapping, monitoring and
+                        digital transformation projects.
+
+                    </p>
+
+
 
                 </div>
 
 
 
-                <div class="portfolio-card">
+            </div>
 
-                    <img 
-                        src="../assets/images/portfolio/project-2.webp"
-                        alt="Project 2"
-                    >
 
-                    <div class="portfolio-content">
+        </section>
 
-                        <h3>
-                            Industrial Inspection Solution
-                        </h3>
 
-                        <p>
-                            Advanced scanning technology applied
-                            for asset inspection and analysis.
-                        </p>
 
-                    </div>
+
+
+
+
+
+
+        <!-- Portfolio Gallery -->
+
+        <section class="section">
+
+
+            <div class="container">
+
+
+
+                <div class="section__header">
+
+
+                    <h2>
+
+                        Featured Applications
+
+                    </h2>
+
+
+
+
+                    <p>
+
+                        Examples of technology implementation using
+                        UAV, robotics, LiDAR and digital solutions.
+
+                    </p>
+
+
 
                 </div>
 
 
 
-                <div class="portfolio-card">
 
-                    <img 
-                        src="../assets/images/portfolio/project-3.webp"
-                        alt="Project 3"
-                    >
 
-                    <div class="portfolio-content">
 
-                        <h3>
-                            Architectural Survey Project
-                        </h3>
 
-                        <p>
-                            High-accuracy spatial data capture
-                            supporting renovation and design planning.
-                        </p>
 
-                    </div>
+                <div class="gallery-grid" data-gallery>
+
+
+
+
+
+                    <!-- Project 1 -->
+
+                    <article class="gallery-card">
+
+
+                        <img
+                            src="../assets/images/products/dji/gallery1.webp"
+                            alt="UAV Inspection Project"
+                            loading="lazy"
+                        >
+
+
+
+                        <div class="gallery-card__content">
+
+
+                            <h3>
+
+                                UAV Inspection & Monitoring
+
+                            </h3>
+
+
+
+
+                            <p>
+
+                                Drone-based inspection solutions
+                                for efficient asset monitoring.
+
+                            </p>
+
+
+
+                        </div>
+
+
+
+                    </article>
+
+
+
+
+
+
+
+
+
+                    <!-- Project 2 -->
+
+                    <article class="gallery-card">
+
+
+                        <img
+                            src="../assets/images/products/shareuav/gallery1.webp"
+                            alt="3D Mapping Project"
+                            loading="lazy"
+                        >
+
+
+
+                        <div class="gallery-card__content">
+
+
+                            <h3>
+
+                                3D Mapping & Digital Capture
+
+                            </h3>
+
+
+
+
+                            <p>
+
+                                Creating accurate spatial data
+                                for documentation and analysis.
+
+                            </p>
+
+
+
+                        </div>
+
+
+
+                    </article>
+
+
+
+
+
+
+
+
+
+                    <!-- Project 3 -->
+
+                    <article class="gallery-card">
+
+
+                        <img
+                            src="../assets/images/products/rov/gallery1.webp"
+                            alt="Remote Inspection Project"
+                            loading="lazy"
+                        >
+
+
+
+                        <div class="gallery-card__content">
+
+
+                            <h3>
+
+                                Remote Inspection Technology
+
+                            </h3>
+
+
+
+
+                            <p>
+
+                                Improving safety through remote
+                                inspection capabilities.
+
+                            </p>
+
+
+
+                        </div>
+
+
+
+                    </article>
+
+
+
+
+
+
+
+
+
+                    <!-- Project 4 -->
+
+                    <article class="gallery-card">
+
+
+                        <img
+                            src="../assets/images/products/crawler/gallery1.webp"
+                            alt="Robotic Inspection Project"
+                            loading="lazy"
+                        >
+
+
+
+                        <div class="gallery-card__content">
+
+
+                            <h3>
+
+                                Robotic Inspection Systems
+
+                            </h3>
+
+
+
+
+                            <p>
+
+                                Deploying specialised robotics for
+                                challenging environments.
+
+                            </p>
+
+
+
+                        </div>
+
+
+
+                    </article>
+
+
+
+
 
                 </div>
 
 
 
-                <div class="portfolio-card">
 
-                    <img 
-                        src="../assets/images/portfolio/project-4.webp"
-                        alt="Project 4"
-                    >
+            </div>
 
-                    <div class="portfolio-content">
 
-                        <h3>
-                            Smart Workflow Implementation
-                        </h3>
+        </section>
 
-                        <p>
-                            Technology integration to improve
-                            efficiency and decision-making.
-                        </p>
 
-                    </div>
+
+
+
+
+
+
+        <!-- Process Timeline -->
+
+        <section class="section section--dark">
+
+
+            <div class="container">
+
+
+
+                <div class="section__header">
+
+
+                    <h2>
+
+                        Our Project Approach
+
+                    </h2>
+
+
 
                 </div>
 
 
 
-                <div class="portfolio-card">
 
-                    <img 
-                        src="../assets/images/portfolio/project-5.webp"
-                        alt="Project 5"
-                    >
 
-                    <div class="portfolio-content">
 
-                        <h3>
-                            Engineering Data Capture
-                        </h3>
 
-                        <p>
-                            Delivering accurate digital information
-                            for engineering and technical teams.
-                        </p>
+                <div class="timeline">
+
+
+
+                    <div class="timeline__item">
+
+
+                        <span class="timeline__number">
+
+                            01
+
+                        </span>
+
+
+
+                        <div>
+
+
+                            <h3>
+
+                                Assessment
+
+                            </h3>
+
+
+                            <p>
+
+                                Understanding asset requirements
+                                and operational challenges.
+
+                            </p>
+
+
+                        </div>
+
 
                     </div>
+
+
+
+
+
+
+
+                    <div class="timeline__item">
+
+
+                        <span class="timeline__number">
+
+                            02
+
+                        </span>
+
+
+
+                        <div>
+
+
+                            <h3>
+
+                                Technology Deployment
+
+                            </h3>
+
+
+                            <p>
+
+                                Selecting and implementing the
+                                right technology solution.
+
+                            </p>
+
+
+                        </div>
+
+
+                    </div>
+
+
+
+
+
+
+
+                    <div class="timeline__item">
+
+
+                        <span class="timeline__number">
+
+                            03
+
+                        </span>
+
+
+
+                        <div>
+
+
+                            <h3>
+
+                                Data Analysis
+
+                            </h3>
+
+
+                            <p>
+
+                                Processing collected information
+                                into actionable insights.
+
+                            </p>
+
+
+                        </div>
+
+
+                    </div>
+
+
+
+
+
+
+
+                    <div class="timeline__item">
+
+
+                        <span class="timeline__number">
+
+                            04
+
+                        </span>
+
+
+
+                        <div>
+
+
+                            <h3>
+
+                                Continuous Improvement
+
+                            </h3>
+
+
+                            <p>
+
+                                Supporting long-term asset
+                                intelligence strategies.
+
+                            </p>
+
+
+                        </div>
+
+
+                    </div>
+
+
+
+
 
                 </div>
 
 
 
-                <div class="portfolio-card">
 
-                    <img 
-                        src="../assets/images/portfolio/project-6.webp"
-                        alt="Project 6"
+            </div>
+
+
+        </section>
+
+
+
+
+
+
+
+
+        <!-- CTA -->
+
+        <section class="section">
+
+
+            <div class="container">
+
+
+                <div class="cta">
+
+
+
+                    <h2>
+
+                        Want To Discuss Your Project?
+
+                    </h2>
+
+
+
+
+                    <p>
+
+                        Our team can help identify the right
+                        technology solution for your needs.
+
+                    </p>
+
+
+
+
+                    <a
+                        href="contact.html"
+                        class="btn btn--primary"
                     >
 
-                    <div class="portfolio-content">
+                        Start A Conversation
 
-                        <h3>
-                            Custom Technology Solution
-                        </h3>
+                    </a>
 
-                        <p>
-                            A tailored solution designed according
-                            to specific customer requirements.
-                        </p>
 
-                    </div>
 
                 </div>
 
@@ -208,55 +626,48 @@
             </div>
 
 
-        </div>
-
-    </section>
+        </section>
 
 
 
-    <!-- CTA Section -->
-    <section class="cta-section">
-
-        <div class="container">
-
-            <h2>
-                Have A Project In Mind?
-            </h2>
-
-            <p>
-                Discuss your requirements with our team and discover
-                how technology can support your next project.
-            </p>
 
 
-            <a href="contact.html" class="btn">
-                Contact Us
-            </a>
+    </main>
 
 
-        </div>
 
-    </section>
 
 
 
 
     <!-- Footer -->
-    <footer>
 
-        <div class="container">
-
-            <p>
-                © 2026 Beyond Horizon Technologies. All Rights Reserved.
-            </p>
-
-        </div>
-
-    </footer>
+    <footer data-component="footer"></footer>
 
 
 
-    <script src="../js/main.js"></script>
+
+
+
+
+    <!-- Scripts -->
+
+    <script src="../assets/js/utils.js"></script>
+
+    <script src="../assets/js/loader.js"></script>
+
+    <script src="../assets/js/navigation.js"></script>
+
+    <script src="../assets/js/gallery.js"></script>
+
+    <script src="../assets/js/animation.js"></script>
+
+    <script src="../assets/js/theme.js"></script>
+
+    <script src="../assets/js/app.js"></script>
+
+
 
 </body>
+
 </html>
